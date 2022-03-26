@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
@@ -9,6 +10,7 @@ public class GeneratLevel : MonoBehaviour
     [SerializeField] private Transform _parent;
     [SerializeField] private Button btn;
     [SerializeField] private VoxelTile[] TilePrefabs;
+    [SerializeField] private NavMeshSurface _navMesh;
     
     public int MapSizeX = 10;
     public int MapSizeY = 10;
@@ -57,7 +59,7 @@ public class GeneratLevel : MonoBehaviour
             }
             _voxelTiles.Clear();
         }
-        
+        _navMesh.BuildNavMesh();
     }
 
     private void PossibleToInstallTile(VoxelTile standTile)
