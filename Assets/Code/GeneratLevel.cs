@@ -7,21 +7,21 @@ using Random = UnityEngine.Random;
 public class GeneratLevel : MonoBehaviour
 {
     [SerializeField] private Transform _parent;
-    public Button btn;
-    public VoxelTile[] TilePrefabs;
+    [SerializeField] private Button btn;
+    [SerializeField] private VoxelTile[] TilePrefabs;
+    
     public int MapSizeX = 10;
     public int MapSizeY = 10;
-    private Vector2Int MapSize;
-    private List<VoxelTile> voxelTiles = new List<VoxelTile>();
 
     private VoxelTile[,] _spawnedTiles;
+    private List<VoxelTile> _voxelTiles = new List<VoxelTile>();
+    private int _offset;
 
     private void Start()
     {
-        MapSize = new Vector2Int(MapSizeX, MapSizeY);
         btn.onClick.AddListener(PlaceTile);
         _spawnedTiles = new VoxelTile[MapSizeX, MapSizeY];
-
+        _offset = TilePrefabs[0].SizeTile;
         PlaceTile();
     }
 
@@ -41,10 +41,21 @@ public class GeneratLevel : MonoBehaviour
             {
                 if (tile != null)
                 {
-                    PossibleToInstallTile(tile);
+                    var xPos = (int)tile.transform.position.x;
+                    var yPos = (int)tile.transform.position.z;
+                    if ((_spawnedTiles[xPos+_offset, yPos] == null || _spawnedTiles[xPos-_offset, yPos] == null) &&
+                        (_spawnedTiles[xPos, yPos+4] == null || _spawnedTiles[xPos-_offset, yPos-_offset] == null))
+                    {
+                        _voxelTiles.Add(tile);
+                    }
                 }
-                
             }
+
+            for (int i = 0; i < 2; i++)
+            {
+                PossibleToInstallTile(_voxelTiles[Random.Range(0,_voxelTiles.Count-1)]);
+            }
+            _voxelTiles.Clear();
         }
         
     }
@@ -78,9 +89,11 @@ public class GeneratLevel : MonoBehaviour
 
         if (availableTilesDown.Count != 0)
         {
-            var pos = standTile.transform.position + Vector3.back;
+            var pos = standTile.transform.position + Vector3.back*_offset;
             if (_spawnedTiles[(int)pos.x, (int)pos.z] == null)
             {
+                //var t = Instantiate(availableTilesDown[Random.Range(0, availableTilesDown.Count - 1)],
+                //    pos, Quaternion.identity, _parent.transform);
                 _spawnedTiles[(int)pos.x, (int)pos.z] = Instantiate(availableTilesDown[Random.Range(0, availableTilesDown.Count-1)], 
                     pos, Quaternion.identity, _parent.transform);
             }
@@ -88,7 +101,7 @@ public class GeneratLevel : MonoBehaviour
         
         if (availableTilesLeft.Count != 0)
         {
-            var pos = standTile.transform.position + Vector3.left;
+            var pos = standTile.transform.position + Vector3.left*_offset;
             if (_spawnedTiles[(int) pos.x, (int) pos.z] == null)
             {
                 _spawnedTiles[(int)pos.x, (int)pos.z] = Instantiate(availableTilesLeft[Random.Range(0, availableTilesDown.Count-1)], 
@@ -98,7 +111,7 @@ public class GeneratLevel : MonoBehaviour
         
         if (availableTilesUp.Count != 0)
         {
-            var pos = standTile.transform.position + Vector3.forward;
+            var pos = standTile.transform.position + Vector3.forward*_offset;
             if (_spawnedTiles[(int) pos.x, (int) pos.z] == null)
             {
                 _spawnedTiles[(int)pos.x, (int)pos.z] = Instantiate(availableTilesUp[Random.Range(0, availableTilesDown.Count-1)], 
@@ -108,7 +121,7 @@ public class GeneratLevel : MonoBehaviour
         
         if (availableTilesRight.Count != 0)
         {
-            var pos = standTile.transform.position + Vector3.right;
+            var pos = standTile.transform.position + Vector3.right*_offset;
             if (_spawnedTiles[(int) pos.x, (int) pos.z] == null)
             {
                 _spawnedTiles[(int)pos.x, (int)pos.z] = Instantiate(availableTilesRight[Random.Range(0, availableTilesDown.Count-1)], 
