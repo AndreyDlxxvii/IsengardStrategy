@@ -12,12 +12,20 @@ public class GeneratLevel : MonoBehaviour
     [SerializeField] private VoxelTile[] TilePrefabs;
     [SerializeField] private NavMeshSurface _navMesh;
     
-    public int MapSizeX = 10;
-    public int MapSizeY = 10;
+    public int MapSizeX = 20;
+    public int MapSizeY = 20;
+    //public int NumberOfTilesSpawn = 2;
+
+    [Range(1, 10)] public int NumberOfTilesSpawn;
 
     private VoxelTile[,] _spawnedTiles;
-    private List<VoxelTile> _voxelTiles = new List<VoxelTile>();
     private int _offset;
+    
+    private List<VoxelTile> _tilesHasFreeEdge = new List<VoxelTile>();
+    private List<VoxelTile> _availableTilesDown = new List<VoxelTile>();
+    private List<VoxelTile> _availableTilesLeft = new List<VoxelTile>();
+    private List<VoxelTile> _availableTilesUp = new List<VoxelTile>();
+    private List<VoxelTile> _availableTilesRight = new List<VoxelTile>();
 
     private void Start()
     {
@@ -33,9 +41,8 @@ public class GeneratLevel : MonoBehaviour
         var y = MapSizeY / 2;
         if (_spawnedTiles[x, y] == null)
         {
-            var t = Instantiate(TilePrefabs[Random.Range(0, TilePrefabs.Length)], new Vector3(x, 0, y), Quaternion.identity, _parent.transform);
-            _spawnedTiles[x, y] = t;
-            PossibleToInstallTile(t);
+            _spawnedTiles[x, y] = Instantiate(TilePrefabs[Random.Range(0, TilePrefabs.Length)], new Vector3(x, 0, y), Quaternion.identity, _parent.transform);
+            PlaceTile(_spawnedTiles[x, y]);
         }
         else
         {
@@ -43,96 +50,89 @@ public class GeneratLevel : MonoBehaviour
             {
                 if (tile != null)
                 {
-                    var xPos = (int)tile.transform.position.x;
-                    var yPos = (int)tile.transform.position.z;
-                    if ((_spawnedTiles[xPos+_offset, yPos] == null || _spawnedTiles[xPos-_offset, yPos] == null) &&
-                        (_spawnedTiles[xPos, yPos+4] == null || _spawnedTiles[xPos-_offset, yPos-_offset] == null))
+                    var tilePosition = tile.transform.position;
+                    var xPos = (int)tilePosition.x;
+                    var yPos = (int)tilePosition.z;
+                    if (_spawnedTiles[xPos+_offset, yPos] == null && tile.TablePassAccess[3] || 
+                        _spawnedTiles[xPos-_offset, yPos] == null && tile.TablePassAccess[1] ||
+                        _spawnedTiles[xPos, yPos+_offset] == null && tile.TablePassAccess[2] ||
+                        _spawnedTiles[xPos, yPos-_offset] == null && tile.TablePassAccess[0])
                     {
-                        _voxelTiles.Add(tile);
+                        _tilesHasFreeEdge.Add(tile);
                     }
                 }
             }
 
-            for (int i = 0; i < 2; i++)
+            for (int i = 1; i <= NumberOfTilesSpawn; i++)
             {
-                PossibleToInstallTile(_voxelTiles[Random.Range(0,_voxelTiles.Count-1)]);
+                var tile = _tilesHasFreeEdge[Random.Range(0, _tilesHasFreeEdge.Count - 1)];
+                PlaceTile(tile);
             }
-            _voxelTiles.Clear();
+            _tilesHasFreeEdge.Clear();
         }
         _navMesh.BuildNavMesh();
     }
 
-    private void PossibleToInstallTile(VoxelTile standTile)
+    private void PlaceTile(VoxelTile standTile)
     {
-        List<VoxelTile> availableTilesDown = new List<VoxelTile>();
-        List<VoxelTile> availableTilesLeft = new List<VoxelTile>();
-        List<VoxelTile> availableTilesUp = new List<VoxelTile>();
-        List<VoxelTile> availableTilesRight = new List<VoxelTile>();
         int i = 0;
-        foreach (var ell in standTile.Table)
+        foreach (var ell in standTile.TablePassAccess)
         {
             if (ell)
             {
                 foreach (var tile in TilePrefabs)
                 {
-                    if (i == 0 && tile.Table[2] && !availableTilesDown.Contains(tile))
-                        availableTilesDown.Add(tile);
-                    if (i == 1 && tile.Table[3] && !availableTilesLeft.Contains(tile))
-                        availableTilesLeft.Add(tile);    
-                    if (i == 2 && tile.Table[0] && !availableTilesUp.Contains(tile))
-                        availableTilesUp.Add(tile);
-                    if (i == 3 && tile.Table[1] && !availableTilesRight.Contains(tile))
-                        availableTilesRight.Add(tile);
+                    if (i == 0 && tile.TablePassAccess[2] && !_availableTilesDown.Contains(tile))
+                        _availableTilesDown.Add(tile);
+                    if (i == 1 && tile.TablePassAccess[3] && !_availableTilesLeft.Contains(tile))
+                        _availableTilesLeft.Add(tile);    
+                    if (i == 2 && tile.TablePassAccess[0] && !_availableTilesUp.Contains(tile))
+                        _availableTilesUp.Add(tile);
+                    if (i == 3 && tile.TablePassAccess[1] && !_availableTilesRight.Contains(tile))
+                        _availableTilesRight.Add(tile);
                 }
             }
-
             i++;
         }
 
-        if (availableTilesDown.Count != 0)
+        if (_availableTilesDown.Count != 0)
         {
             var pos = standTile.transform.position + Vector3.back*_offset;
-            if (_spawnedTiles[(int)pos.x, (int)pos.z] == null)
-            {
-                //var t = Instantiate(availableTilesDown[Random.Range(0, availableTilesDown.Count - 1)],
-                //    pos, Quaternion.identity, _parent.transform);
-                _spawnedTiles[(int)pos.x, (int)pos.z] = Instantiate(availableTilesDown[Random.Range(0, availableTilesDown.Count-1)], 
-                    pos, Quaternion.identity, _parent.transform);
-            }
+            var tile = _availableTilesDown[Random.Range(0, _availableTilesDown.Count - 1)];
+            CreateTile(pos,tile);
         }
         
-        if (availableTilesLeft.Count != 0)
+        if (_availableTilesLeft.Count != 0)
         {
             var pos = standTile.transform.position + Vector3.left*_offset;
-            if (_spawnedTiles[(int) pos.x, (int) pos.z] == null)
-            {
-                _spawnedTiles[(int)pos.x, (int)pos.z] = Instantiate(availableTilesLeft[Random.Range(0, availableTilesDown.Count-1)], 
-                    pos, Quaternion.identity, _parent.transform);
-            }
+            var tile = _availableTilesLeft[Random.Range(0, _availableTilesDown.Count - 1)];
+            CreateTile(pos,tile);
         }        
         
-        if (availableTilesUp.Count != 0)
+        if (_availableTilesUp.Count != 0)
         {
             var pos = standTile.transform.position + Vector3.forward*_offset;
-            if (_spawnedTiles[(int) pos.x, (int) pos.z] == null)
-            {
-                _spawnedTiles[(int)pos.x, (int)pos.z] = Instantiate(availableTilesUp[Random.Range(0, availableTilesDown.Count-1)], 
-                    pos, Quaternion.identity, _parent.transform);
-            }
+            var tile = _availableTilesUp[Random.Range(0, _availableTilesDown.Count - 1)];
+            CreateTile(pos,tile);
         }        
         
-        if (availableTilesRight.Count != 0)
+        if (_availableTilesRight.Count != 0)
         {
             var pos = standTile.transform.position + Vector3.right*_offset;
-            if (_spawnedTiles[(int) pos.x, (int) pos.z] == null)
-            {
-                _spawnedTiles[(int)pos.x, (int)pos.z] = Instantiate(availableTilesRight[Random.Range(0, availableTilesDown.Count-1)], 
-                    pos, Quaternion.identity, _parent.transform);
-            }
+            var tile = _availableTilesRight[Random.Range(0, _availableTilesDown.Count - 1)];
+            CreateTile(pos,tile);
         }
-        availableTilesDown.Clear();
-        availableTilesLeft.Clear();
-        availableTilesUp.Clear();
-        availableTilesRight.Clear();
+        _availableTilesDown.Clear();
+        _availableTilesLeft.Clear();
+        _availableTilesUp.Clear();
+        _availableTilesRight.Clear();
+    }
+
+    private void CreateTile(Vector3 pos, VoxelTile voxelTile)
+    {
+        if (_spawnedTiles[(int) pos.x, (int) pos.z] == null)
+        {
+            _spawnedTiles[(int) pos.x, (int) pos.z] = Instantiate(voxelTile, pos, Quaternion.identity, _parent.transform);
+        }
     }
 }
