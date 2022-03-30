@@ -49,10 +49,10 @@ public class GeneratLevel : MonoBehaviour
             {
                 if (tile != null)
                 {
-                    if (CheckEmptyPosition(tile,_offset, 0) && tile.TablePassAccess[3] || 
-                        CheckEmptyPosition(tile,-_offset, 0) && tile.TablePassAccess[1] ||
-                        CheckEmptyPosition(tile, 0,_offset) && tile.TablePassAccess[2] ||
-                        CheckEmptyPosition(tile,0, -_offset) && tile.TablePassAccess[0])
+                    if (CheckEmptyPosition(tile,_offset, 0) && tile.TablePassAccess[3] == 1 || 
+                        CheckEmptyPosition(tile,-_offset, 0) && tile.TablePassAccess[1] == 1 ||
+                        CheckEmptyPosition(tile, 0,_offset) && tile.TablePassAccess[2] == 1 ||
+                        CheckEmptyPosition(tile,0, -_offset) && tile.TablePassAccess[0] == 1)
                     {
                         _tilesHasFreeEdge.Add(tile);
                     }
@@ -112,17 +112,17 @@ public class GeneratLevel : MonoBehaviour
         int i = 0;
         foreach (var ell in standTile.TablePassAccess)
         {
-            if (ell)
+            if (ell == 1)
             {
                 foreach (var tile in TilePrefabs)
                 {
-                    if (i == 0 && tile.TablePassAccess[2] && CheckEmptyPosition(standTile, 0, -_offset) && !_availableTilesDown.Contains(tile))
+                    if (i == 0 && tile.TablePassAccess[2] == 1 && CheckEmptyPosition(standTile, 0, -_offset) && !_availableTilesDown.Contains(tile))
                         _availableTilesDown.Add(tile);
-                    if (i == 1 && tile.TablePassAccess[3] && CheckEmptyPosition(standTile, -_offset, 0) && !_availableTilesLeft.Contains(tile))
+                    if (i == 1 && tile.TablePassAccess[3] == 1 && CheckEmptyPosition(standTile, -_offset, 0) && !_availableTilesLeft.Contains(tile))
                         _availableTilesLeft.Add(tile);    
-                    if (i == 2 && tile.TablePassAccess[0] && CheckEmptyPosition(standTile, 0, _offset) && !_availableTilesUp.Contains(tile))
+                    if (i == 2 && tile.TablePassAccess[0] == 1 && CheckEmptyPosition(standTile, 0, _offset) && !_availableTilesUp.Contains(tile))
                         _availableTilesUp.Add(tile);
-                    if (i == 3 && tile.TablePassAccess[1] && CheckEmptyPosition(standTile, _offset, 0) && !_availableTilesRight.Contains(tile))
+                    if (i == 3 && tile.TablePassAccess[1] == 1 && CheckEmptyPosition(standTile, _offset, 0) && !_availableTilesRight.Contains(tile))
                         _availableTilesRight.Add(tile);
                 }
             }

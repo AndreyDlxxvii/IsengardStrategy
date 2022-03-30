@@ -4,12 +4,12 @@ using static UnityEngine.Vector3;
 public class VoxelTile : MonoBehaviour
 {
     private float offset = 0.1f;
-    private bool [] _tablePassAccess = new bool[4];
+    private byte [] _tablePassAccess = new byte[4];
     private int sizeTile;
 
     public int SizeTile => sizeTile;
 
-    public bool[] TablePassAccess => _tablePassAccess;
+    public byte[] TablePassAccess => _tablePassAccess;
 
     void Awake()
     {
@@ -24,22 +24,22 @@ public class VoxelTile : MonoBehaviour
         if (!CheckRoad(new Vector3(bounds.center.x, bounds.center.y + bounds.center.y/2, bounds.min.z - offset), forward))
         {
 
-            _tablePassAccess[0] = true;
+            _tablePassAccess[0] = 1;
         }
 
         if (!CheckRoad(new Vector3(bounds.min.x - offset, bounds.center.y + bounds.center.y/2, bounds.center.z), right))
         {
-            _tablePassAccess[1] = true;
+            _tablePassAccess[1] = 1;
         }
 
         if (!CheckRoad(new Vector3(bounds.center.x, bounds.center.y + bounds.center.y/2, bounds.max.z + offset), back))
         {
-            _tablePassAccess[2] = true;
+            _tablePassAccess[2] = 1;
         }
 
         if (!CheckRoad(new Vector3(bounds.max.x + offset, bounds.center.y + bounds.center.y/2, bounds.center.z), left))
         {
-            _tablePassAccess[3] = true;
+            _tablePassAccess[3] = 1;
         }
     }
 
