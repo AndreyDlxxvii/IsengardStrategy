@@ -51,61 +51,44 @@ public class GeneratLevel : MonoBehaviour
                 case 1:
                     if (i == 0 && CheckPosition.CheckEmptyPosition(tile, 0, -_offsetInstanceTiles, _spawnedTiles))
                     {
-                        int temp = i;
-                        var t = new Vector3(tile.transform.position.x, tile.transform.position.y, tile.transform.position.z - _offsetInstanceTiles);
-                        Vector2 pos = Camera.main.WorldToScreenPoint(t);
-                        var btn = Instantiate(buttonRespawn, pos, Quaternion.identity, _canvas);
-                        btn.onClick.AddListener(delegate
-                        {
-                            CreateTile(tile, Vector3.back * _offsetInstanceTiles, temp);
-                            btn.onClick.RemoveAllListeners();
-                            Destroy(btn.gameObject);
-                        });
+                        var posToSpawnBtn = new Vector3(tile.transform.position.x, tile.transform.position.y, tile.transform.position.z - _offsetInstanceTiles);
+                        Vector2 pos = Camera.main.WorldToScreenPoint(posToSpawnBtn);
+                        CreateButton(pos, Vector3.back, tile, i);
                     }
                     else if (i == 1 && CheckPosition.CheckEmptyPosition(tile, -_offsetInstanceTiles, 0, _spawnedTiles))
                     {
-                        int temp = i;
-                        var t = new Vector3(tile.transform.position.x - _offsetInstanceTiles, tile.transform.position.y, tile.transform.position.z);
-                        Vector2 pos = Camera.main.WorldToScreenPoint(t);
-                        var btn =  Instantiate(buttonRespawn, pos, Quaternion.identity, _canvas);
-                        btn.onClick.AddListener(delegate
-                        {
-                            CreateTile(tile, Vector3.left * _offsetInstanceTiles, temp);
-                            btn.onClick.RemoveAllListeners();
-                            Destroy(btn.gameObject);
-                        });
+                        var posToSpawnBtn = new Vector3(tile.transform.position.x - _offsetInstanceTiles, tile.transform.position.y, tile.transform.position.z);
+                        Vector2 pos = Camera.main.WorldToScreenPoint(posToSpawnBtn);
+                        CreateButton(pos, Vector3.left, tile, i);
                     }
                     else if (i == 2 && CheckPosition.CheckEmptyPosition(tile, 0, _offsetInstanceTiles, _spawnedTiles))
                     {
-                        int temp = i;
-                        var t = new Vector3(tile.transform.position.x, tile.transform.position.y, tile.transform.position.z + _offsetInstanceTiles);
-                        Vector2 pos = Camera.main.WorldToScreenPoint(t);
-                        var btn = Instantiate(buttonRespawn, pos, Quaternion.identity, _canvas);
-                        btn.onClick.AddListener(delegate
-                        {
-                            CreateTile(tile, Vector3.forward * _offsetInstanceTiles, temp);
-                            btn.onClick.RemoveAllListeners();
-                            Destroy(btn.gameObject);
-                        });
+                        var posToSpawnBtn = new Vector3(tile.transform.position.x, tile.transform.position.y, tile.transform.position.z + _offsetInstanceTiles);
+                        Vector2 pos = Camera.main.WorldToScreenPoint(posToSpawnBtn);
+                        CreateButton(pos, Vector3.forward, tile, i);
                     }
                     else if (i == 3 && CheckPosition.CheckEmptyPosition(tile, _offsetInstanceTiles, 0, _spawnedTiles))
                     {
-                        int temp = i;
-                        var t = new Vector3(tile.transform.position.x + _offsetInstanceTiles, tile.transform.position.y, tile.transform.position.z);
-                        Vector2 pos = Camera.main.WorldToScreenPoint(t);
-                        var btn = Instantiate(buttonRespawn, pos, Quaternion.identity, _canvas);
-                        btn.onClick.AddListener(delegate
-                        {
-                            CreateTile(tile, Vector3.right * _offsetInstanceTiles, temp);
-                            btn.onClick.RemoveAllListeners();
-                            Destroy(btn.gameObject);
-                        });
+                        var posToSpawnBtn = new Vector3(tile.transform.position.x + _offsetInstanceTiles, tile.transform.position.y, tile.transform.position.z);
+                        Vector2 pos = Camera.main.WorldToScreenPoint(posToSpawnBtn);
+                        CreateButton(pos, Vector3.right, tile, i);
                     } 
                     break;
             }
             i++;
         }
         _navMesh.BuildNavMesh();
+    }
+
+    private void CreateButton(Vector2 posForButton, Vector3 direction, VoxelTile tile, int numOfGroupAvailableTiles)
+    {
+        var btn = Instantiate(buttonRespawn, posForButton, Quaternion.identity, _canvas);
+        btn.onClick.AddListener(delegate
+        {
+            CreateTile(tile, direction * _offsetInstanceTiles, numOfGroupAvailableTiles);
+            btn.onClick.RemoveAllListeners();
+            Destroy(btn.gameObject);
+        });
     }
 
     private void CreateTile(VoxelTile voxelTile, Vector3 spawnPos, int i)
