@@ -7,19 +7,24 @@ using Random = UnityEngine.Random;
 
 public class GeneratLevel : MonoBehaviour
 {
+    [SerializeField] private VoxelTile _firstTile;
     [SerializeField] private Transform _parentForTilesObject;
     [SerializeField] private VoxelTile[] TilePrefabs;
     [SerializeField] private NavMeshSurface _navMesh;
     [SerializeField] private Button buttonRespawn;
     [SerializeField] private Transform _canvas;
+    [SerializeField] private GameObject _plane;
     
     public int MapSizeX = 200;
     public int MapSizeY = 200;
     
     private VoxelTile[,] _spawnedTiles;
     private int _offsetInstanceTiles;
+    private List<Button> _spawnedButtons = new List<Button>();
 
     private List<VoxelTile> _availableTiles = new List<VoxelTile>();
+    
+    private Dictionary<Button, Vector3> test = new Dictionary<Button, Vector3>(); 
 
     private void Start()
     {
@@ -27,6 +32,7 @@ public class GeneratLevel : MonoBehaviour
         _offsetInstanceTiles = TilePrefabs[0].SizeTile;
         PlaceTile();
     }
+    
     private void PlaceTile()
     {
         var x = MapSizeX / 2;
@@ -83,8 +89,10 @@ public class GeneratLevel : MonoBehaviour
     private void InstansButton(Vector2 posForButton, Vector3 direction, VoxelTile tile, int numOfGroupAvailableTiles)
     {
         var btn = Instantiate(buttonRespawn, posForButton, Quaternion.identity, _canvas);
+        _spawnedButtons.Add(btn);
         btn.onClick.AddListener(delegate
         {
+            _spawnedButtons.Remove(btn);
             CreateTile(tile, direction * _offsetInstanceTiles, numOfGroupAvailableTiles);
             btn.onClick.RemoveAllListeners();
             Destroy(btn.gameObject);
