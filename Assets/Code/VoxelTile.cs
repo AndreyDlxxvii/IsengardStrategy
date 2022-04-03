@@ -20,7 +20,6 @@ public class VoxelTile : MonoBehaviour
     {
         var meshCollider = GetComponentInChildren<MeshCollider>();
         var bounds = meshCollider.bounds;
-        Debug.Log(bounds.size.y);
         sizeTile = (int) bounds.size.x;
         if (!CheckRoad(new Vector3(bounds.center.x, bounds.center.y + bounds.center.y/2, bounds.min.z - offset), forward))
         {

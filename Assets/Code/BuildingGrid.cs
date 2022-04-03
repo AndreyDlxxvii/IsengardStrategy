@@ -2,15 +2,15 @@ using System;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class BuildingsGrid : MonoBehaviour
+public class BuildingGrid : MonoBehaviour
 {
-    //todo привязать к размеру поля
+    //привязать к размеру поля
     private Vector2Int _gridSize = new Vector2Int(400, 400);
     [SerializeField] private Button _buildFirstButton;
     [SerializeField] private Button _buildSecondButton;
     [SerializeField] private Building _towerOne;
     [SerializeField] private Building _towerTwo;
-    
+
     private Camera _mainCamera;
     private Building[,] _grid;
     private Building _flyingBuilding;

@@ -13,18 +13,14 @@ public class GeneratLevel : MonoBehaviour
     [SerializeField] private NavMeshSurface _navMesh;
     [SerializeField] private Button buttonRespawn;
     [SerializeField] private Transform _canvas;
-    [SerializeField] private GameObject _plane;
-    
+
     public int MapSizeX = 200;
     public int MapSizeY = 200;
     
     private VoxelTile[,] _spawnedTiles;
     private int _offsetInstanceTiles;
-    private List<Button> _spawnedButtons = new List<Button>();
 
-    private List<VoxelTile> _availableTiles = new List<VoxelTile>();
-    
-    private Dictionary<Button, Vector3> test = new Dictionary<Button, Vector3>(); 
+    private Dictionary<Button, Vector3> _spawnedButtons = new Dictionary<Button, Vector3>(); 
 
     private void Start()
     {
@@ -35,8 +31,8 @@ public class GeneratLevel : MonoBehaviour
     
     private void PlaceTile()
     {
-        var x = MapSizeX / 2;
-        var y = MapSizeY / 2;
+        int x = MapSizeX / 2;
+        int y = MapSizeY / 2;
         if (_spawnedTiles[x, y] == null)
         {
             _spawnedTiles[x, y] = Instantiate(TilePrefabs[Random.Range(0, TilePrefabs.Length)], new Vector3(x, 0, y), 
@@ -55,29 +51,25 @@ public class GeneratLevel : MonoBehaviour
                 case 0:
                     break;
                 case 1:
-                    if (i == 0 && CheckPosition.CheckEmptyPosition(tile, 0, -_offsetInstanceTiles, _spawnedTiles))
+                    if (i == 0 && Extensions.CheckEmptyPosition(tile, 0, -_offsetInstanceTiles, _spawnedTiles))
                     {
-                        var posToSpawnBtn = new Vector3(tile.transform.position.x, tile.transform.position.y, tile.transform.position.z - _offsetInstanceTiles);
-                        Vector2 pos = Camera.main.WorldToScreenPoint(posToSpawnBtn);
-                        InstansButton(pos, Vector3.back, tile, i);
+                        Vector3 posToSpawnBtn = new Vector3(tile.transform.position.x, tile.transform.position.y, tile.transform.position.z - _offsetInstanceTiles);
+                        InstansButton(posToSpawnBtn, Vector3.back, tile, i);
                     }
-                    else if (i == 1 && CheckPosition.CheckEmptyPosition(tile, -_offsetInstanceTiles, 0, _spawnedTiles))
+                    else if (i == 1 && Extensions.CheckEmptyPosition(tile, -_offsetInstanceTiles, 0, _spawnedTiles))
                     {
-                        var posToSpawnBtn = new Vector3(tile.transform.position.x - _offsetInstanceTiles, tile.transform.position.y, tile.transform.position.z);
-                        Vector2 pos = Camera.main.WorldToScreenPoint(posToSpawnBtn);
-                        InstansButton(pos, Vector3.left, tile, i);
+                        Vector3 posToSpawnBtn = new Vector3(tile.transform.position.x - _offsetInstanceTiles, tile.transform.position.y, tile.transform.position.z);
+                        InstansButton(posToSpawnBtn, Vector3.left, tile, i);
                     }
-                    else if (i == 2 && CheckPosition.CheckEmptyPosition(tile, 0, _offsetInstanceTiles, _spawnedTiles))
+                    else if (i == 2 && Extensions.CheckEmptyPosition(tile, 0, _offsetInstanceTiles, _spawnedTiles))
                     {
-                        var posToSpawnBtn = new Vector3(tile.transform.position.x, tile.transform.position.y, tile.transform.position.z + _offsetInstanceTiles);
-                        Vector2 pos = Camera.main.WorldToScreenPoint(posToSpawnBtn);
-                        InstansButton(pos, Vector3.forward, tile, i);
+                        Vector3 posToSpawnBtn = new Vector3(tile.transform.position.x, tile.transform.position.y, tile.transform.position.z + _offsetInstanceTiles);
+                        InstansButton(posToSpawnBtn, Vector3.forward, tile, i);
                     }
-                    else if (i == 3 && CheckPosition.CheckEmptyPosition(tile, _offsetInstanceTiles, 0, _spawnedTiles))
+                    else if (i == 3 && Extensions.CheckEmptyPosition(tile, _offsetInstanceTiles, 0, _spawnedTiles))
                     {
-                        var posToSpawnBtn = new Vector3(tile.transform.position.x + _offsetInstanceTiles, tile.transform.position.y, tile.transform.position.z);
-                        Vector2 pos = Camera.main.WorldToScreenPoint(posToSpawnBtn);
-                        InstansButton(pos, Vector3.right, tile, i);
+                        Vector3 posToSpawnBtn = new Vector3(tile.transform.position.x + _offsetInstanceTiles, tile.transform.position.y, tile.transform.position.z);
+                        InstansButton(posToSpawnBtn, Vector3.right, tile, i);
                     } 
                     break;
             }
@@ -86,41 +78,41 @@ public class GeneratLevel : MonoBehaviour
         _navMesh.BuildNavMesh();
     }
 
-    private void InstansButton(Vector2 posForButton, Vector3 direction, VoxelTile tile, int numOfGroupAvailableTiles)
+    private void InstansButton(Vector3 posForButton, Vector3 direction, VoxelTile tile, int numOfGroupAvailableTiles)
     {
-        var btn = Instantiate(buttonRespawn, posForButton, Quaternion.identity, _canvas);
-        _spawnedButtons.Add(btn);
-        btn.onClick.AddListener(delegate
+        if (!_spawnedButtons.ContainsValue(posForButton))
         {
-            _spawnedButtons.Remove(btn);
-            CreateTile(tile, direction * _offsetInstanceTiles, numOfGroupAvailableTiles);
-            btn.onClick.RemoveAllListeners();
-            Destroy(btn.gameObject);
-        });
+            Vector2 pos = Camera.main.WorldToScreenPoint(posForButton);
+            Button btn = Instantiate(buttonRespawn, pos, Quaternion.identity, _canvas);
+            _spawnedButtons.Add(btn, posForButton);
+            btn.onClick.AddListener(delegate
+            {
+                _spawnedButtons.Remove(btn);
+                CreateTile(tile, direction * _offsetInstanceTiles, numOfGroupAvailableTiles);
+                btn.onClick.RemoveAllListeners();
+                Destroy(btn.gameObject);
+            });
+        }
     }
 
     private void CreateTile(VoxelTile voxelTile, Vector3 spawnPos, int i)
     {
-        var _availableTiles = TilesCanBeSet(i);
+        var _availableTiles = Extensions.TilesCanBeSet(i, TilePrefabs);
         var pos = new Vector3(voxelTile.transform.position.x + spawnPos.x, 0 , voxelTile.transform.position.z + spawnPos.z);
         var tile = Instantiate(_availableTiles[Random.Range(0, _availableTiles.Count-1)], pos, Quaternion.identity, _parentForTilesObject.transform);
         _availableTiles.Clear();
         _spawnedTiles[(int) pos.x, (int) pos.z] = tile;
         CreateButton(tile);
     }
-    private List<VoxelTile> TilesCanBeSet(int side)
+
+    private void FixedUpdate()
     {
-        foreach (var tile in TilePrefabs)
+        if (_spawnedButtons.Count != 0)
         {
-            if (side == 0 && tile.TablePassAccess[2] == 1 && !_availableTiles.Contains(tile))
-                _availableTiles.Add(tile);
-            if (side == 1 && tile.TablePassAccess[3] == 1 && !_availableTiles.Contains(tile))
-                _availableTiles.Add(tile);    
-            if (side == 2 && tile.TablePassAccess[0] == 1 && !_availableTiles.Contains(tile))
-                _availableTiles.Add(tile);
-            if (side == 3 && tile.TablePassAccess[1] == 1 && !_availableTiles.Contains(tile))
-                _availableTiles.Add(tile);
+            foreach (var ell in _spawnedButtons)
+            {
+                ell.Key.transform.position = Camera.main.WorldToScreenPoint(ell.Value);
+            }
         }
-        return _availableTiles;
     }
 }
