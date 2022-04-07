@@ -14,6 +14,8 @@ public class BuildingGrid : MonoBehaviour
     private Camera _mainCamera;
     private Building[,] _grid;
     private Building _flyingBuilding;
+    // сделать привязку к толщине тайла
+    private float _offsetY = 0.1f;
 
     private void Awake()
     {
@@ -43,13 +45,17 @@ public class BuildingGrid : MonoBehaviour
                 Vector3 worldPosition = position.point;
                 int x = Mathf.RoundToInt(worldPosition.x);
                 int y = Mathf.RoundToInt(worldPosition.z);
-                _flyingBuilding.transform.position = new Vector3(x, 0, y);
-                _flyingBuilding.SetAvailableToInstanr(false);
-                if (position.point.y > 0.1f && _grid[x, y] == null)
+                _flyingBuilding.transform.position = new Vector3(x, _offsetY, y);
+                _flyingBuilding.SetAvailableToInstant(false);
+                if (position.point.y > _offsetY && _grid[x, y] == null)
                 {
-                    _flyingBuilding.SetAvailableToInstanr(true);
+                    _flyingBuilding.SetAvailableToInstant(true);
                     if (Input.GetMouseButtonDown(0))
                     {
+                        
+                        Vector3 pointDestination = new Vector3(position.transform.parent.position.x - _flyingBuilding.transform.position.x, 
+                            0f, position.transform.parent.position.z - _flyingBuilding.transform.position.z);
+                        _flyingBuilding.SetPointDestination(pointDestination);
                         _grid[x, y] = _flyingBuilding;
                         _flyingBuilding.SetNormalColor();
                         _flyingBuilding = null;

@@ -1,10 +1,12 @@
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Building : MonoBehaviour
 {
     [SerializeField] private Renderer _renderer;
+    [SerializeField] private NavMeshLink _navMeshLink;
 
-    public void SetAvailableToInstanr(bool available)
+    public void SetAvailableToInstant(bool available)
     {
         if (available)
         {
@@ -19,5 +21,10 @@ public class Building : MonoBehaviour
     public void SetNormalColor()
     {
         _renderer.material.color = Color.white;
+    }
+
+    public void SetPointDestination(Vector3 pointDestination)
+    {
+        _navMeshLink.endPoint = pointDestination;
     }
 }

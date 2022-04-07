@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.AI;
 using static UnityEngine.Vector3;
 
 public class VoxelTile : MonoBehaviour
@@ -8,7 +9,7 @@ public class VoxelTile : MonoBehaviour
     private int sizeTile;
 
     public int SizeTile => sizeTile;
-
+    
     public byte[] TablePassAccess => _tablePassAccess;
     
     void Awake()
