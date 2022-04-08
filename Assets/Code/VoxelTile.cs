@@ -4,12 +4,16 @@ using static UnityEngine.Vector3;
 
 public class VoxelTile : MonoBehaviour
 {
+    [SerializeField] private Sprite _iconTile;
+    
     private float offset = 0.1f;
     private byte [] _tablePassAccess = new byte[4];
     private int sizeTile;
 
     public int SizeTile => sizeTile;
-    
+
+    public Sprite IconTile => _iconTile;
+
     public byte[] TablePassAccess => _tablePassAccess;
     
     void Awake()

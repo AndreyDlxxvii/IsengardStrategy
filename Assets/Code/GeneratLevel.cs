@@ -7,35 +7,63 @@ using Random = UnityEngine.Random;
 
 public class GeneratLevel : MonoBehaviour
 {
-    [SerializeField] private VoxelTile _firstTile;
     [SerializeField] private Transform _parentForTilesObject;
     [SerializeField] private VoxelTile[] TilePrefabs;
     [SerializeField] private NavMeshSurface _navMesh;
     [SerializeField] private Button buttonRespawn;
+    
     [SerializeField] private Transform _canvas;
+    [SerializeField] private RightUI _rightUI;
 
     public int MapSizeX = 200;
     public int MapSizeY = 200;
     
     private VoxelTile[,] _spawnedTiles;
     private int _offsetInstanceTiles;
+    private VoxelTile _firstTile;
 
-    private Dictionary<Button, Vector3> _spawnedButtons = new Dictionary<Button, Vector3>(); 
+    private Dictionary<Button, Vector3> _spawnedButtons = new Dictionary<Button, Vector3>();
+
+    private void Awake()
+    {
+        _rightUI.FirstBtnSprite = TilePrefabs[0].IconTile;
+        _rightUI.SecondBtnSprite = TilePrefabs[1].IconTile;
+        _rightUI.ThirdBtnSprite = TilePrefabs[2].IconTile;
+    }
 
     private void Start()
     {
-        _spawnedTiles = new VoxelTile[MapSizeX, MapSizeY];
-        _offsetInstanceTiles = TilePrefabs[0].SizeTile;
-        PlaceTile();
+        _rightUI.TileSelected += SelectFirstTile;
     }
     
-    private void PlaceTile()
+    private void SelectFirstTile(int numTile)
     {
+        switch (numTile)
+        {
+            case 0:
+                _firstTile = TilePrefabs[numTile];
+                break;
+            case 1:
+                _firstTile = TilePrefabs[numTile];
+                break;
+            case 2:
+                _firstTile = TilePrefabs[numTile];
+                break;
+        }
+        PlaceFirstTile(_firstTile);
+        _rightUI.TileSelected -= SelectFirstTile;
+        _rightUI.gameObject.SetActive(false);
+    }
+    
+    private void PlaceFirstTile(VoxelTile tile)
+    {
+        _spawnedTiles = new VoxelTile[MapSizeX, MapSizeY];
+        _offsetInstanceTiles = TilePrefabs[0].SizeTile;
         int x = MapSizeX / 2;
         int y = MapSizeY / 2;
         if (_spawnedTiles[x, y] == null)
         {
-            _spawnedTiles[x, y] = Instantiate(TilePrefabs[Random.Range(0, TilePrefabs.Length)], new Vector3(x, 0, y), 
+            _spawnedTiles[x, y] = Instantiate(tile, new Vector3(x, 0, y), 
                 Quaternion.identity, _parentForTilesObject.transform);
             CreateButton(_spawnedTiles[x, y]);
         }
