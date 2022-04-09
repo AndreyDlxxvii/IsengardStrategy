@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Controllers.OutPost;
 using Models.BaseUnit;
 using UnityEngine;
@@ -16,10 +17,11 @@ namespace Controllers.BaseUnit
         [SerializeField] private GameObject _gameObject;
         [SerializeField] private Transform _whereToSpawn;
         [SerializeField] private UnitController _unitController;
-        [SerializeField] private UnitUISpawnerTest _unitUISpawnerTest;
+        [SerializeField] private OutpostSpawner _outpostSpawner;
         private BaseUnitFactory _baseUnitFactory;
-        private List<OutPostUnitController> _outPostUnitControllers;
         public Action<int,Vector3> unitWasSpawned = delegate {  };
+        [NonSerialized]
+        public int SpawnIsActiveIndex;
         
         #endregion
 
@@ -30,17 +32,14 @@ namespace Controllers.BaseUnit
         {
             _baseUnitFactory = new BaseUnitFactory();
             _unitController.BaseUnitSpawner = this;
-            _outPostUnitControllers = new List<OutPostUnitController>();
-            _outPostUnitControllers.Add(new OutPostUnitController());
-            _outPostUnitControllers[0].UiSpawnerTest = _unitUISpawnerTest;
-            
-            _outPostUnitControllers[0].Initialize();
-            _outPostUnitControllers[0].Transaction += Spawn;
         }
 
         private void OnDestroy()
         {
-            _outPostUnitControllers[0].Transaction -= Spawn;
+            foreach (var outpost in _outpostSpawner.OutPostUnitControllers)
+            {
+                outpost.Transaction -= Spawn;
+            }
         }
 
         #endregion
@@ -50,10 +49,20 @@ namespace Controllers.BaseUnit
         
         public void ShowMenu(OutpostUnitView outpostUnitView)
         {
-            _outPostUnitControllers[0].OutpostUnitView = outpostUnitView;
-            _outPostUnitControllers[0].UiSpawnerTest.gameObject.SetActive(true);
+            SpawnIsActiveIndex = outpostUnitView.IndexInArray;
+            _outpostSpawner.OutPostUnitControllers[outpostUnitView.IndexInArray].Transaction += Spawn;
+            _outpostSpawner.OutPostUnitControllers[outpostUnitView.IndexInArray].UiSpawnerTest.currentController =
+                _outpostSpawner.OutPostUnitControllers[outpostUnitView.IndexInArray];
+            _outpostSpawner.OutPostUnitControllers[outpostUnitView.IndexInArray].UiSpawnerTest.gameObject.SetActive(true);
         }
-        
+
+        public void UnShowMenu()
+        {
+            _outpostSpawner.OutPostUnitControllers[SpawnIsActiveIndex].Transaction -= Spawn;
+            _outpostSpawner.OutPostUnitControllers[SpawnIsActiveIndex].UiSpawnerTest.gameObject.SetActive(false);
+            SpawnIsActiveIndex = -1;
+        }
+
         private void Spawn(Vector3 endPos)
         {
             var go = _baseUnitFactory.CreateUnit(_gameObject,_whereToSpawn);
@@ -65,7 +74,7 @@ namespace Controllers.BaseUnit
             var movementHolder = gameObject.GetComponent<UnitMovement>();
             var animHolder = gameObject.GetComponent<UnitAnimation>();
             _unitController.GetBaseUnitController().Add(new BaseUnitController(
-                _unitUISpawnerTest.Model,movementHolder,
+                _outpostSpawner.OutPostUnitControllers[SpawnIsActiveIndex].UiSpawnerTest.Model,movementHolder,
                 animHolder));
             unitWasSpawned.Invoke(_unitController.GetBaseUnitController().Count-1,endPos);
         }

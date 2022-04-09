@@ -12,7 +12,7 @@ namespace Views.BaseUnit.UI
         [SerializeField] private Button _spawnButton;
         public OutPostUnitController currentController;
         public BaseUnitModel Model;
-        public Action spawnUnit = delegate {  };
+        public Action<OutPostUnitController> spawnUnit = delegate {  };
 
         private void Start()
         {
@@ -22,7 +22,7 @@ namespace Views.BaseUnit.UI
         private void buttonPressed()
         {
             Model = new BaseUnitModel();
-            spawnUnit.Invoke();
+            spawnUnit.Invoke(currentController);
         }
 
         private void OnDestroy()

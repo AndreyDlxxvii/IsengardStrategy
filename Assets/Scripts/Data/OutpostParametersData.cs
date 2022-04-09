@@ -9,7 +9,6 @@ namespace Data
         #region Fields
 
         [SerializeField] private int _maxCountOfNPC;
-        private int _currentCountOfNPC = 0;
 
         #endregion
 
@@ -20,22 +19,12 @@ namespace Data
         {
             _maxCountOfNPC += number;
         }
-
-        public void AddCurrentCountOfNPC(int number)
-        {
-            _currentCountOfNPC += number;
-        }
-
+        
         public int GetMaxCountOfNPC()
         {
             return _maxCountOfNPC;
         }
-
-        public int GetCurrentCountOfNPC()
-        {
-            return _currentCountOfNPC;
-        }
-
+        
         #endregion
 
     }
