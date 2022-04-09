@@ -9,8 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c0243e5cbb9d4dc09f397dc8ed4b19c3, type: 3}
-  m_Name: UnitGroupData
+  m_Script: {fileID: 11500000, guid: 0ae9e6f09e9a4145ad3d4a4ea40ad8f6, type: 3}
+  m_Name: OutpostParametersData
   m_EditorClassIdentifier: 
-  UnitType: 0
-  MaxUnitInGroup: 5
+  _maxCountOfNPC: 5

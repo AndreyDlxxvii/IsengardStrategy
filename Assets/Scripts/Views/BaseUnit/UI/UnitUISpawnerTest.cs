@@ -1,5 +1,7 @@
 ﻿using System;
+using Controllers.OutPost;
 using Data;
+using Models.BaseUnit;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,8 +10,9 @@ namespace Views.BaseUnit.UI
     public class UnitUISpawnerTest : MonoBehaviour
     {
         [SerializeField] private Button _spawnButton;
-        [SerializeField] private GroupData _data;
-        public Action<Vector3> spawnUnit = delegate {  };
+        public OutPostUnitController currentController;
+        public BaseUnitModel Model;
+        public Action spawnUnit = delegate {  };
 
         private void Start()
         {
@@ -18,7 +21,8 @@ namespace Views.BaseUnit.UI
 
         private void buttonPressed()
         {
-            spawnUnit.Invoke(_data.CentralPosition);
+            Model = new BaseUnitModel();
+            spawnUnit.Invoke();
         }
 
         private void OnDestroy()

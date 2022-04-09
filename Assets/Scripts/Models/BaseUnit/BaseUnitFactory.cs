@@ -9,8 +9,7 @@ namespace Models.BaseUnit
     {
         public GameObject CreateUnit(GameObject whichPrefab , Transform whereToPlace)
         {
-            var gameObject = GameObject.Instantiate(whichPrefab,whereToPlace.position,whereToPlace.rotation);
-            return gameObject;
+            return GameObject.Instantiate(whichPrefab,whereToPlace.position,whereToPlace.rotation);
         }
     }
 }

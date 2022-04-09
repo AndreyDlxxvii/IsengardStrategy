@@ -9,8 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c0243e5cbb9d4dc09f397dc8ed4b19c3, type: 3}
-  m_Name: UnitGroupData 1
+  m_Script: {fileID: 11500000, guid: d06d0c48516a45d9aa1131405499dbb7, type: 3}
+  m_Name: UnitInGameData
   m_EditorClassIdentifier: 
-  UnitType: 1
-  MaxUnitInGroup: 3
+  _maxCountOfMilitary: 5
+  _maxCountOfWorkers: 3
+  _currentCountOfMilitary: 0
+  _currentCountOfWorkers: 0

@@ -15,8 +15,6 @@ namespace Controllers.BaseUnit
         #region Fields
 
         private List<BaseUnitController> _baseUnitControllers;
-        private List<UnitMovement> _baseUnitMoves;
-        private List<UnitAnimation> _baseUnitAnimations;
         [NonSerialized]
         public BaseUnitSpawner BaseUnitSpawner;
 
@@ -28,8 +26,6 @@ namespace Controllers.BaseUnit
         private void Awake()
         {
             _baseUnitControllers = new List<BaseUnitController>();
-            _baseUnitMoves = new List<UnitMovement>();
-            _baseUnitAnimations = new List<UnitAnimation>();
         }
 
         private void Start()
@@ -44,30 +40,21 @@ namespace Controllers.BaseUnit
         
         #endregion
         
-        private void SetCommandLooking()
+        private void SetCommandLooking(int id, Vector3 endPos)
         {
-            _baseUnitControllers.Last().UnitModel.UnitType = UnitType.Worker;
+            SetEndPosition(id,endPos);
         }
 
         public List<BaseUnitController> GetBaseUnitController()
         {
             return _baseUnitControllers;
         }
-        
-        public List<UnitMovement> GetUnitMovementHolder()
-        {
-            return _baseUnitMoves;
-        }
-        
-        public List<UnitAnimation> GetUnitAnimationsHolder()
-        {
-            return _baseUnitAnimations;
-        }
 
-        private void SetEndPosition()
+        private void SetEndPosition(int id, Vector3 endpos)
         {
-            view.pointWhereToGo = new Vector3(Random.Range(190f, 210f),0,Random.Range(190f, 210f));
-            view.SetThePointWhereToGo();
+            _baseUnitControllers[id].SetStateMachine(UnitStates.MOVING);
+            _baseUnitControllers[id].UnitMovementView.pointWhereToGo = endpos;
+            _baseUnitControllers[id].UnitMovementView.SetThePointWhereToGo();
         }
     }
 }
