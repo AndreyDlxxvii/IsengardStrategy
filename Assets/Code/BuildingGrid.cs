@@ -1,6 +1,8 @@
 using System;
+using Controllers.OutPost;
 using UnityEngine;
 using UnityEngine.UI;
+using Views.Outpost;
 
 public class BuildingGrid : MonoBehaviour
 {
@@ -10,7 +12,8 @@ public class BuildingGrid : MonoBehaviour
     [SerializeField] private Button _buildSecondButton;
     [SerializeField] private Building _towerOne;
     [SerializeField] private Building _towerTwo;
-
+    [SerializeField] private OutpostSpawner _outpostSpawner;
+    
     private Camera _mainCamera;
     private Building[,] _grid;
     private Building _flyingBuilding;
@@ -58,7 +61,12 @@ public class BuildingGrid : MonoBehaviour
                         _flyingBuilding.SetPointDestination(pointDestination);
                         _grid[x, y] = _flyingBuilding;
                         _flyingBuilding.SetNormalColor();
+                        var outpost = _flyingBuilding.gameObject.GetComponentInChildren<OutpostUnitView>();
                         _flyingBuilding = null;
+                        if (outpost)
+                        {
+                            _outpostSpawner.SpawnLogic(outpost);
+                        }
                     }
                 }
             }
@@ -69,5 +77,17 @@ public class BuildingGrid : MonoBehaviour
     {
         _buildFirstButton.onClick.RemoveAllListeners();
         _buildSecondButton.onClick.RemoveAllListeners();
+    }
+
+    public bool IsFlyingBuildingTrue()
+    {
+        if (_flyingBuilding != null)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 }
