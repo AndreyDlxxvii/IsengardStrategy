@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8491856268744781543}
   - component: {fileID: 2207685555743648068}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Tile10
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55,6 +55,10 @@ PrefabInstance:
     - target: {fileID: 5246580490005629152, guid: 9ea5006d00aa472499ba0ca360b48c70, type: 3}
       propertyPath: m_Name
       value: ForestStraight
+      objectReference: {fileID: 0}
+    - target: {fileID: 5246580490005629152, guid: 9ea5006d00aa472499ba0ca360b48c70, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 9121127284903852787, guid: 9ea5006d00aa472499ba0ca360b48c70, type: 3}
       propertyPath: m_RootOrder

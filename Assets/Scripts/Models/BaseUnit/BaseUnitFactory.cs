@@ -1,6 +1,4 @@
-﻿using Controllers.BaseUnit;
-using Enums.BaseUnit;
-using Interfaces;
+﻿using Interfaces;
 using UnityEngine;
 
 namespace Models.BaseUnit

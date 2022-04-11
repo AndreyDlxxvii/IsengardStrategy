@@ -10,7 +10,7 @@ namespace Views.BaseUnit
 
         [SerializeField] private NavMeshAgent _navMeshAgent;
         [NonSerialized] public Vector3 pointWhereToGo;
-        public NavMeshAgent navMeshAgent => _navMeshAgent;
+        public NavMeshAgent NavMeshAgent => _navMeshAgent;
 
         #endregion
 

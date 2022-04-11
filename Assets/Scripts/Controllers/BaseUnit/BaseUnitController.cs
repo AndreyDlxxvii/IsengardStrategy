@@ -34,12 +34,10 @@ namespace Controllers.BaseUnit
 
         public void Initialize()
         {
-            throw new NotImplementedException();
         }
 
         public void Execute()
         {
-            throw new NotImplementedException();
         }
 
         #endregion

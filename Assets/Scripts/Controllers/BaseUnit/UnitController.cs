@@ -1,11 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using Enums.BaseUnit;
-using Models.BaseUnit;
 using UnityEngine;
-using Views.BaseUnit;
-using Random = UnityEngine.Random;
 
 namespace Controllers.BaseUnit
 {
@@ -15,8 +11,7 @@ namespace Controllers.BaseUnit
         #region Fields
 
         private List<BaseUnitController> _baseUnitControllers;
-        [NonSerialized]
-        public BaseUnitSpawner BaseUnitSpawner;
+        [NonSerialized] public BaseUnitSpawner BaseUnitSpawner;
 
         #endregion
 

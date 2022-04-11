@@ -13,6 +13,7 @@ public class BuildingGrid : MonoBehaviour
     [SerializeField] private Building _towerOne;
     [SerializeField] private Building _towerTwo;
     [SerializeField] private OutpostSpawner _outpostSpawner;
+    [SerializeField] private LayerMask _layerMask;
     
     private Camera _mainCamera;
     private Building[,] _grid;
@@ -43,8 +44,9 @@ public class BuildingGrid : MonoBehaviour
         {
             Ray ray = _mainCamera.ScreenPointToRay(Input.mousePosition);
             
-            if (Physics.Raycast(ray, out var position))
+            if (Physics.Raycast(ray, out var position, 100f, _layerMask))
             {
+                var t = position.collider.transform.position;
                 Vector3 worldPosition = position.point;
                 int x = Mathf.RoundToInt(worldPosition.x);
                 int y = Mathf.RoundToInt(worldPosition.z);
@@ -85,9 +87,6 @@ public class BuildingGrid : MonoBehaviour
         {
             return true;
         }
-        else
-        {
-            return false;
-        }
+        return false;
     }
 }

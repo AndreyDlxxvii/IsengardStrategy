@@ -13,7 +13,7 @@ namespace Controllers.OutPost
         private int _currentCountOfNPC = 0;
         public UnitUISpawnerTest UiSpawnerTest;
         public OutpostUnitView OutpostUnitView;
-        public Action<Vector3> Transaction = delegate {  };
+        public Action<Vector3> Transaction;
         
         
         public OutPostUnitController(int index,OutpostUnitView outpostUnitView)

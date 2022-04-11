@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 897655450458436404}
   - component: {fileID: 3199305888566885066}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Tile5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55,6 +55,10 @@ PrefabInstance:
     - target: {fileID: 979873492421864585, guid: d10b86d110729064f9b83800f884ab74, type: 3}
       propertyPath: m_Name
       value: ForestCurve
+      objectReference: {fileID: 0}
+    - target: {fileID: 979873492421864585, guid: d10b86d110729064f9b83800f884ab74, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4306123383880720026, guid: d10b86d110729064f9b83800f884ab74, type: 3}
       propertyPath: m_RootOrder

@@ -1,11 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using Controllers.OutPost;
 using Models.BaseUnit;
 using UnityEngine;
 using Views.BaseUnit;
-using Views.BaseUnit.UI;
 using Views.Outpost;
 
 namespace Controllers.BaseUnit
@@ -14,14 +11,16 @@ namespace Controllers.BaseUnit
     {
         #region Fields
         
-        [SerializeField] private GameObject _gameObject;
+        [SerializeField] private GameObject _unitPrefab;
         [SerializeField] private Transform _whereToSpawn;
         [SerializeField] private UnitController _unitController;
         [SerializeField] private OutpostSpawner _outpostSpawner;
         private BaseUnitFactory _baseUnitFactory;
-        public Action<int,Vector3> unitWasSpawned = delegate {  };
+        public Action<int,Vector3> unitWasSpawned;
         [NonSerialized]
         public int SpawnIsActiveIndex;
+
+        private bool _flag;
         
         #endregion
 
@@ -54,18 +53,23 @@ namespace Controllers.BaseUnit
             _outpostSpawner.OutPostUnitControllers[outpostUnitView.IndexInArray].UiSpawnerTest.currentController =
                 _outpostSpawner.OutPostUnitControllers[outpostUnitView.IndexInArray];
             _outpostSpawner.OutPostUnitControllers[outpostUnitView.IndexInArray].UiSpawnerTest.gameObject.SetActive(true);
+            _flag = true;
         }
 
         public void UnShowMenu()
         {
-            _outpostSpawner.OutPostUnitControllers[SpawnIsActiveIndex].Transaction -= Spawn;
-            _outpostSpawner.OutPostUnitControllers[SpawnIsActiveIndex].UiSpawnerTest.gameObject.SetActive(false);
-            SpawnIsActiveIndex = -1;
+            if (_flag)
+            {
+                _outpostSpawner.OutPostUnitControllers[SpawnIsActiveIndex].Transaction -= Spawn;
+                _outpostSpawner.OutPostUnitControllers[SpawnIsActiveIndex].UiSpawnerTest.gameObject.SetActive(false);
+                SpawnIsActiveIndex = -1;
+                _flag = false;
+            }
         }
 
         private void Spawn(Vector3 endPos)
         {
-            var go = _baseUnitFactory.CreateUnit(_gameObject,_whereToSpawn);
+            var go = _baseUnitFactory.CreateUnit(_unitPrefab,_whereToSpawn);
             SendInfoToGroupController(go,endPos);
         }
         

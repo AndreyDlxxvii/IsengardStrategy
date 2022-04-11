@@ -12,7 +12,7 @@ namespace Views.BaseUnit.UI
         [SerializeField] private Button _spawnButton;
         public OutPostUnitController currentController;
         public BaseUnitModel Model;
-        public Action<OutPostUnitController> spawnUnit = delegate {  };
+        public Action<OutPostUnitController> spawnUnit;
 
         private void Start()
         {

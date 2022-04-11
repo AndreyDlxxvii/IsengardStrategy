@@ -11,6 +11,7 @@ public class GeneratLevel : MonoBehaviour
     [SerializeField] private VoxelTile[] TilePrefabs;
     [SerializeField] private NavMeshSurface _navMesh;
     [SerializeField] private Button buttonRespawn;
+    [SerializeField] private GameObject MainTower;
     
     [SerializeField] private Transform _canvas;
     [SerializeField] private RightUI _rightUI;
@@ -67,6 +68,7 @@ public class GeneratLevel : MonoBehaviour
                 Quaternion.identity, _parentForTilesObject.transform);
             CreateButton(_spawnedTiles[x, y]);
         }
+        Instantiate(MainTower,new Vector3(x, 0, y), Quaternion.identity);
     }
         
     private void CreateButton(VoxelTile tile)

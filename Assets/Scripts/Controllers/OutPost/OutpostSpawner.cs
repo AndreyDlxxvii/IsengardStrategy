@@ -24,7 +24,6 @@ namespace Controllers.OutPost
             OutPostUnitControllers.Add(new OutPostUnitController(index,unitView));
             OutPostUnitControllers[index].UiSpawnerTest = UnitUISpawnerTest;
             OutPostUnitControllers[index].Initialize();
-            
         }
     }
 }
