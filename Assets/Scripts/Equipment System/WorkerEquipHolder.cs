@@ -32,8 +32,8 @@ namespace EquipSystem
         {
             _equippableItem = item;
             if (equipHolderMesh.mesh!=item.ItemMesh && _holderType==item.ItemType)
-            { 
-                equipHolderMesh.mesh = item.ItemMesh;                
+            {
+                equipHolderMesh.sharedMesh = item.ItemMesh;
             }
         }
 

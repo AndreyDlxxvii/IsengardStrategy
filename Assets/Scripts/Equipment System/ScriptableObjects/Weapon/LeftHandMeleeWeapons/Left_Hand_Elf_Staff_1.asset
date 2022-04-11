@@ -20,3 +20,5 @@ MonoBehaviour:
   _icon: {fileID: 21300000, guid: c389582e29e4b4d44b0aa229744322e2, type: 3}
   _nameOfItem: Left_Hand_Elf_Staff_1
   _description: 
+  _mageItemFlag: 1
+  _spearItemFlag: 0

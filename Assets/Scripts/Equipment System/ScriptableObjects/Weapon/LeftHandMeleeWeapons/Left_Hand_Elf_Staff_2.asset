@@ -13,10 +13,12 @@ MonoBehaviour:
   m_Name: Left_Hand_Elf_Staff_2
   m_EditorClassIdentifier: 
   _itemType: 24
-  _itemMesh: {fileID: 4300318, guid: 4d96a0eecc83e2e4bab3541489dacb4d, type: 3}
+  _itemMesh: {fileID: 4300172, guid: 033a38625572b7944955d8b2afd751ef, type: 3}
   _attackModificator: 0
   _deffendsModificator: 0
   _speedModificator: 0
   _icon: {fileID: 21300000, guid: 12b2172eb7f8b67419f5de3f85ca311c, type: 3}
   _nameOfItem: Left_Hand_Elf_Staff_2
   _description: 
+  _mageItemFlag: 1
+  _spearItemFlag: 0

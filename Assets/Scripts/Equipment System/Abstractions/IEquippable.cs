@@ -12,5 +12,8 @@ namespace EquipSystem
         public string NameOfItem { get; }
         
         public string Description { get; }
+
+        public bool MageItem { get; }
+        public bool SpearItem { get; }
     }
 }

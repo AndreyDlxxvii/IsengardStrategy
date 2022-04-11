@@ -20,7 +20,9 @@ namespace EquipSystem
         LeftHandShield,
         Bow,
         MageRobe,
-        Shoulderpads2
+        Shoulderpads2,
+        Spear,
+        MageStaff
     }   
     public class EquipSystemBehaviour : MonoBehaviour 
     {
@@ -38,6 +40,7 @@ namespace EquipSystem
         private WorkerEquipHolder[] _workerEquipHolder;
 
         private bool isIsWorker = false;
+        
 
         public void Awake()
         {
@@ -327,9 +330,32 @@ namespace EquipSystem
             }
             foreach (WorkerEquipHolder holder in _workerEquipHolder)
             {
-                holder.GetEquipped(item);
+               if (item.ItemType==EquipType.Bags | item.ItemType == EquipType.Resurses)
+                {
+                    if (holder.HolderType!=EquipType.WorkerWeapon & holder.HolderType!=item.ItemType)
+                    {
+                        holder.UnEquiped();
+                    }
+                    else
+                    {
+                        if (holder.HolderType==item.ItemType)
+                        { 
+                            holder.GetEquipped(item);
+                        }
+                    }
+                }
+               else
+                {
+                    if (holder.HolderType==item.ItemType)
+                    { 
+                    holder.GetEquipped(item);
+                        break;
+                    }
+                }
+                
             }
             isIsWorker = true;
+            
 
         }
         public void UnEquipAllArmour()
@@ -371,6 +397,109 @@ namespace EquipSystem
                 }
             }
             isIsWorker = false;
+        }
+
+        public void CheckScabbard(IEquippable inItem,IWeaponEquipped holder)
+        {
+            switch(inItem.ItemType)
+            {
+                case EquipType.Bow:
+                    if(holder.HolderType==EquipType.Bow)
+                    {
+                        break;
+                    }
+                    else
+                        if(holder.HolderType==EquipType.LeftHandMeleeWeapon| holder.HolderType == EquipType.LeftHandShield)
+                        {
+                            holder.EmptyTheScabbard();
+                        }
+                    else
+                    {
+                        holder.PutWeaponInScabbard(holder.EquippableItem, out IEquippable outItem);
+                    }
+                    break;       
+            }
+        }
+        public void PutAllWeaponsInScabbards ()
+        {
+            foreach(IWeaponEquipped holder in _weaponEquipHolders)
+            {
+                if (holder.EquippableItem!=null)
+                    { 
+                    holder.PutWeaponInScabbard(holder.EquippableItem, out IEquippable outItem);
+                    holder.UnEquiped();
+                    if (outItem!=null)
+                    { 
+                        GetEquipped(outItem);
+                        break;
+                    }
+                }
+            }
+        }
+        public void GetAllWeaponOutScabbards()
+        {
+            foreach (IWeaponEquipped holder in _weaponEquipHolders)
+            {
+                holder.GetWeaponOutScabbard( out IEquippable outItem);
+                if (holder.EquippableItem!=null)
+                { 
+                    holder.PutWeaponInScabbard(holder.EquippableItem, out IEquippable outItemNew);
+                }
+                if (outItem!=null)
+                { 
+                    GetEquipped(outItem);
+                    break;
+                }
+            }
+        }
+        public void UnEquipAllScabbards()
+        {
+            foreach (IWeaponEquipped holder in _weaponEquipHolders)
+            {
+                holder.GetWeaponOutScabbard(out IEquippable outItem);
+            }
+        }
+        public EquipType CheckPlayerState()
+        {
+            foreach (IWeaponEquipped holder in _weaponEquipHolders)
+            {
+                if (holder.EquippableItem != null)
+                {
+                    if (holder.EquippableItem.MageItem)
+                    {
+                        return EquipType.MageStaff;
+                    }
+                    else
+                        if (holder.EquippableItem.SpearItem)
+                        {
+                        return EquipType.Spear;
+                        }
+                    return holder.EquippableItem.ItemType;                    
+                }
+            }
+            return EquipType.WorkerWeapon;
+        }
+        public bool CheckResurseHolders()
+        {
+            foreach (WorkerEquipHolder holder in _workerEquipHolder)
+            {
+                if (holder.HolderType == EquipType.Resurses & holder.EquippableItem != null)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+        public bool CheckBagHolders()
+        {
+            foreach (WorkerEquipHolder holder in _workerEquipHolder)
+            {
+                if (holder.HolderType==EquipType.Bags&holder.EquippableItem!=null)
+                {
+                    return true; 
+                }
+            }
+            return false;
         }
         public void OnValidate()
         {

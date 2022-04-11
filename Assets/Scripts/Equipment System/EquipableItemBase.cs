@@ -21,6 +21,10 @@ namespace EquipSystem
 
         public string Description => _description;
 
+        public bool MageItem => _mageItemFlag;
+
+        public bool SpearItem => _spearItemFlag;
+
         [SerializeField]
         private EquipType _itemType;
 
@@ -45,5 +49,10 @@ namespace EquipSystem
         [SerializeField]
         [TextArea(5,5)]
         private string _description;
+
+        [SerializeField]
+        private bool _mageItemFlag=false;
+        [SerializeField]
+        private bool _spearItemFlag=false;
     }
 }

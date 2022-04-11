@@ -1,5 +1,167 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &898663480745723599
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4519564463308694926}
+  - component: {fileID: 5747227735229294437}
+  - component: {fileID: 3089950339370477489}
+  m_Layer: 0
+  m_Name: Scabbard_For_Left_Hand_Weapon_Spine
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4519564463308694926
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 898663480745723599}
+  m_LocalRotation: {x: 0.18301274, y: 0.6830127, z: -0.68301266, w: 0.18301275}
+  m_LocalPosition: {x: -0.303, y: -0.17000014, z: -0.09499992}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3385392860752168365}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 90, y: 150, z: 0}
+--- !u!33 &5747227735229294437
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 898663480745723599}
+  m_Mesh: {fileID: 0}
+--- !u!23 &3089950339370477489
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 898663480745723599}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 8c10d0579a1faa547b0825e1e3a93c76, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &2333295104002246910
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5124244525629144420}
+  - component: {fileID: 589095929157069795}
+  - component: {fileID: 9006342033820160250}
+  m_Layer: 0
+  m_Name: Scabbard_For_Shield_Spine
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5124244525629144420
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2333295104002246910}
+  m_LocalRotation: {x: -0.0000000056950276, y: 0.000000021577305, z: 0.00000005960612, w: 1}
+  m_LocalPosition: {x: -0.17199998, y: -0.2280001, z: -0.0030000247}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3385392860752168365}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &589095929157069795
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2333295104002246910}
+  m_Mesh: {fileID: 0}
+--- !u!23 &9006342033820160250
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2333295104002246910}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 8c10d0579a1faa547b0825e1e3a93c76, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &2664791343100448948
 GameObject:
   m_ObjectHideFlags: 0
@@ -12,7 +174,7 @@ GameObject:
   - component: {fileID: 686168898748886798}
   - component: {fileID: 8704669237926384747}
   m_Layer: 0
-  m_Name: WK_Units_Weapon_Spine_Holder
+  m_Name: Scabbard_For_Right_Hand_Weapon_Spine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25,13 +187,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2664791343100448948}
-  m_LocalRotation: {x: 0.19906901, y: 0.68387854, z: 0.6720457, w: -0.20257406}
-  m_LocalPosition: {x: -0.356, y: -0.225, z: 0.102}
+  m_LocalRotation: {x: 0.18301274, y: 0.6830127, z: 0.6830127, w: -0.18301274}
+  m_LocalPosition: {x: -0.303, y: -0.17, z: 0.083}
   m_LocalScale: {x: 1.0000001, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3385392860752168365}
   m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 271, y: -147, z: 0}
+  m_LocalEulerAnglesHint: {x: 270, y: -150, z: 0}
 --- !u!33 &686168898748886798
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -176,6 +338,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _holderType: 25
+  _scabbardHolder: {fileID: 2664791343100448948}
 --- !u!1 &3385392860751812355
 GameObject:
   m_ObjectHideFlags: 0
@@ -273,6 +436,7 @@ MonoBehaviour:
   _holderType: 27
   _quiverItem: {fileID: 11400000, guid: 0cb757eea38b2434d990437680ba80bd, type: 2}
   _quiverHolder: {fileID: 3385392860751812439}
+  _scabbardHolder: {fileID: 6691175634524744322}
 --- !u!1 &3385392860751812357
 GameObject:
   m_ObjectHideFlags: 0
@@ -869,6 +1033,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _holderType: 24
+  _scabbardHolder: {fileID: 898663480745723599}
 --- !u!1 &3385392860751812409
 GameObject:
   m_ObjectHideFlags: 0
@@ -964,6 +1129,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _holderType: 26
+  _scabbardHolder: {fileID: 2333295104002246910}
 --- !u!1 &3385392860751812437
 GameObject:
   m_ObjectHideFlags: 0
@@ -2095,6 +2261,8 @@ GameObject:
   - component: {fileID: 3385392860752168363}
   - component: {fileID: 3385392860761172605}
   - component: {fileID: 2675720108888120289}
+  - component: {fileID: 8853296739822457833}
+  - component: {fileID: 6838280858932897222}
   m_Layer: 0
   m_Name: ELF_Characters_customizable_Base
   m_TagString: Untagged
@@ -2157,6 +2325,40 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _equipableItem: {fileID: 0}
   _unEquipableItem: {fileID: 0}
+--- !u!114 &8853296739822457833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3385392860751813067}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c552f5bf3a6fda409cad7012349975e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CurrentRaceMaterials: []
+  CharacterPrefab: {fileID: 3385392860751813067}
+  ChoiceSubRaceDropdown: {fileID: 0}
+  ChoiceColourDropdown: {fileID: 0}
+  ChangeMTest: {fileID: 0}
+--- !u!114 &6838280858932897222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3385392860751813067}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c588b740de45827439f4b190ad6a60da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CharacterPrefab: {fileID: 3385392860751813067}
+  CharacterAnimator: {fileID: 3385392860761172605}
+  _characterEQSysBehavior: {fileID: 2675720108888120289}
+  MageAnimUI: {fileID: 0}
+  actualLayerTxt: {fileID: 0}
 --- !u!1 &3385392860751813069
 GameObject:
   m_ObjectHideFlags: 0
@@ -2191,6 +2393,9 @@ Transform:
   - {fileID: 3385392860752168361}
   - {fileID: 3385392860752167735}
   - {fileID: 5363078091271777817}
+  - {fileID: 4519564463308694926}
+  - {fileID: 5124244525629144420}
+  - {fileID: 5935174735171432840}
   m_Father: {fileID: 3385392860752168321}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2472,6 +2677,87 @@ Transform:
   m_Father: {fileID: 3385392860752168323}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6691175634524744322
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5935174735171432840}
+  - component: {fileID: 5457177362220951210}
+  - component: {fileID: 8814702864563972926}
+  m_Layer: 0
+  m_Name: Scabbard_For_Bow_Spine
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5935174735171432840
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6691175634524744322}
+  m_LocalRotation: {x: 0.000000010130668, y: -0.7132504, z: -0.7009094, w: 0.000000016297577}
+  m_LocalPosition: {x: -0.0040000835, y: -0.17000006, z: -0.071999975}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3385392860752168365}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 271, y: 180, z: 0}
+--- !u!33 &5457177362220951210
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6691175634524744322}
+  m_Mesh: {fileID: 0}
+--- !u!23 &8814702864563972926
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6691175634524744322}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 8c10d0579a1faa547b0825e1e3a93c76, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &8128858512936086778
 GameObject:
   m_ObjectHideFlags: 0

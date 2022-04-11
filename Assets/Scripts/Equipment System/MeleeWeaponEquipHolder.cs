@@ -13,8 +13,18 @@ namespace EquipSystem
 
         public IEquippable EquippableItem => _equippableItem;
 
+        public GameObject ScabbardHolder => _scabbardHolder;
+
+        public IEquippable ItemInScabbard => _itemInScabbard;
+
         [SerializeField]
         private EquipType _holderType;
+
+
+        [SerializeField]
+        private GameObject _scabbardHolder;
+        private IEquippable _itemInScabbard;
+        private MeshFilter _scabbardMesh;        
 
         private MeshFilter equipHolderMesh;
         private Mesh equipHolderMeshBase;
@@ -25,6 +35,7 @@ namespace EquipSystem
         {
             equipHolderMesh = gameObject.GetComponent<MeshFilter>();
             equipHolderMeshBase = equipHolderMesh.sharedMesh;
+            _scabbardMesh = _scabbardHolder.GetComponent<MeshFilter>();
         }
 
         public  void GetEquipped(IEquippable item)
@@ -44,10 +55,41 @@ namespace EquipSystem
                 equipHolderMesh.sharedMesh = equipHolderMeshBase;                
             }
         }
-        public  void UnEquiped()
+        public void UnEquiped()
         {
             _equippableItem = null;
             equipHolderMesh.sharedMesh = equipHolderMeshBase;
+        }
+
+        public void PutWeaponInScabbard(IEquippable inItem,out IEquippable itemOut)
+        {
+            itemOut = _itemInScabbard;
+            if (inItem!=null)
+            {
+                
+                _scabbardMesh.sharedMesh = inItem.ItemMesh;
+                _itemInScabbard = inItem;
+            }
+            else
+            {
+                _scabbardMesh.sharedMesh = null;
+                _itemInScabbard = null;
+            }
+        }
+
+        public void GetWeaponOutScabbard(out IEquippable itemOut)
+        {
+            itemOut = _itemInScabbard;
+            if (ItemInScabbard != null)
+            {
+                _itemInScabbard = null;
+                _scabbardMesh.sharedMesh = null;
+            }
+        }
+        public void EmptyTheScabbard()
+        {
+            _itemInScabbard = null;
+            _scabbardMesh.sharedMesh = null;
         }
     }
 }
