@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2161108200f853c48899f57f8710c091, type: 3}
+  m_Name: Elf_Wood
+  m_EditorClassIdentifier: 
+  NameOfRace: Elf_Wood
+  BaseMaterialOfRace: {fileID: 2100000, guid: 8c10d0579a1faa547b0825e1e3a93c76, type: 2}
+  ColourMaterial:
+  - {fileID: 2100000, guid: 1301ad7b16c46434cb8f94ddb5177a79, type: 2}
+  - {fileID: 2100000, guid: 24f199eee8c3f98418feb90da1409645, type: 2}
+  - {fileID: 2100000, guid: bf7c8d241177ca64db6d64c08a7e7be4, type: 2}
+  - {fileID: 2100000, guid: f54c964631574ee46a2ba047c5b7e1de, type: 2}
+  - {fileID: 2100000, guid: 1ab2e3605d034d14b895e7bbdefb176d, type: 2}
+  - {fileID: 2100000, guid: 79606b672172dc34eb5620c8dc355e78, type: 2}
+  - {fileID: 2100000, guid: c2f779eb6512d89409f55a5c58464741, type: 2}
+  - {fileID: 2100000, guid: db2600081ac82314c9ea7737a5adceff, type: 2}
