@@ -1,6 +1,4 @@
-﻿using System;
-using Controllers.BaseUnit;
-using Controllers.OutPost;
+﻿using Controllers.BaseUnit;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using Views.Outpost;
@@ -10,11 +8,11 @@ namespace Controllers
     public class InputController: MonoBehaviour
     {
         [SerializeField] private BaseUnitSpawner _spawner;
-        [SerializeField] private BuildingGrid _buildingGrid;
+        //[SerializeField] private BuildingGrid _buildingGrid;
         
         private void Update()
         {
-            if(Input.GetMouseButtonDown(0) && !_buildingGrid.IsFlyingBuildingTrue()){
+            if(Input.GetMouseButtonDown(0)){
                 RaycastHit hit;
                 Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             

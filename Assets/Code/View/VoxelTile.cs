@@ -9,6 +9,9 @@ public class VoxelTile : MonoBehaviour
     private float offset = 0.1f;
     private byte [] _tablePassAccess = new byte[4];
     private int sizeTile;
+    private float _sizeTileY;
+
+    public float SizeTileY => _sizeTileY;
 
     public int SizeTile => sizeTile;
 
@@ -25,6 +28,7 @@ public class VoxelTile : MonoBehaviour
     {
         var meshCollider = GetComponentInChildren<MeshCollider>();
         var bounds = meshCollider.bounds;
+        _sizeTileY = bounds.max.y;
         sizeTile = (int) bounds.size.x;
         if (!CheckRoad(new Vector3(bounds.center.x, bounds.center.y + bounds.center.y/2, bounds.min.z - offset), forward))
         {

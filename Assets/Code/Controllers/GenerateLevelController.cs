@@ -1,40 +1,40 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
-using Random = UnityEngine.Random;
 
-public class GeneratLevel : MonoBehaviour
+public class GenerateLevelController : IOnController, IOnStart, IOnLateUpdate
 {
-    [SerializeField] private Transform _parentForTilesObject;
-    [SerializeField] private VoxelTile[] TilePrefabs;
-    [SerializeField] private NavMeshSurface _navMesh;
-    [SerializeField] private Button buttonRespawn;
-    [SerializeField] private GameObject MainTower;
-    
-    [SerializeField] private Transform _canvas;
-    [SerializeField] private RightUI _rightUI;
-
-    public int MapSizeX = 200;
-    public int MapSizeY = 200;
-    
-    private VoxelTile[,] _spawnedTiles;
-    private int _offsetInstanceTiles;
     private VoxelTile _firstTile;
-
+    private List<VoxelTile> _voxelTiles = new List<VoxelTile>();
+    private VoxelTile[,] _spawnedTiles;
+    private GameConfig _gameConfig;
+    private int _offsetInstanceTiles;
+    private Button buttonRespawn;
+    private RightUI _rightUI;
+    private Transform _canvas;
+    private NavMeshSurface _navMesh;
+    private BtnUIController _btnUIController;
     private Dictionary<Button, Vector3> _spawnedButtons = new Dictionary<Button, Vector3>();
-
-    private void Awake()
+    
+    public GenerateLevelController(List<VoxelTile> tiles, GameConfig gameConfig, RightUI rightUI,
+        BtnUIController btnUIController, Transform canvas, NavMeshSurface navMesh)
     {
-        _rightUI.FirstBtnSprite = TilePrefabs[0].IconTile;
-        _rightUI.SecondBtnSprite = TilePrefabs[1].IconTile;
-        _rightUI.ThirdBtnSprite = TilePrefabs[2].IconTile;
+        _spawnedTiles = new VoxelTile[gameConfig.MapSizeX,gameConfig.MapSizeY];
+        _voxelTiles = tiles;
+        _gameConfig = gameConfig;
+        _offsetInstanceTiles = _voxelTiles[0].SizeTile;
+        _rightUI = rightUI;
+        _btnUIController = btnUIController;
+        buttonRespawn = gameConfig.ButtonSpawn;
+        _canvas = canvas;
+        _navMesh = navMesh;
     }
-
-    private void Start()
+    
+    public void OnStart()
     {
-        _rightUI.TileSelected += SelectFirstTile;
+        GameObject.Instantiate(buttonRespawn);
+        _btnUIController.TileSelected += SelectFirstTile;
     }
     
     private void SelectFirstTile(int numTile)
@@ -42,35 +42,34 @@ public class GeneratLevel : MonoBehaviour
         switch (numTile)
         {
             case 0:
-                _firstTile = TilePrefabs[numTile];
+                _firstTile = _voxelTiles[numTile];
                 break;
             case 1:
-                _firstTile = TilePrefabs[numTile];
+                _firstTile = _voxelTiles[numTile];
                 break;
             case 2:
-                _firstTile = TilePrefabs[numTile];
+                _firstTile = _voxelTiles[numTile];
                 break;
         }
         PlaceFirstTile(_firstTile);
-        _rightUI.TileSelected -= SelectFirstTile;
+        _btnUIController.TileSelected -= SelectFirstTile;
         _rightUI.gameObject.SetActive(false);
     }
     
     private void PlaceFirstTile(VoxelTile tile)
     {
-        _spawnedTiles = new VoxelTile[MapSizeX, MapSizeY];
-        _offsetInstanceTiles = TilePrefabs[0].SizeTile;
-        int x = MapSizeX / 2;
-        int y = MapSizeY / 2;
+        //var _offsetInstanceTiles = _voxelTiles[0].SizeTile;
+        int x = _gameConfig.MapSizeX / 2;
+        int y = _gameConfig.MapSizeY / 2;
         if (_spawnedTiles[x, y] == null)
         {
-            _spawnedTiles[x, y] = Instantiate(tile, new Vector3(x, 0, y), 
-                Quaternion.identity, _parentForTilesObject.transform);
+            _spawnedTiles[x, y] = GameObject.Instantiate(tile, new Vector3(x, 0, y), 
+                Quaternion.identity);
             CreateButton(_spawnedTiles[x, y]);
         }
-        Instantiate(MainTower,new Vector3(x, 0, y), Quaternion.identity);
+        GameObject.Instantiate(_gameConfig.MainTower,new Vector3(x, 0, y), Quaternion.identity);
     }
-        
+    
     private void CreateButton(VoxelTile tile)
     {
         int i = 0;
@@ -107,35 +106,35 @@ public class GeneratLevel : MonoBehaviour
         }
         _navMesh.BuildNavMesh();
     }
-
+    
     private void InstansButton(Vector3 posForButton, Vector3 direction, VoxelTile tile, int numOfGroupAvailableTiles)
     {
         if (!_spawnedButtons.ContainsValue(posForButton))
         {
             Vector2 pos = Camera.main.WorldToScreenPoint(posForButton);
-            Button btn = Instantiate(buttonRespawn, pos, Quaternion.identity, _canvas);
+            Button btn = GameObject.Instantiate(buttonRespawn, pos, Quaternion.identity, _canvas);
             _spawnedButtons.Add(btn, posForButton);
             btn.onClick.AddListener(delegate
             {
                 _spawnedButtons.Remove(btn);
                 CreateTile(tile, direction * _offsetInstanceTiles, numOfGroupAvailableTiles);
                 btn.onClick.RemoveAllListeners();
-                Destroy(btn.gameObject);
+                GameObject.Destroy(btn.gameObject);
             });
         }
     }
-
+    
     private void CreateTile(VoxelTile voxelTile, Vector3 spawnPos, int i)
     {
-        var _availableTiles = Extensions.TilesCanBeSet(i, TilePrefabs);
+        var _availableTiles = Extensions.TilesCanBeSet(i, _voxelTiles);
         var pos = new Vector3(voxelTile.transform.position.x + spawnPos.x, 0 , voxelTile.transform.position.z + spawnPos.z);
-        var tile = Instantiate(_availableTiles[Random.Range(0, _availableTiles.Count-1)], pos, Quaternion.identity, _parentForTilesObject.transform);
+        var tile = GameObject.Instantiate(_availableTiles[Random.Range(0, _availableTiles.Count-1)], pos, Quaternion.identity);
         _availableTiles.Clear();
         _spawnedTiles[(int) pos.x, (int) pos.z] = tile;
         CreateButton(tile);
     }
-
-    private void FixedUpdate()
+    
+    public void OnLateUpdate(float deltaTime)
     {
         if (_spawnedButtons.Count != 0)
         {

@@ -1,44 +1,40 @@
 using System;
 using Controllers.OutPost;
 using UnityEngine;
-using UnityEngine.UI;
 using Views.Outpost;
 
-public class BuildingGrid : MonoBehaviour
+public class BuildGenerator : IOnController, IOnUpdate, IDisposable
 {
-    //привязать к размеру поля
-    private Vector2Int _gridSize = new Vector2Int(400, 400);
-    [SerializeField] private Button _buildFirstButton;
-    [SerializeField] private Button _buildSecondButton;
-    [SerializeField] private Building _towerOne;
-    [SerializeField] private Building _towerTwo;
-    [SerializeField] private OutpostSpawner _outpostSpawner;
-    [SerializeField] private LayerMask _layerMask;
-    
+    private LeftUI _leftUI;
     private Camera _mainCamera;
     private Building[,] _grid;
     private Building _flyingBuilding;
-    // сделать привязку к толщине тайла
+    private LayerMask _layerMask;
+
+    private OutpostSpawner _outpostSpawner;
+    //привязать к ширине тайла
     private float _offsetY = 0.1f;
-
-    private void Awake()
+    public BuildGenerator(GameConfig gameConfig, LeftUI leftUI, LayerMask layerMask, OutpostSpawner outpostSpawner)
     {
-        _grid = new Building[_gridSize.x,_gridSize.y];
-        _mainCamera = Camera.main;
-        _buildFirstButton.onClick.AddListener(() => StartPlacingBuild(_towerOne));
-        _buildSecondButton.onClick.AddListener(() => StartPlacingBuild(_towerTwo));
+       _leftUI = leftUI;
+       _grid = new Building[gameConfig.MapSizeX,gameConfig.MapSizeY];
+       _leftUI.BuildFirstButton.onClick.AddListener(() => StartPlacingBuild(gameConfig.BuildFirst));
+       _leftUI.BuildSecondButton.onClick.AddListener(() => StartPlacingBuild(gameConfig.BuildSecond));
+       _layerMask = layerMask;
+       _mainCamera = Camera.main;
+       _outpostSpawner = outpostSpawner;
     }
-
+    
     public void StartPlacingBuild(Building build)
     {
         if (_flyingBuilding != null)
         {
-            Destroy(_flyingBuilding.gameObject);
+            GameObject.Destroy(_flyingBuilding.gameObject);
         }
-        _flyingBuilding = Instantiate(build);
+        _flyingBuilding = GameObject.Instantiate(build);
     }
 
-    private void Update()
+    public void OnUpdate(float deltaTime)
     {
         if (_flyingBuilding != null)
         {
@@ -74,13 +70,7 @@ public class BuildingGrid : MonoBehaviour
             }
         }
     }
-
-    private void OnDestroy()
-    {
-        _buildFirstButton.onClick.RemoveAllListeners();
-        _buildSecondButton.onClick.RemoveAllListeners();
-    }
-
+    
     public bool IsFlyingBuildingTrue()
     {
         if (_flyingBuilding != null)
@@ -88,5 +78,11 @@ public class BuildingGrid : MonoBehaviour
             return true;
         }
         return false;
+    }
+
+    public void Dispose()
+    {
+        _leftUI.BuildFirstButton.onClick.RemoveAllListeners();
+        _leftUI.BuildSecondButton.onClick.RemoveAllListeners();
     }
 }
