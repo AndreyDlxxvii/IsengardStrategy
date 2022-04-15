@@ -5,19 +5,22 @@ using Views.Outpost;
 
 public class BuildGenerator : IOnController, IOnUpdate, IDisposable
 {
+    public BaseBuildAndResources[,] Buildings => _buildings;
+
     private LeftUI _leftUI;
     private Camera _mainCamera;
-    private Building[,] _grid;
+    private BaseBuildAndResources[,] _buildings;
     private Building _flyingBuilding;
     private LayerMask _layerMask;
+    
 
     private OutpostSpawner _outpostSpawner;
     //привязать к ширине тайла
     private float _offsetY = 0.1f;
     public BuildGenerator(GameConfig gameConfig, LeftUI leftUI, LayerMask layerMask, OutpostSpawner outpostSpawner)
     {
-       _leftUI = leftUI;
-       _grid = new Building[gameConfig.MapSizeX,gameConfig.MapSizeY];
+        _leftUI = leftUI;
+       _buildings = new BaseBuildAndResources[gameConfig.MapSizeX,gameConfig.MapSizeY];
        _leftUI.BuildFirstButton.onClick.AddListener(() => StartPlacingBuild(gameConfig.BuildFirst));
        _leftUI.BuildSecondButton.onClick.AddListener(() => StartPlacingBuild(gameConfig.BuildSecond));
        _layerMask = layerMask;
@@ -48,7 +51,7 @@ public class BuildGenerator : IOnController, IOnUpdate, IDisposable
                 int y = Mathf.RoundToInt(worldPosition.z);
                 _flyingBuilding.transform.position = new Vector3(x, _offsetY, y);
                 _flyingBuilding.SetAvailableToInstant(false);
-                if (position.point.y > _offsetY && _grid[x, y] == null)
+                if (position.point.y > _offsetY && _buildings[x, y] == null)
                 {
                     _flyingBuilding.SetAvailableToInstant(true);
                     if (Input.GetMouseButtonDown(0))
@@ -57,7 +60,7 @@ public class BuildGenerator : IOnController, IOnUpdate, IDisposable
                         Vector3 pointDestination = new Vector3(position.transform.parent.position.x - _flyingBuilding.transform.position.x, 
                             0f, position.transform.parent.position.z - _flyingBuilding.transform.position.z);
                         _flyingBuilding.SetPointDestination(pointDestination);
-                        _grid[x, y] = _flyingBuilding;
+                        _buildings[x, y] = _flyingBuilding;
                         _flyingBuilding.SetNormalColor();
                         var outpost = _flyingBuilding.gameObject.GetComponentInChildren<OutpostUnitView>();
                         _flyingBuilding = null;

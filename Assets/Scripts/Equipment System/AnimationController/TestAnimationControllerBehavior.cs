@@ -19,7 +19,6 @@ public class TestAnimationControllerBehavior : MonoBehaviour
     [SerializeField]
     private TMP_Text actualLayerTxt;
 
-    
 
     private int MeleeWeaponLayerID, ArcherLayerID, MageLayerID, WorkerLayerID, SpearmanLayerID;
 

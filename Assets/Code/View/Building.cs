@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.AI;
 
-public class Building : MonoBehaviour
+public class Building : BaseBuildAndResources
 {
     [SerializeField] private Renderer _renderer;
     [SerializeField] private NavMeshLink _navMeshLink;

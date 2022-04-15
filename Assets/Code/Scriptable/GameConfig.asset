@@ -33,3 +33,4 @@ MonoBehaviour:
   _secondTile: {fileID: -6104903246962966021, guid: ee29be7304bc0dc499261176c0615f8e, type: 3}
   _buttonSpawn: {fileID: 1890798190433461583, guid: e0355dfbe59adbe4c956e04c9dd3f279, type: 3}
   _thirdTile: {fileID: 5422724862020434414, guid: 3ab4f4b1ac8d769459501f42fe40ef79, type: 3}
+  _mineral: {fileID: 8600777841807425801, guid: 77aba7449117f4d4ba692a9bf4ab20be, type: 3}

@@ -14,8 +14,11 @@ public class GameConfig : ScriptableObject
     [SerializeField] private VoxelTile _secondTile;
     [SerializeField] private Button _buttonSpawn;
     [SerializeField] private VoxelTile _thirdTile;
-    
-    
+    [SerializeField] private Mineral _mineral;
+
+    public Mineral Mineral => _mineral;
+
+
     public Button ButtonSpawn => _buttonSpawn;
 
     public Building BuildFirst => _buildFirst;
