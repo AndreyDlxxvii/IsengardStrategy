@@ -7,33 +7,39 @@ using Views.Outpost;
 
 namespace Controllers.BaseUnit
 {
-    public class BaseUnitSpawner: MonoBehaviour
+    public class BaseUnitSpawner: IOnController, IOnStart, IDisposable
     {
         #region Fields
         
-        [SerializeField] private GameObject _unitPrefab;
-        [SerializeField] private Transform _whereToSpawn;
-        [SerializeField] private UnitController _unitController;
-        [SerializeField] private OutpostSpawner _outpostSpawner;
+        private GameObject _unitPrefab;
+        private Vector3 _whereToSpawn;
+        private UnitController _unitController;
+        private OutpostSpawner _outpostSpawner;
         private BaseUnitFactory _baseUnitFactory;
+        private bool _flag;
         public Action<int,Vector3> unitWasSpawned;
-        [NonSerialized]
         public int SpawnIsActiveIndex;
 
-        private bool _flag;
-        
         #endregion
 
 
         #region UnityMethods
 
-        private void Awake()
+        public BaseUnitSpawner(GameConfig gameConfig,UnitController unitController, OutpostSpawner outpostSpawner,GameObject unitPrefab)
+        {
+            _whereToSpawn = new Vector3(gameConfig.MapSizeX / 2.0f,0,gameConfig.MapSizeY / 2.0f);
+            _unitController = unitController;
+            _unitController.BaseUnitSpawner = this;
+            _outpostSpawner = outpostSpawner;
+            _unitPrefab = unitPrefab;
+        }
+        
+        public void OnStart()
         {
             _baseUnitFactory = new BaseUnitFactory();
-            _unitController.BaseUnitSpawner = this;
         }
 
-        private void OnDestroy()
+        public void Dispose()
         {
             foreach (var outpost in _outpostSpawner.OutPostUnitControllers)
             {
@@ -77,10 +83,11 @@ namespace Controllers.BaseUnit
         {
             var movementHolder = gameObject.GetComponent<UnitMovement>();
             var animHolder = gameObject.GetComponent<UnitAnimation>();
-            _unitController.GetBaseUnitController().Add(new BaseUnitController(
+            var listOfUnitC = _unitController.GetBaseUnitController();
+            listOfUnitC.Add(new BaseUnitController(
                 _outpostSpawner.OutPostUnitControllers[SpawnIsActiveIndex].UiSpawnerTest.Model,movementHolder,
                 animHolder));
-            unitWasSpawned.Invoke(_unitController.GetBaseUnitController().Count-1,endPos);
+            unitWasSpawned.Invoke(listOfUnitC.Count-1,endPos);
         }
 
         #endregion

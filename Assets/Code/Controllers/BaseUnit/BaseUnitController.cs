@@ -1,20 +1,18 @@
-﻿using System;
-using Enums.BaseUnit;
-using Interfaces;
+﻿using Enums.BaseUnit;
 using Models.BaseUnit;
 using UnityEngine;
 using Views.BaseUnit;
 
 namespace Controllers.BaseUnit
 {
-    public class BaseUnitController: IInitialization, IExecute
+    public class BaseUnitController: IOnController,IOnStart, IOnUpdate
     {
         #region Fields
 
         private UnitStates _currentUnitState;
         private BaseUnitModel _unitModel;
-        public UnitMovement UnitMovementView;
-        public UnitAnimation UnitAnimation;
+        private UnitMovement _unitMovementView;
+        private UnitAnimation _unitAnimation;
 
         #endregion
 
@@ -23,8 +21,8 @@ namespace Controllers.BaseUnit
         public BaseUnitController(BaseUnitModel baseUnitModel, UnitMovement unitMovement, UnitAnimation unitAnimation)
         {
             _unitModel = baseUnitModel;
-            UnitMovementView =  unitMovement;
-            UnitAnimation = unitAnimation;
+            _unitMovementView =  unitMovement;
+            _unitAnimation = unitAnimation;
         }
 
         #endregion
@@ -32,12 +30,14 @@ namespace Controllers.BaseUnit
 
         #region Interfaces
 
-        public void Initialize()
+        public void OnStart()
         {
+            
         }
 
-        public void Execute()
+        public void OnUpdate(float deltaTime)
         {
+            
         }
 
         #endregion
@@ -64,7 +64,12 @@ namespace Controllers.BaseUnit
             }
         }
 
-        #endregion
+        public void SetDestination(Vector3 whereToGo)
+        {
+            _unitMovementView.pointWhereToGo = whereToGo;
+            _unitMovementView.SetThePointWhereToGo();
+        }
         
+        #endregion
     }
 }

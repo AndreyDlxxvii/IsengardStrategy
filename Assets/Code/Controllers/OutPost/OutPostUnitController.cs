@@ -1,34 +1,31 @@
 ﻿using System;
-using Data;
-using Interfaces;
 using UnityEngine;
+using Views.BaseUnit;
 using Views.BaseUnit.UI;
 using Views.Outpost;
 
 namespace Controllers.OutPost
 {
-    public class OutPostUnitController: IInitialization, IDisposable
+    public class OutPostUnitController: IOnController, IDisposable
     {
         private int index;
         private int _currentCountOfNPC = 0;
         public UnitUISpawnerTest UiSpawnerTest;
         public OutpostUnitView OutpostUnitView;
         public Action<Vector3> Transaction;
-        
-        
-        public OutPostUnitController(int index,OutpostUnitView outpostUnitView)
+
+        public OutPostUnitController(int index,OutpostUnitView outpostUnitView,UnitUISpawnerTest uiSpawnerTest)
         {
             OutpostUnitView = outpostUnitView;
             OutpostUnitView.IndexInArray = index;
-        }
-        
-        public void Initialize()
-        {
+            OutpostUnitView.UnitInZone += OutpostViewDetection;
+            UiSpawnerTest = uiSpawnerTest;
             UiSpawnerTest.spawnUnit += BuyAUnit;
         }
 
         public void Dispose()
         {
+            OutpostUnitView.UnitInZone -= OutpostViewDetection;
             UiSpawnerTest.spawnUnit -= BuyAUnit;
         }
         
@@ -45,5 +42,11 @@ namespace Controllers.OutPost
                 Transaction.Invoke(OutpostUnitView.gameObject.transform.position);
             }
         }
+
+        private void OutpostViewDetection(UnitMovement unitMovement)
+        {
+            unitMovement.EnterWorkZone.Invoke();
+        }
+        
     }
 }

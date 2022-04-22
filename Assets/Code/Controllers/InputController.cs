@@ -5,12 +5,16 @@ using Views.Outpost;
 
 namespace Controllers
 {
-    public class InputController: MonoBehaviour
+    public class InputController: IOnController , IOnUpdate
     {
-        [SerializeField] private BaseUnitSpawner _spawner;
-        //[SerializeField] private BuildingGrid _buildingGrid;
-        
-        private void Update()
+        private BaseUnitSpawner _spawner;
+
+        public InputController(BaseUnitSpawner baseUnitSpawner)
+        {
+            _spawner = baseUnitSpawner;
+        }
+
+        public void OnUpdate(float deltaTime)
         {
             if(Input.GetMouseButtonDown(0)){
                 RaycastHit hit;
@@ -33,5 +37,6 @@ namespace Controllers
         
             }
         }
+
     }
 }

@@ -5,36 +5,39 @@ using UnityEngine;
 
 namespace Controllers.BaseUnit
 {
-    public class UnitController: MonoBehaviour
+    public class UnitController: IOnController, IOnStart, IDisposable
     {
 
         #region Fields
 
         private List<BaseUnitController> _baseUnitControllers;
-        [NonSerialized] public BaseUnitSpawner BaseUnitSpawner;
+        public BaseUnitSpawner BaseUnitSpawner;
 
         #endregion
 
 
         #region UnityMethods
 
-        private void Awake()
+        public UnitController()
         {
             _baseUnitControllers = new List<BaseUnitController>();
         }
-
-        private void Start()
+        
+        public void OnStart()
         {
             BaseUnitSpawner.unitWasSpawned += SetCommandLooking;
         }
-
-        private void OnDestroy()
+        
+        public void Dispose()
         {
             BaseUnitSpawner.unitWasSpawned -= SetCommandLooking;
         }
-        
+
         #endregion
-        
+
+
+        #region Methods
+
         private void SetCommandLooking(int id, Vector3 endPos)
         {
             SetEndPosition(id,endPos);
@@ -48,8 +51,9 @@ namespace Controllers.BaseUnit
         private void SetEndPosition(int id, Vector3 endpos)
         {
             _baseUnitControllers[id].SetStateMachine(UnitStates.MOVING);
-            _baseUnitControllers[id].UnitMovementView.pointWhereToGo = endpos;
-            _baseUnitControllers[id].UnitMovementView.SetThePointWhereToGo();
+            _baseUnitControllers[id].SetDestination(endpos);
         }
+
+        #endregion
     }
 }

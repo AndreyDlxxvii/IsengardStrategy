@@ -1,6 +1,7 @@
 using Controllers.OutPost;
 using UnityEngine;
 using UnityEngine.AI;
+using Views.BaseUnit.UI;
 
 public class Main : MonoBehaviour
 {
@@ -10,13 +11,13 @@ public class Main : MonoBehaviour
     [SerializeField] private Transform _canvas;
     [SerializeField] private LeftUI _leftUI;
     [SerializeField] private LayerMask _layerMaskTiles;
-    [SerializeField] private OutpostSpawner _outpostSpawner;
+    [SerializeField] private UnitUISpawnerTest _unitUISpawnerTest;
     private Controller _controllers;
 
     private void Start()
     {
         _controllers = new Controller();
-        new GameInit(_controllers, _gameConfig, _rightUI, _navMeshSurface, _canvas, _leftUI, _layerMaskTiles, _outpostSpawner);
+        new GameInit(_controllers, _gameConfig, _rightUI, _navMeshSurface, _canvas, _leftUI, _layerMaskTiles,_unitUISpawnerTest);
         _controllers.OnStart();
     }
 
