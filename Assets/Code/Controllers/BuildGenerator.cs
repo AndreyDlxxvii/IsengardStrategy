@@ -5,6 +5,7 @@ using Views.Outpost;
 
 public class BuildGenerator : IOnController, IOnUpdate, IDisposable
 {
+    //возможно переполнение массива при большом количестве зданий и ресурсов
     public BaseBuildAndResources[,] Buildings => _buildings;
 
     private LeftUI _leftUI;

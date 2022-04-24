@@ -11,6 +11,10 @@ public class VoxelTile : MonoBehaviour
     private int sizeTile;
     private float _sizeTileY;
 
+    public int NumZone { get; set; }
+
+    public int WeightTile { get; set; }
+
     public float SizeTileY => _sizeTileY;
 
     public int SizeTile => sizeTile;

@@ -1,7 +1,10 @@
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public class GeneratorLevelController : IOnController, IOnStart, IOnLateUpdate
 {
@@ -9,7 +12,7 @@ public class GeneratorLevelController : IOnController, IOnStart, IOnLateUpdate
 
     private List<VoxelTile> _positionSpawnedTiles = new List<VoxelTile>();
     private VoxelTile _firstTile;
-    private List<VoxelTile> _voxelTiles = new List<VoxelTile>();
+    private List<VoxelTile> _voxelTiles;
     private VoxelTile[,] _spawnedTiles;
     private GameConfig _gameConfig;
     private int _offsetInstanceTiles;
@@ -19,7 +22,11 @@ public class GeneratorLevelController : IOnController, IOnStart, IOnLateUpdate
     private NavMeshSurface _navMesh;
     private BtnUIController _btnUIController;
     private Dictionary<Button, Vector3> _spawnedButtons = new Dictionary<Button, Vector3>();
-    
+    private int count = 0;
+    private VoxelTile prefab;
+
+    public event Action<VoxelTile> SpawnResources; 
+
     public GeneratorLevelController(List<VoxelTile> tiles, GameConfig gameConfig, RightUI rightUI,
         BtnUIController btnUIController, Transform canvas, NavMeshSurface navMesh)
     {
@@ -67,14 +74,17 @@ public class GeneratorLevelController : IOnController, IOnStart, IOnLateUpdate
         {
             _spawnedTiles[x, y] = GameObject.Instantiate(tile, new Vector3(x, 0, y), 
                 Quaternion.identity);
+            _spawnedTiles[x, y].NumZone = 1;
             _positionSpawnedTiles.Add(_spawnedTiles[x, y]);
             CreateButton(_spawnedTiles[x, y]);
         }
+        SpawnResources?.Invoke(_spawnedTiles[x, y]);
         GameObject.Instantiate(_gameConfig.MainTower,new Vector3(x, 0, y), Quaternion.identity);
     }
     
     private void CreateButton(VoxelTile tile)
     {
+        var tilePosition = tile.transform.position;
         int i = 0;
         foreach (var ell in tile.TablePassAccess)
         {
@@ -85,22 +95,22 @@ public class GeneratorLevelController : IOnController, IOnStart, IOnLateUpdate
                 case 1:
                     if (i == 0 && Extensions.CheckEmptyPosition(tile, 0, -_offsetInstanceTiles, _spawnedTiles))
                     {
-                        Vector3 posToSpawnBtn = new Vector3(tile.transform.position.x, tile.transform.position.y, tile.transform.position.z - _offsetInstanceTiles);
+                        Vector3 posToSpawnBtn = new Vector3(tilePosition.x, tilePosition.y, tilePosition.z - _offsetInstanceTiles);
                         InstansButton(posToSpawnBtn, Vector3.back, tile, i);
                     }
                     else if (i == 1 && Extensions.CheckEmptyPosition(tile, -_offsetInstanceTiles, 0, _spawnedTiles))
                     {
-                        Vector3 posToSpawnBtn = new Vector3(tile.transform.position.x - _offsetInstanceTiles, tile.transform.position.y, tile.transform.position.z);
+                        Vector3 posToSpawnBtn = new Vector3(tilePosition.x - _offsetInstanceTiles, tilePosition.y, tilePosition.z);
                         InstansButton(posToSpawnBtn, Vector3.left, tile, i);
                     }
                     else if (i == 2 && Extensions.CheckEmptyPosition(tile, 0, _offsetInstanceTiles, _spawnedTiles))
                     {
-                        Vector3 posToSpawnBtn = new Vector3(tile.transform.position.x, tile.transform.position.y, tile.transform.position.z + _offsetInstanceTiles);
+                        Vector3 posToSpawnBtn = new Vector3(tilePosition.x, tilePosition.y, tilePosition.z + _offsetInstanceTiles);
                         InstansButton(posToSpawnBtn, Vector3.forward, tile, i);
                     }
                     else if (i == 3 && Extensions.CheckEmptyPosition(tile, _offsetInstanceTiles, 0, _spawnedTiles))
                     {
-                        Vector3 posToSpawnBtn = new Vector3(tile.transform.position.x + _offsetInstanceTiles, tile.transform.position.y, tile.transform.position.z);
+                        Vector3 posToSpawnBtn = new Vector3(tilePosition.x + _offsetInstanceTiles, tilePosition.y, tilePosition.z);
                         InstansButton(posToSpawnBtn, Vector3.right, tile, i);
                     } 
                     break;
@@ -131,10 +141,50 @@ public class GeneratorLevelController : IOnController, IOnStart, IOnLateUpdate
     {
         var _availableTiles = Extensions.TilesCanBeSet(i, _voxelTiles);
         var pos = new Vector3(voxelTile.transform.position.x + spawnPos.x, 0 , voxelTile.transform.position.z + spawnPos.z);
-        var tile = GameObject.Instantiate(_availableTiles[Random.Range(0, _availableTiles.Count-1)], pos, Quaternion.identity);
+        byte[] test = {0, 1, 0, 1};
+        byte[] testSecond = {1, 0, 1, 0};
+        if (count < 2)
+        {
+            foreach (var tilePrefab in _availableTiles)
+            {
+                if (Enumerable.SequenceEqual(tilePrefab.TablePassAccess, test) | Enumerable.SequenceEqual(tilePrefab.TablePassAccess, testSecond))
+                {
+                    prefab = tilePrefab;
+                    
+                    break;
+                }
+                prefab = _availableTiles[Random.Range(0, _availableTiles.Count)];
+            }
+
+            count++;
+        }
+        else
+        {
+            prefab = _availableTiles[Random.Range(0, _availableTiles.Count)];
+            //возможность бесконечного цикла
+            while (Enumerable.SequenceEqual(prefab.TablePassAccess, test) | Enumerable.SequenceEqual(prefab.TablePassAccess, testSecond))
+            {
+                prefab = _availableTiles[Random.Range(0, _availableTiles.Count)];
+            }
+            count = 0;
+        }
+        var tile = GameObject.Instantiate(prefab, pos, Quaternion.identity);
+        
+        //расчет веса тайла для генерации ресурсов по Николаю
+        tile.NumZone = voxelTile.NumZone + 1;
+        if (tile.NumZone==2)
+        {
+            tile.WeightTile = 5;
+        }
+        else
+        {
+            tile.WeightTile = 5 * (tile.NumZone - 1);
+        }
+        
         _availableTiles.Clear();
         _spawnedTiles[(int) pos.x, (int) pos.z] = tile;
         _positionSpawnedTiles.Add(tile);
+        SpawnResources?.Invoke(tile);
         CreateButton(tile);
     }
     

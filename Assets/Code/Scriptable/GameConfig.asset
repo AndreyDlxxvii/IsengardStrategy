@@ -33,4 +33,26 @@ MonoBehaviour:
   _secondTile: {fileID: -6104903246962966021, guid: ee29be7304bc0dc499261176c0615f8e, type: 3}
   _buttonSpawn: {fileID: 1890798190433461583, guid: e0355dfbe59adbe4c956e04c9dd3f279, type: 3}
   _thirdTile: {fileID: 5422724862020434414, guid: 3ab4f4b1ac8d769459501f42fe40ef79, type: 3}
-  _mineral: {fileID: 8600777841807425801, guid: 77aba7449117f4d4ba692a9bf4ab20be, type: 3}
+  _mineralT1:
+  - {fileID: 8600777841807425801, guid: d684e4a283cc43b41ae2e5bc2d784e81, type: 3}
+  - {fileID: 8600777841807425801, guid: c969f80e373ace14c9ef13b8b8f6a191, type: 3}
+  _mineralT2:
+  - {fileID: 8600777841807425801, guid: d51b15c221863a94eaf34838669b467f, type: 3}
+  - {fileID: 8600777841807425801, guid: 9e304982b4473154d878190830cda55c, type: 3}
+  _mineralT3:
+  - {fileID: 8600777841807425801, guid: b45820cc50f5bb9459dfea33b0b5f36f, type: 3}
+  _tearOneWeightVariantNik: 0.75
+  _tearTwoWeightVariantNik: 0.23
+  _tearThirdWeightVariantNik: 0.02
+  _changeVariant: 1
+  _tearOneWeightSecondVariant: 0.75
+  _tearTwoWeightSecondVariant: 0.49
+  _tearThirdWeightSecondVariant: 0.02
+  _annotation: "\u0415\u0441\u043B\u0438 \u0432s\u043A\u043B\u044E\u0447\u0435\u043D\u043E,
+    \u0442\u043E \u0432\u0430\u0440\u0438\u0430\u043D\u0442 \u041D\u0438\u043A\u043E\u043B\u0430\u044F
+    \u0438 \u0441\u0443\u043C\u043C\u0430 \u0432\u0435\u0441\u043E\u0432 \u0434\u043E\u043B\u0436\u043D\u0430
+    \u0440\u0430\u0432\u043D\u044F\u0442\u044C\u0441\u044F 1, \u0435\u0441\u043B\u0438
+    \u0432\u043A\u043B\u044E\u0447\u0435\u043D\u043E, \u0442\u043E \u0432\u0430\u0440\u0438\u0430\u043D\u0442
+    \u0418\u043E\u0430\u043D\u043D\u0430,  1 - \u0441\u0443\u043C\u043C\u0430 \u0432\u0441\u0435\u0445
+    \u0432\u0435\u0441\u043E\u0432 = \u0432\u0435\u0440\u043E\u044F\u0442\u043D\u043E\u0441\u0442\u0438
+    \u0441\u043F\u0430\u0432\u043D\u0430 \u043F\u0443\u0441\u0442\u043E\u0442\u044B"
