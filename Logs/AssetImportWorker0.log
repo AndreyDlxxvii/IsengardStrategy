@@ -15,11 +15,11 @@ C:/GitHub/IsengardStrategy
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-50202
+58327
 Successfully changed project path to: C:/GitHub/IsengardStrategy
 C:/GitHub/IsengardStrategy
 Using Asset Import Pipeline V2.
-Refreshing native plugins compatible for Editor in 57.37 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 56.70 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2020.3.29f1 (2ff179115da0)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2020.3.29f1/Editor/Data/Resources/UnitySubsystems
@@ -35,74 +35,74 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2020.3.29f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2020.3.29f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2020.3.29f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56116
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56420
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.3.29f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
 Registered in 0.003684 seconds.
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 56.48 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 54.45 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  0.819 seconds
+- Completed reload, in  0.814 seconds
 Domain Reload Profiling:
-	ReloadAssembly (820ms)
-		BeginReloadAssembly (100ms)
+	ReloadAssembly (815ms)
+		BeginReloadAssembly (93ms)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (0ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (2ms)
-		EndReloadAssembly (615ms)
-			LoadAssemblies (95ms)
+			CreateAndSetChildDomain (1ms)
+		EndReloadAssembly (616ms)
+			LoadAssemblies (89ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (197ms)
+			SetupTypeCache (198ms)
 			ReleaseScriptCaches (0ms)
-			RebuildScriptCaches (51ms)
-			SetupLoadedEditorAssemblies (233ms)
+			RebuildScriptCaches (50ms)
+			SetupLoadedEditorAssemblies (232ms)
 				LogAssemblyErrors (0ms)
 				InitializePlatformSupportModulesInManaged (7ms)
-				SetLoadedEditorAssemblies (1ms)
-				RefreshPlugins (57ms)
-				BeforeProcessingInitializeOnLoad (17ms)
-				ProcessInitializeOnLoadAttributes (117ms)
-				ProcessInitializeOnLoadMethodAttributes (35ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (55ms)
+				BeforeProcessingInitializeOnLoad (16ms)
+				ProcessInitializeOnLoadAttributes (116ms)
+				ProcessInitializeOnLoadMethodAttributes (37ms)
 				AfterProcessingInitializeOnLoad (0ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
 			AwakeInstancesAfterBackupRestoration (0ms)
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.005326 seconds.
+Registered in 0.004903 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.45 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 0.52 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.321 seconds
+- Completed reload, in  1.342 seconds
 Domain Reload Profiling:
-	ReloadAssembly (1322ms)
-		BeginReloadAssembly (209ms)
+	ReloadAssembly (1343ms)
+		BeginReloadAssembly (212ms)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (6ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (24ms)
-		EndReloadAssembly (1024ms)
-			LoadAssemblies (131ms)
+			CreateAndSetChildDomain (25ms)
+		EndReloadAssembly (1045ms)
+			LoadAssemblies (143ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (321ms)
+			SetupTypeCache (356ms)
 			ReleaseScriptCaches (0ms)
-			RebuildScriptCaches (59ms)
-			SetupLoadedEditorAssemblies (415ms)
+			RebuildScriptCaches (60ms)
+			SetupLoadedEditorAssemblies (397ms)
 				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (6ms)
+				InitializePlatformSupportModulesInManaged (7ms)
 				SetLoadedEditorAssemblies (1ms)
 				RefreshPlugins (1ms)
-				BeforeProcessingInitializeOnLoad (117ms)
-				ProcessInitializeOnLoadAttributes (265ms)
-				ProcessInitializeOnLoadMethodAttributes (15ms)
-				AfterProcessingInitializeOnLoad (11ms)
+				BeforeProcessingInitializeOnLoad (112ms)
+				ProcessInitializeOnLoadAttributes (255ms)
+				ProcessInitializeOnLoadMethodAttributes (11ms)
+				AfterProcessingInitializeOnLoad (10ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
 			AwakeInstancesAfterBackupRestoration (8ms)
@@ -110,14 +110,14 @@ Platform modules already initialized, skipping
 ========================================================================
 Worker process is ready to serve import requests
 Launched and connected shader compiler UnityShaderCompiler.exe after 0.08 seconds
-Refreshing native plugins compatible for Editor in 0.52 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 0.49 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 1589 Unused Serialized files (Serialized files now loaded: 0)
 System memory in use before: 85.8 MB.
 System memory in use after: 85.8 MB.
 
 Unloading 16 unused Assets to reduce memory usage. Loaded Objects now: 2041.
-Total: 3.696100 ms (FindLiveObjects: 0.276900 ms CreateObjectMapping: 0.121300 ms MarkObjects: 3.154900 ms  DeleteObjects: 0.142200 ms)
+Total: 3.369500 ms (FindLiveObjects: 0.140800 ms CreateObjectMapping: 0.053800 ms MarkObjects: 3.046600 ms  DeleteObjects: 0.127500 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
@@ -132,88 +132,121 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
 Received Import Request.
-  path: Assets/Prefabs/MineralT1.prefab
-  artifactKey: Guid(c969f80e373ace14c9ef13b8b8f6a191) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/MineralT1.prefab using Guid(c969f80e373ace14c9ef13b8b8f6a191) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bfd29ae2d9dfe28084fe4cec283894dc') in 0.168888 seconds 
-  Import took 0.176802 seconds .
+  path: Assets/Prefabs/Warehouse.prefab
+  artifactKey: Guid(b6337cf5402de7640a955740aa72a575) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Warehouse.prefab using Guid(b6337cf5402de7640a955740aa72a575) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '749d80314bd37cfe146ad8aeb5325ce6') in 0.150395 seconds 
+  Import took 0.158260 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000473 seconds.
-  path: Assets/Prefabs/MineralT1 1.prefab
-  artifactKey: Guid(d684e4a283cc43b41ae2e5bc2d784e81) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/MineralT1 1.prefab using Guid(d684e4a283cc43b41ae2e5bc2d784e81) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8d8dce8154e771591344f82f16b22690') in 0.016639 seconds 
-  Import took 0.021197 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000447 seconds.
-  path: Assets/Prefabs/MineralT3.prefab
-  artifactKey: Guid(b45820cc50f5bb9459dfea33b0b5f36f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/MineralT3.prefab using Guid(b45820cc50f5bb9459dfea33b0b5f36f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7df38e4f87d05649f13a973a8d05273a') in 0.018209 seconds 
-  Import took 0.023225 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000491 seconds.
-  path: Assets/Prefabs/MineralT2 1.prefab
-  artifactKey: Guid(d51b15c221863a94eaf34838669b467f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/MineralT2 1.prefab using Guid(d51b15c221863a94eaf34838669b467f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1c41fe0b46f01ca9a64745ae95e99445') in 0.016031 seconds 
-  Import took 0.022061 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000484 seconds.
-  path: Assets/Prefabs/MineralT2.prefab
-  artifactKey: Guid(9e304982b4473154d878190830cda55c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/MineralT2.prefab using Guid(9e304982b4473154d878190830cda55c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b2159ae41387d52fb1e35e9593e9dc51') in 0.014986 seconds 
-  Import took 0.019447 seconds .
+  Time since last request: 68.376606 seconds.
+  path: Assets/Prefabs/Warehouse.prefab
+  artifactKey: Guid(b6337cf5402de7640a955740aa72a575) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Warehouse.prefab using Guid(b6337cf5402de7640a955740aa72a575) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '41dbb5afa9d06498d1b78d7a8b2f236e') in 0.013883 seconds 
+  Import took 0.022770 seconds .
 
 ========================================================================
 Received Prepare
 Registering precompiled user dll's ...
-Registered in 0.007393 seconds.
+Registered in 0.008522 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.73 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 0.94 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.280 seconds
+- Completed reload, in  1.587 seconds
 Domain Reload Profiling:
-	ReloadAssembly (1280ms)
-		BeginReloadAssembly (169ms)
+	ReloadAssembly (1588ms)
+		BeginReloadAssembly (209ms)
 			ExecutionOrderSort (0ms)
-			DisableScriptedObjects (6ms)
+			DisableScriptedObjects (8ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (47ms)
-		EndReloadAssembly (1023ms)
-			LoadAssemblies (133ms)
+			CreateAndSetChildDomain (62ms)
+		EndReloadAssembly (1247ms)
+			LoadAssemblies (164ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (318ms)
+			SetupTypeCache (499ms)
 			ReleaseScriptCaches (1ms)
-			RebuildScriptCaches (57ms)
-			SetupLoadedEditorAssemblies (414ms)
+			RebuildScriptCaches (60ms)
+			SetupLoadedEditorAssemblies (431ms)
 				LogAssemblyErrors (0ms)
 				InitializePlatformSupportModulesInManaged (6ms)
 				SetLoadedEditorAssemblies (1ms)
 				RefreshPlugins (1ms)
-				BeforeProcessingInitializeOnLoad (117ms)
-				ProcessInitializeOnLoadAttributes (264ms)
-				ProcessInitializeOnLoadMethodAttributes (12ms)
-				AfterProcessingInitializeOnLoad (12ms)
+				BeforeProcessingInitializeOnLoad (128ms)
+				ProcessInitializeOnLoadAttributes (270ms)
+				ProcessInitializeOnLoadMethodAttributes (13ms)
+				AfterProcessingInitializeOnLoad (11ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (10ms)
+			AwakeInstancesAfterBackupRestoration (8ms)
 Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.50 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 0.51 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 1570 Unused Serialized files (Serialized files now loaded: 0)
 System memory in use before: 87.4 MB.
 System memory in use after: 87.5 MB.
 
-Unloading 11 unused Assets to reduce memory usage. Loaded Objects now: 2050.
-Total: 3.306700 ms (FindLiveObjects: 0.289500 ms CreateObjectMapping: 0.083200 ms MarkObjects: 2.882800 ms  DeleteObjects: 0.050200 ms)
+Unloading 12 unused Assets to reduce memory usage. Loaded Objects now: 2051.
+Total: 3.734600 ms (FindLiveObjects: 0.238700 ms CreateObjectMapping: 0.052100 ms MarkObjects: 3.366100 ms  DeleteObjects: 0.076900 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-codec-MediaFoundation-h265: 746d11721c4dcdbdad8f713fa42b33f4 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.004713 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.56 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.219 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1219ms)
+		BeginReloadAssembly (143ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (6ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (38ms)
+		EndReloadAssembly (992ms)
+			LoadAssemblies (127ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (341ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (58ms)
+			SetupLoadedEditorAssemblies (362ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (6ms)
+				SetLoadedEditorAssemblies (1ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (106ms)
+				ProcessInitializeOnLoadAttributes (228ms)
+				ProcessInitializeOnLoadMethodAttributes (11ms)
+				AfterProcessingInitializeOnLoad (10ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (8ms)
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.47 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1570 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 87.4 MB.
+System memory in use after: 87.5 MB.
+
+Unloading 11 unused Assets to reduce memory usage. Loaded Objects now: 2053.
+Total: 3.240300 ms (FindLiveObjects: 0.141900 ms CreateObjectMapping: 0.049200 ms MarkObjects: 3.027700 ms  DeleteObjects: 0.020700 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
@@ -228,10 +261,1723 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
 Received Import Request.
-  Time since last request: 69.836818 seconds.
+  Time since last request: 2902.288138 seconds.
   path: Assets/Code/Scriptable/GameConfig.asset
   artifactKey: Guid(98e5e98fb8896b9469ebb3186cc7dbbd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Code/Scriptable/GameConfig.asset using Guid(98e5e98fb8896b9469ebb3186cc7dbbd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1f091c05b9414e34b8fd3acdf0dc721d') in 0.055555 seconds 
-  Import took 0.063786 seconds .
+Start importing Assets/Code/Scriptable/GameConfig.asset using Guid(98e5e98fb8896b9469ebb3186cc7dbbd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '624057cb43cc323ed0f52481b5f8663f') in 0.072639 seconds 
+  Import took 0.082169 seconds .
 
-AssetImportWorkerClient::OnTransportError - code=2 error=End of file
+========================================================================
+Received Import Request.
+  Time since last request: 3.318844 seconds.
+  path: Assets/Toon_RTS/Barbarians/models/single_mesh/BRB_archer.FBX
+  artifactKey: Guid(2dce5d855f119e045b50344e52ca9076) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Barbarians/models/single_mesh/BRB_archer.FBX using Guid(2dce5d855f119e045b50344e52ca9076) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '11f29f594e0a0923bd166545201b33c3') in 0.191647 seconds 
+  Import took 0.196030 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000399 seconds.
+  path: Assets/Toon_RTS/Barbarians/animation/cavalry_mage/BRB_cavalry_mage_10_death_A.FBX
+  artifactKey: Guid(4d9ddb16ddc436a4086c212f7ebccbd3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Barbarians/animation/cavalry_mage/BRB_cavalry_mage_10_death_A.FBX using Guid(4d9ddb16ddc436a4086c212f7ebccbd3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '46b68845e74f9e3c01c6e5cd035b57f7') in 0.019787 seconds 
+  Import took 0.024017 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000292 seconds.
+  path: Assets/Toon_RTS/Barbarians/animation/archer/BRB_archer_03_run.FBX
+  artifactKey: Guid(864fbdb29e8de2642baf92841170694a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Barbarians/animation/archer/BRB_archer_03_run.FBX using Guid(864fbdb29e8de2642baf92841170694a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6b36cda59e84204fe0d00b89d175a030') in 0.016330 seconds 
+  Import took 0.021190 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000343 seconds.
+  path: Assets/Toon_RTS/Barbarians/animation/cavalry/BRB_cavalry_sword_06_combat_walk.FBX
+  artifactKey: Guid(4b05cbaa111fdcf48aafe48c9f425e0c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Barbarians/animation/cavalry/BRB_cavalry_sword_06_combat_walk.FBX using Guid(4b05cbaa111fdcf48aafe48c9f425e0c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd9cc333aff3639d8ca19a6a04cacfb58') in 0.015902 seconds 
+  Import took 0.021195 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000466 seconds.
+  path: Assets/Toon_RTS/Barbarians/animation/cavalry_mage/BRB_cavalry_mage_11_cast_B.FBX
+  artifactKey: Guid(4090c0ee7411fe44797eda28332dcd20) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Barbarians/animation/cavalry_mage/BRB_cavalry_mage_11_cast_B.FBX using Guid(4090c0ee7411fe44797eda28332dcd20) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd51ae94079da20443125902bf994c353') in 0.013895 seconds 
+  Import took 0.019289 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000348 seconds.
+  path: Assets/Toon_RTS/Barbarians/models/BRB_Cavalry_customizable.FBX
+  artifactKey: Guid(52e118ede3b3f244b8fddf5e1560baa9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Barbarians/models/BRB_Cavalry_customizable.FBX using Guid(52e118ede3b3f244b8fddf5e1560baa9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '62ac7ba888d5b4762a3108bf4d3f3278') in 0.404377 seconds 
+  Import took 0.409235 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000354 seconds.
+  path: Assets/Toon_RTS/Barbarians/animation/cavalry_mage/BRB_cavalry_mage_11_cast_load.FBX
+  artifactKey: Guid(68285d734d6cde948b5cba6c0801d888) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Barbarians/animation/cavalry_mage/BRB_cavalry_mage_11_cast_load.FBX using Guid(68285d734d6cde948b5cba6c0801d888) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7db1174e020716670b3c461769f5eaec') in 0.013350 seconds 
+  Import took 0.017622 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000396 seconds.
+  path: Assets/Toon_RTS/Barbarians/animation/cavalry/BRB_cavalry_sword_04_charge.FBX
+  artifactKey: Guid(62ef4766b6740ac41891258db8bb6f69) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Barbarians/animation/cavalry/BRB_cavalry_sword_04_charge.FBX using Guid(62ef4766b6740ac41891258db8bb6f69) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '43fb433f92139210ed648d546aa2cea4') in 0.013797 seconds 
+  Import took 0.019806 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000362 seconds.
+  path: Assets/Toon_RTS/Barbarians/animation/cavalry_mage/BRB_cavalry_mage_03_run.FBX
+  artifactKey: Guid(66106bd4fae12364da863e4583fee5cf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Barbarians/animation/cavalry_mage/BRB_cavalry_mage_03_run.FBX using Guid(66106bd4fae12364da863e4583fee5cf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '008f8126e8b5191600d9fef8c99449ae') in 0.015028 seconds 
+  Import took 0.019713 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000437 seconds.
+  path: Assets/Toon_RTS/Barbarians/animation/cavalry/BRB_cavalry_sword_01_idle_A.FBX
+  artifactKey: Guid(3fd9427d92784cd43894c4eff7e458c8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Barbarians/animation/cavalry/BRB_cavalry_sword_01_idle_A.FBX using Guid(3fd9427d92784cd43894c4eff7e458c8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ba17bb9edc0c7e14199de8d335635c6d') in 0.016657 seconds 
+  Import took 0.023655 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000367 seconds.
+  path: Assets/Toon_RTS/Barbarians/animation/archer/BRB_archer_07_attack_A.FBX
+  artifactKey: Guid(f9d17d60923d679469cf2a43f4b50006) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Barbarians/animation/archer/BRB_archer_07_attack_A.FBX using Guid(f9d17d60923d679469cf2a43f4b50006) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c436a771475deb9a52e60d20711a35c5') in 0.015201 seconds 
+  Import took 0.020903 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000399 seconds.
+  path: Assets/Toon_RTS/Barbarians/animation/cavalry/BRB_cavalry_sword_05_combat_idle.FBX
+  artifactKey: Guid(3cfdd4df0fa7de740aca920bac4a05cc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Barbarians/animation/cavalry/BRB_cavalry_sword_05_combat_idle.FBX using Guid(3cfdd4df0fa7de740aca920bac4a05cc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '126cba23fb2dd936744e24261ec5f467') in 0.015890 seconds 
+  Import took 0.020864 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000370 seconds.
+  path: Assets/Toon_RTS/Barbarians/animation/archer/BRB_archer_01_idle_A.FBX
+  artifactKey: Guid(96f325e1f73d0a648a0958646139e9d4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Barbarians/animation/archer/BRB_archer_01_idle_A.FBX using Guid(96f325e1f73d0a648a0958646139e9d4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5e9a3bfc82425cc836f970403124d498') in 0.011554 seconds 
+  Import took 0.018889 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000437 seconds.
+  path: Assets/Toon_RTS/Barbarians/animation/archer/BRB_archer_10_death_A.FBX
+  artifactKey: Guid(0482380e9a3c46544bf382cd0a1559b8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Barbarians/animation/archer/BRB_archer_10_death_A.FBX using Guid(0482380e9a3c46544bf382cd0a1559b8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '78a78992951381e5d5d94fc19307a313') in 0.013803 seconds 
+  Import took 0.019645 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000443 seconds.
+  path: Assets/Toon_RTS/Barbarians/animation/archer/BRB_archer_09_take_damage.FBX
+  artifactKey: Guid(32c3ba04967d51d48b9575dc6b7640aa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Barbarians/animation/archer/BRB_archer_09_take_damage.FBX using Guid(32c3ba04967d51d48b9575dc6b7640aa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dd4bb68b997c5a35406761376757fe03') in 0.014283 seconds 
+  Import took 0.019376 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000364 seconds.
+  path: Assets/Toon_RTS/Barbarians/animation/cavalry_mage/BRB_cavalry_mage_02_walk.FBX
+  artifactKey: Guid(31842504539800d498c41baba97a4f6d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Barbarians/animation/cavalry_mage/BRB_cavalry_mage_02_walk.FBX using Guid(31842504539800d498c41baba97a4f6d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '99aeece9103277e8d33cba43b3b87423') in 0.014313 seconds 
+  Import took 0.019992 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000397 seconds.
+  path: Assets/Toon_RTS/Barbarians/animation/cavalry_mage/BRB_cavalry_mage_11_cast_A.FBX
+  artifactKey: Guid(68271935c9772f44696f3ed13153f4a2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Barbarians/animation/cavalry_mage/BRB_cavalry_mage_11_cast_A.FBX using Guid(68271935c9772f44696f3ed13153f4a2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '92ce4dfd6acf2cbb5455d67eeda97ee8') in 0.013003 seconds 
+  Import took 0.017394 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000333 seconds.
+  path: Assets/Toon_RTS/Barbarians/prefabs/BRB_archer.prefab
+  artifactKey: Guid(700be0d8f10bafb4ea71c78dc6d2f2db) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Barbarians/prefabs/BRB_archer.prefab using Guid(700be0d8f10bafb4ea71c78dc6d2f2db) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ba9a081c5ec762c874f760dbf06994fe') in 0.033232 seconds 
+  Import took 0.040315 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000317 seconds.
+  path: Assets/Toon_RTS/Barbarians/animation/cavalry_mage/BRB_cavalry_mage_09_take_damage.FBX
+  artifactKey: Guid(34cee9662c6e66942a0908ef394aeb6d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Barbarians/animation/cavalry_mage/BRB_cavalry_mage_09_take_damage.FBX using Guid(34cee9662c6e66942a0908ef394aeb6d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c7f834c77fba93f9aed05db106c8ee17') in 0.014299 seconds 
+  Import took 0.018938 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000330 seconds.
+  path: Assets/Toon_RTS/Barbarians/animation/cavalry_mage/BRB_cavalry_mage_07_attack_A.FBX
+  artifactKey: Guid(ee58150fd6fb9fc498c2e1d45bdc97cc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Barbarians/animation/cavalry_mage/BRB_cavalry_mage_07_attack_A.FBX using Guid(ee58150fd6fb9fc498c2e1d45bdc97cc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3a7d3470f1ea0af0143999cf66b26b6f') in 0.013590 seconds 
+  Import took 0.019223 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000353 seconds.
+  path: Assets/Toon_RTS/Barbarians/animation/archer/BRB_archer_05_combat_idle.FBX
+  artifactKey: Guid(556f6a45a1a16994cadbae79a2bc8ed0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Barbarians/animation/archer/BRB_archer_05_combat_idle.FBX using Guid(556f6a45a1a16994cadbae79a2bc8ed0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'adcb0ff70dec617933512c5bbc2a2894') in 0.013059 seconds 
+  Import took 0.018270 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000338 seconds.
+  path: Assets/Toon_RTS/Barbarians/animation/cavalry/BRB_cavalry_sword_07_combat_hit_A.FBX
+  artifactKey: Guid(0438ac73906de9f4aa2284ae189f03c6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Barbarians/animation/cavalry/BRB_cavalry_sword_07_combat_hit_A.FBX using Guid(0438ac73906de9f4aa2284ae189f03c6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '88809f4f7b45ea64d08a6beea1a97987') in 0.014978 seconds 
+  Import took 0.019662 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000445 seconds.
+  path: Assets/Toon_RTS/Barbarians/animation/cavalry/BRB_cavalry_sword_02_walk.FBX
+  artifactKey: Guid(8ae7cb58101f69342aec4d98028bbb56) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Barbarians/animation/cavalry/BRB_cavalry_sword_02_walk.FBX using Guid(8ae7cb58101f69342aec4d98028bbb56) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1aff09f693f644a336ee5ffc816578bb') in 0.012719 seconds 
+  Import took 0.018996 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000511 seconds.
+  path: Assets/Toon_RTS/Barbarians/animation/cavalry/BRB_cavalry_sword_03_run.FBX
+  artifactKey: Guid(8ea6107bdb8628a439f833d68c0f60f3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Barbarians/animation/cavalry/BRB_cavalry_sword_03_run.FBX using Guid(8ea6107bdb8628a439f833d68c0f60f3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '37639d39af6db40b03c9c444981a6306') in 0.014918 seconds 
+  Import took 0.021076 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000404 seconds.
+  path: Assets/Toon_RTS/Barbarians/models/extra models/BRB_arrow.FBX
+  artifactKey: Guid(d9ef1e392d99ca7438770d8f2574bba4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Barbarians/models/extra models/BRB_arrow.FBX using Guid(d9ef1e392d99ca7438770d8f2574bba4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '451e13f8e707fe47d6df317d65ea85ed') in 0.026059 seconds 
+  Import took 0.032345 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000443 seconds.
+  path: Assets/Toon_RTS/Barbarians/animation/archer/BRB_archer_02_walk.FBX
+  artifactKey: Guid(5f4754872d821c44690b32dcd06e6450) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Barbarians/animation/archer/BRB_archer_02_walk.FBX using Guid(5f4754872d821c44690b32dcd06e6450) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f1097c941792459189d374aaa58ea617') in 0.013747 seconds 
+  Import took 0.018486 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000359 seconds.
+  path: Assets/Toon_RTS/Barbarians/animation/cavalry_mage/BRB_cavalry_mage_10_death_B.FBX
+  artifactKey: Guid(3b0dbdc31a51a624cb21334d1e98dcfb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Barbarians/animation/cavalry_mage/BRB_cavalry_mage_10_death_B.FBX using Guid(3b0dbdc31a51a624cb21334d1e98dcfb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f0919052b41a327214cba75f48dd40bd') in 0.016296 seconds 
+  Import took 0.021395 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000439 seconds.
+  path: Assets/Toon_RTS/Barbarians/animation/archer/BRB_archer_10_death_B.FBX
+  artifactKey: Guid(1205f8e48c61a1f44932604d47af8fd2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Barbarians/animation/archer/BRB_archer_10_death_B.FBX using Guid(1205f8e48c61a1f44932604d47af8fd2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1568577e0e4d494f9c6b721b3a288f68') in 0.015475 seconds 
+  Import took 0.023426 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000392 seconds.
+  path: Assets/Toon_RTS/Barbarians/animation/cavalry_mage/BRB_cavalry_mage_01_idle_A.FBX
+  artifactKey: Guid(b24746bd27975a04e9218ba23eb00fca) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Barbarians/animation/cavalry_mage/BRB_cavalry_mage_01_idle_A.FBX using Guid(b24746bd27975a04e9218ba23eb00fca) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'add6cd5f953362fdce7f1874225086bb') in 0.016853 seconds 
+  Import took 0.021837 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000517 seconds.
+  path: Assets/Toon_RTS/Barbarians/animation/archer/BRB_archer_06_combat_walk.FBX
+  artifactKey: Guid(b3f63fd224f960c419e1ef1257389659) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Barbarians/animation/archer/BRB_archer_06_combat_walk.FBX using Guid(b3f63fd224f960c419e1ef1257389659) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00c1032ca00876d78973c018b01a949a') in 0.012298 seconds 
+  Import took 0.016690 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.972304 seconds.
+  path: Assets/Toon_RTS/Barbarians/animation/cavalry/BRB_cavalry_sword_08_combat_hit_B.FBX
+  artifactKey: Guid(de03a810ef2ea064ab765c1fb8dadd44) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Barbarians/animation/cavalry/BRB_cavalry_sword_08_combat_hit_B.FBX using Guid(de03a810ef2ea064ab765c1fb8dadd44) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '008b68c6fb3008af2ae41ea99da94fc0') in 0.018240 seconds 
+  Import took 0.022210 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000427 seconds.
+  path: Assets/Toon_RTS/Barbarians/animation/cavalry/BRB_cavalry_sword_09_take_damage.FBX
+  artifactKey: Guid(419715cbd45f1a8429656a2689f9c6ba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Barbarians/animation/cavalry/BRB_cavalry_sword_09_take_damage.FBX using Guid(419715cbd45f1a8429656a2689f9c6ba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '77179722da029b4b99afa8387f30b235') in 0.012905 seconds 
+  Import took 0.017426 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000444 seconds.
+  path: Assets/Toon_RTS/Barbarians/prefabs/BRB_druid.prefab
+  artifactKey: Guid(813ad4e048a712d418aa380f4dab1e69) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Barbarians/prefabs/BRB_druid.prefab using Guid(813ad4e048a712d418aa380f4dab1e69) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '47b92063b0261879c066b62e7795312e') in 0.025985 seconds 
+  Import took 0.031921 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000615 seconds.
+  path: Assets/Toon_RTS/Barbarians/models/BRB_Characters_customizable.FBX
+  artifactKey: Guid(b17eb3c4cbe051b4e8cb6746d369c108) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Barbarians/models/BRB_Characters_customizable.FBX using Guid(b17eb3c4cbe051b4e8cb6746d369c108) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ceef2f41ebdc947d99a2bd7a3a514a52') in 0.414487 seconds 
+  Import took 0.423105 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000496 seconds.
+  path: Assets/Toon_RTS/Barbarians/prefabs/BRB_Heavy_Cavalry.prefab
+  artifactKey: Guid(32c270d0ec1dcad44a66ae7e67bbb18f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Barbarians/prefabs/BRB_Heavy_Cavalry.prefab using Guid(32c270d0ec1dcad44a66ae7e67bbb18f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '380b818f207f71dbaf696510331079a3') in 0.028132 seconds 
+  Import took 0.036738 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000459 seconds.
+  path: Assets/Toon_RTS/Barbarians/prefabs/BRB_heavy_infantry_B.prefab
+  artifactKey: Guid(331536a9cdb47ba40ad39a572021fdf8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Barbarians/prefabs/BRB_heavy_infantry_B.prefab using Guid(331536a9cdb47ba40ad39a572021fdf8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '218599cf44e673b748e52bf4999fd88a') in 0.027852 seconds 
+  Import took 0.034446 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000443 seconds.
+  path: Assets/Toon_RTS/Barbarians/prefabs/BRB_heavy_infantry_A.prefab
+  artifactKey: Guid(a4d62d60580470444a6185e5670910c7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Barbarians/prefabs/BRB_heavy_infantry_A.prefab using Guid(a4d62d60580470444a6185e5670910c7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4e0d4b88343bf42a11909b78206b47f3') in 0.032431 seconds 
+  Import took 0.040727 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000445 seconds.
+  path: Assets/Toon_RTS/Barbarians/animation/mage/BRB_mage_04_charge.FBX
+  artifactKey: Guid(61c6d41bb03618141b1e99c4b2dc8811) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Barbarians/animation/mage/BRB_mage_04_charge.FBX using Guid(61c6d41bb03618141b1e99c4b2dc8811) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f3da4ee5084fabbd061e5493e6be5435') in 0.013723 seconds 
+  Import took 0.019794 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000690 seconds.
+  path: Assets/Toon_RTS/Barbarians/animation/infantry/BRB_infantry_10_death_B.FBX
+  artifactKey: Guid(32828f8f5fdfccc43875945e310bec4f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Barbarians/animation/infantry/BRB_infantry_10_death_B.FBX using Guid(32828f8f5fdfccc43875945e310bec4f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'af6f32aa44840ba5d632afa6b3fdc969') in 0.012335 seconds 
+  Import took 0.018558 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000407 seconds.
+  path: Assets/Toon_RTS/Barbarians/models/single_mesh/BRB_heavy_infantry.FBX
+  artifactKey: Guid(8faaacfa0e2d62147a1c58b56064c9db) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Barbarians/models/single_mesh/BRB_heavy_infantry.FBX using Guid(8faaacfa0e2d62147a1c58b56064c9db) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '24126e5da37d39c51e3cdfa06394d539') in 0.036763 seconds 
+  Import took 0.042206 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000333 seconds.
+  path: Assets/Toon_RTS/Barbarians/animation/infantry/BRB_infantry_03_run.FBX
+  artifactKey: Guid(7032599550158a64e9ae532f9b7e3e88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Barbarians/animation/infantry/BRB_infantry_03_run.FBX using Guid(7032599550158a64e9ae532f9b7e3e88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd7ceae6a04e5267738187401168aab8b') in 0.012790 seconds 
+  Import took 0.018795 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000370 seconds.
+  path: Assets/Toon_RTS/Barbarians/animation/infantry/BRB_infantry_09_take_damage.FBX
+  artifactKey: Guid(7a7d88b42c7763a4b9e044d437da7feb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Barbarians/animation/infantry/BRB_infantry_09_take_damage.FBX using Guid(7a7d88b42c7763a4b9e044d437da7feb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '19129db1e95d4be9666d65a00f0e7ecb') in 0.011460 seconds 
+  Import took 0.018738 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000401 seconds.
+  path: Assets/Toon_RTS/Barbarians/prefabs/BRB_Light_Cavalry.prefab
+  artifactKey: Guid(4588fcb1014fb614394e1bb647384b3f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Barbarians/prefabs/BRB_Light_Cavalry.prefab using Guid(4588fcb1014fb614394e1bb647384b3f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '15ce0476c7bca94771535417e3139c5e') in 0.033001 seconds 
+  Import took 0.039262 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000370 seconds.
+  path: Assets/Toon_RTS/Barbarians/animation/mage/BRB_mage_08_attack_B.FBX
+  artifactKey: Guid(13ec17e5dbd522944b06c6497fff4b21) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Barbarians/animation/mage/BRB_mage_08_attack_B.FBX using Guid(13ec17e5dbd522944b06c6497fff4b21) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '033670611ae5c605bfeba707a0e420c8') in 0.014671 seconds 
+  Import took 0.019729 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000393 seconds.
+  path: Assets/Toon_RTS/Barbarians/models/single_mesh/BRB_light_cavalry.FBX
+  artifactKey: Guid(27893429e6bbc7944ae6b3016d8a7d74) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Barbarians/models/single_mesh/BRB_light_cavalry.FBX using Guid(27893429e6bbc7944ae6b3016d8a7d74) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c601720458cd007baab67491c9706222') in 0.038045 seconds 
+  Import took 0.042736 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000367 seconds.
+  path: Assets/Toon_RTS/Barbarians/models/single_mesh/BRB_mage.FBX
+  artifactKey: Guid(62fbd1065c14a874bbb4943b8256de32) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Barbarians/models/single_mesh/BRB_mage.FBX using Guid(62fbd1065c14a874bbb4943b8256de32) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd01cdc526de90c21ba0803ac97dcbf2d') in 0.033090 seconds 
+  Import took 0.039561 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000375 seconds.
+  path: Assets/Toon_RTS/Barbarians/animation/mage/BRB_mage_09_take_damage.FBX
+  artifactKey: Guid(7c460b5274239a546a75aa36a1dcbd29) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Barbarians/animation/mage/BRB_mage_09_take_damage.FBX using Guid(7c460b5274239a546a75aa36a1dcbd29) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd693c6dd9a7f2fb4127ca82c338092b6') in 0.013211 seconds 
+  Import took 0.019025 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000389 seconds.
+  path: Assets/Toon_RTS/Barbarians/animation/mage/BRB_mage_11_cast_B.FBX
+  artifactKey: Guid(4b1fa15601e174842bdb1d601821fcbb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Barbarians/animation/mage/BRB_mage_11_cast_B.FBX using Guid(4b1fa15601e174842bdb1d601821fcbb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '57c93f99c2e3165fe42c75e605e31141') in 0.011330 seconds 
+  Import took 0.019608 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000505 seconds.
+  path: Assets/Toon_RTS/Barbarians/models/single_mesh/BRB_heavy_cavalry.FBX
+  artifactKey: Guid(a364b3526dd67234ea319def2b37b5cd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Barbarians/models/single_mesh/BRB_heavy_cavalry.FBX using Guid(a364b3526dd67234ea319def2b37b5cd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a5e69821f495229e0df09eb64c050086') in 0.035099 seconds 
+  Import took 0.040099 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000350 seconds.
+  path: Assets/Toon_RTS/Barbarians/models/single_mesh/BRB_mounted_mage.FBX
+  artifactKey: Guid(592f1f5378a49e449b2f02a6226f7043) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Barbarians/models/single_mesh/BRB_mounted_mage.FBX using Guid(592f1f5378a49e449b2f02a6226f7043) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a564db422af6e1c9dd786938a1d1c0db') in 0.036959 seconds 
+  Import took 0.042927 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000530 seconds.
+  path: Assets/Toon_RTS/Barbarians/prefabs/BRB_wizard.prefab
+  artifactKey: Guid(255f46342f0b354419625d3ea347c5a7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Barbarians/prefabs/BRB_wizard.prefab using Guid(255f46342f0b354419625d3ea347c5a7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '11daa4d54d1629215263e18a4cf8b4ba') in 0.023676 seconds 
+  Import took 0.028450 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000432 seconds.
+  path: Assets/Toon_RTS/Barbarians/animation/spearman/BRB_spearman_04_charge.FBX
+  artifactKey: Guid(870aab8311d0d1b45bcb67ad686d4df8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Barbarians/animation/spearman/BRB_spearman_04_charge.FBX using Guid(870aab8311d0d1b45bcb67ad686d4df8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f74a5a89928f2f7f34eaf4b930c12449') in 0.016227 seconds 
+  Import took 0.022588 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000380 seconds.
+  path: Assets/Toon_RTS/Barbarians/animation/spearman/BRB_spearman_02_walk.FBX
+  artifactKey: Guid(cdb1fcdac25e51448abc2d5f4eb98f2d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Barbarians/animation/spearman/BRB_spearman_02_walk.FBX using Guid(cdb1fcdac25e51448abc2d5f4eb98f2d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '660fde4da4f84f0320a8e43edbe2d21d') in 0.014420 seconds 
+  Import took 0.020351 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000427 seconds.
+  path: Assets/Toon_RTS/Barbarians/animation/spearman/BRB_spearman_03_run.FBX
+  artifactKey: Guid(d31ffdc6bf8621f459b3ce6b6c4e3562) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Barbarians/animation/spearman/BRB_spearman_03_run.FBX using Guid(d31ffdc6bf8621f459b3ce6b6c4e3562) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b8790ef6f1c71984c7e4b070ad2348a9') in 0.012629 seconds 
+  Import took 0.017557 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000376 seconds.
+  path: Assets/Toon_RTS/Barbarians/animation/spearman/BRB_spearman_10_death_B.FBX
+  artifactKey: Guid(815dc20e861c69c468f8892c4b7f45af) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Barbarians/animation/spearman/BRB_spearman_10_death_B.FBX using Guid(815dc20e861c69c468f8892c4b7f45af) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '03b02366c1798e1d2fab3f9570e42bfc') in 0.012670 seconds 
+  Import took 0.017298 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000401 seconds.
+  path: Assets/Toon_RTS/Barbarians/prefabs/BRB_worker.prefab
+  artifactKey: Guid(087a6e2df385188499860cd9be9566a8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Barbarians/prefabs/BRB_worker.prefab using Guid(087a6e2df385188499860cd9be9566a8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '76f21f83aa5e05f97103c665ef6b97f3') in 0.029750 seconds 
+  Import took 0.034905 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000429 seconds.
+  path: Assets/Toon_RTS/Barbarians/animation/mage/BRB_mage_06_combat_walk.FBX
+  artifactKey: Guid(ca194945ec92fb844bcae23bba39bf51) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Barbarians/animation/mage/BRB_mage_06_combat_walk.FBX using Guid(ca194945ec92fb844bcae23bba39bf51) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '56fbcb1ab6898268180ff4da96be7735') in 0.014250 seconds 
+  Import took 0.020950 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000379 seconds.
+  path: Assets/Toon_RTS/Barbarians/animation/infantry/BRB_infantry_07_attack_A.FBX
+  artifactKey: Guid(475ad3c10471ddb409dc19f373a6ed59) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Barbarians/animation/infantry/BRB_infantry_07_attack_A.FBX using Guid(475ad3c10471ddb409dc19f373a6ed59) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '130895e39bdb49f3a75cea5d1a58ed3c') in 0.011353 seconds 
+  Import took 0.018268 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000364 seconds.
+  path: Assets/Toon_RTS/Barbarians/models/single_mesh/BRB_light_infantry.FBX
+  artifactKey: Guid(766bfcc21245b9142a63f356ca651130) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Barbarians/models/single_mesh/BRB_light_infantry.FBX using Guid(766bfcc21245b9142a63f356ca651130) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cae9b37400acd9af4fdc9caf05f10d81') in 0.037412 seconds 
+  Import took 0.043145 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000431 seconds.
+  path: Assets/Toon_RTS/Barbarians/animation/mage/BRB_mage_02_walk.FBX
+  artifactKey: Guid(dade3a711390aaf43944152c55ea777f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Barbarians/animation/mage/BRB_mage_02_walk.FBX using Guid(dade3a711390aaf43944152c55ea777f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9f1191e535b24992af6fc8e3cfc564ea') in 0.011247 seconds 
+  Import took 0.018231 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000441 seconds.
+  path: Assets/Toon_RTS/Barbarians/animation/mage/BRB_mage_07_attack_A.FBX
+  artifactKey: Guid(b1b846369fec2704b93f228bdaa38512) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Barbarians/animation/mage/BRB_mage_07_attack_A.FBX using Guid(b1b846369fec2704b93f228bdaa38512) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '94ffa47bbc3e8806ab3140a191b02086') in 0.013152 seconds 
+  Import took 0.017806 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000343 seconds.
+  path: Assets/Toon_RTS/Barbarians/prefabs/BRB_light_infantry_B.prefab
+  artifactKey: Guid(6444dad2f688bcb418f19c4609039aa2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Barbarians/prefabs/BRB_light_infantry_B.prefab using Guid(6444dad2f688bcb418f19c4609039aa2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e5e55922e5687e079f0666d9e28808be') in 0.032107 seconds 
+  Import took 0.039780 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000415 seconds.
+  path: Assets/Toon_RTS/Barbarians/animation/infantry/BRB_infantry_10_death_A.FBX
+  artifactKey: Guid(4133d67fcfff7744886f6a7a6b2f6fbb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Barbarians/animation/infantry/BRB_infantry_10_death_A.FBX using Guid(4133d67fcfff7744886f6a7a6b2f6fbb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cef6264c78109cd36de90bdb37a4592c') in 0.014215 seconds 
+  Import took 0.018318 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000370 seconds.
+  path: Assets/Toon_RTS/Barbarians/models/single_mesh/BRB_worker.FBX
+  artifactKey: Guid(97e617024805cf74999f6a715d767ba3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Barbarians/models/single_mesh/BRB_worker.FBX using Guid(97e617024805cf74999f6a715d767ba3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '69ed668b3f9b0302224378a7967eb337') in 0.034125 seconds 
+  Import took 0.040020 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000369 seconds.
+  path: Assets/Toon_RTS/Barbarians/animation/mage/BRB_mage_01_idle_A.FBX
+  artifactKey: Guid(4cfca6179b4d5e24bb00b4191812184d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Barbarians/animation/mage/BRB_mage_01_idle_A.FBX using Guid(4cfca6179b4d5e24bb00b4191812184d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '736364a3d814cc0377ef3d18de21d1f6') in 0.014424 seconds 
+  Import took 0.019536 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000401 seconds.
+  path: Assets/Toon_RTS/Barbarians/prefabs/BRB_spearman_A.prefab
+  artifactKey: Guid(198bcf9c5e3b4b141878c5f8fd19030f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Barbarians/prefabs/BRB_spearman_A.prefab using Guid(198bcf9c5e3b4b141878c5f8fd19030f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '54b59df2272bd203f2184cb470c4179f') in 0.021737 seconds 
+  Import took 0.028952 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000394 seconds.
+  path: Assets/Toon_RTS/Barbarians/animation/infantry/BRB_infantry_01_idle_A.FBX
+  artifactKey: Guid(ea4b62b7187fda849aebf1ebafdb42f3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Barbarians/animation/infantry/BRB_infantry_01_idle_A.FBX using Guid(ea4b62b7187fda849aebf1ebafdb42f3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '34f60d9e607ea2d0cd973df36fe93cfb') in 0.013851 seconds 
+  Import took 0.019613 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000418 seconds.
+  path: Assets/Toon_RTS/Barbarians/animation/infantry/BRB_infantry_08_attack_B.FBX
+  artifactKey: Guid(95a3d08c164a35544b6e88e2225d2f85) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Barbarians/animation/infantry/BRB_infantry_08_attack_B.FBX using Guid(95a3d08c164a35544b6e88e2225d2f85) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a25afcd207cde9ef1e4ab3c71e335df2') in 0.011500 seconds 
+  Import took 0.017306 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000420 seconds.
+  path: Assets/Toon_RTS/Barbarians/prefabs/BRB_light_infantry_A.prefab
+  artifactKey: Guid(1d87e5a642aed9b4f87eb95997b75556) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Barbarians/prefabs/BRB_light_infantry_A.prefab using Guid(1d87e5a642aed9b4f87eb95997b75556) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e089e6bac5bb712014653ee042c4d58d') in 0.022826 seconds 
+  Import took 0.028731 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000415 seconds.
+  path: Assets/Toon_RTS/Barbarians/animation/mage/BRB_mage_10_death_A.FBX
+  artifactKey: Guid(42d1cfa29b521614e99d64516d67e2fa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Barbarians/animation/mage/BRB_mage_10_death_A.FBX using Guid(42d1cfa29b521614e99d64516d67e2fa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a8c120ca8f5cc40728a1d439ffe0068f') in 0.015913 seconds 
+  Import took 0.021091 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000420 seconds.
+  path: Assets/Toon_RTS/Barbarians/animation/mage/BRB_mage_11_cast_A.FBX
+  artifactKey: Guid(4a1ffc5865d9e8e418d71fb5c8d44cb3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Barbarians/animation/mage/BRB_mage_11_cast_A.FBX using Guid(4a1ffc5865d9e8e418d71fb5c8d44cb3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2a1380371eb2ad9e7a8791978f3aee1c') in 0.012544 seconds 
+  Import took 0.017433 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000359 seconds.
+  path: Assets/Toon_RTS/Barbarians/animation/infantry/BRB_infantry_05_combat_idle.FBX
+  artifactKey: Guid(c77bf6254c2f0e24584b219bfec53dbf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Barbarians/animation/infantry/BRB_infantry_05_combat_idle.FBX using Guid(c77bf6254c2f0e24584b219bfec53dbf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '86e9e967352f9c969c72d5a068b0e7a6') in 0.011310 seconds 
+  Import took 0.016257 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000349 seconds.
+  path: Assets/Toon_RTS/Barbarians/animation/spearman/BRB_spearman_05_combat_idle.FBX
+  artifactKey: Guid(c8bbc5085f4a41b49b3795dcef787692) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Barbarians/animation/spearman/BRB_spearman_05_combat_idle.FBX using Guid(c8bbc5085f4a41b49b3795dcef787692) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3788391f0b9d6ed0679ad2f81b674b29') in 0.011870 seconds 
+  Import took 0.016029 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000367 seconds.
+  path: Assets/Toon_RTS/Barbarians/animation/infantry/BRB_infantry_04_charge.FBX
+  artifactKey: Guid(267e5a0cf6d2a2742baba2d4ef70f159) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Barbarians/animation/infantry/BRB_infantry_04_charge.FBX using Guid(267e5a0cf6d2a2742baba2d4ef70f159) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '319e8d11c383ab44906bd2ba143db68e') in 0.013241 seconds 
+  Import took 0.017955 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000408 seconds.
+  path: Assets/Toon_RTS/Barbarians/animation/cavalry/BRB_cavalry_sword_10_death_A.FBX
+  artifactKey: Guid(f7c1bf5f6c74b284da322419dc82bd6e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Barbarians/animation/cavalry/BRB_cavalry_sword_10_death_A.FBX using Guid(f7c1bf5f6c74b284da322419dc82bd6e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00c5e449b899577838367ea93050b960') in 0.021139 seconds 
+  Import took 0.026661 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000379 seconds.
+  path: Assets/Toon_RTS/Barbarians/models/single_mesh/BRB_spearman.FBX
+  artifactKey: Guid(db0fd00e3252d58458962c6c48e21d71) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Barbarians/models/single_mesh/BRB_spearman.FBX using Guid(db0fd00e3252d58458962c6c48e21d71) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8a4f95fd22a6a6ae68359e74ac8c0ba7') in 0.031795 seconds 
+  Import took 0.037003 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000425 seconds.
+  path: Assets/Toon_RTS/Barbarians/animation/spearman/BRB_spearman_01_idle_A.FBX
+  artifactKey: Guid(64d80cec351116a4885e25f47e85dc39) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Barbarians/animation/spearman/BRB_spearman_01_idle_A.FBX using Guid(64d80cec351116a4885e25f47e85dc39) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dacf542e17b9893bb6e26f0303597359') in 0.020828 seconds 
+  Import took 0.027639 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000417 seconds.
+  path: Assets/Toon_RTS/Barbarians/animation/infantry/BRB_infantry_02_walk.FBX
+  artifactKey: Guid(72dfe43864f8a4a4aa259b6e51087575) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Barbarians/animation/infantry/BRB_infantry_02_walk.FBX using Guid(72dfe43864f8a4a4aa259b6e51087575) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c98d7aa28284223e5e1af2699d6cebc7') in 0.013851 seconds 
+  Import took 0.019097 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000382 seconds.
+  path: Assets/Toon_RTS/Barbarians/animation/spearman/BRB_spearman_09_take_damage.FBX
+  artifactKey: Guid(3ff179a07a0179744816e4dbee665fe5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Barbarians/animation/spearman/BRB_spearman_09_take_damage.FBX using Guid(3ff179a07a0179744816e4dbee665fe5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7534b52fa0c3f9303c66841cd20a3738') in 0.012201 seconds 
+  Import took 0.016360 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000926 seconds.
+  path: Assets/Toon_RTS/Barbarians/prefabs/BRB_spearman_B.prefab
+  artifactKey: Guid(c039c22af0fff0d4bb3d7bc9ba87dd02) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Barbarians/prefabs/BRB_spearman_B.prefab using Guid(c039c22af0fff0d4bb3d7bc9ba87dd02) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '786c04d2fed3b69d2c346888c597193b') in 0.026861 seconds 
+  Import took 0.033490 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000484 seconds.
+  path: Assets/Toon_RTS/Barbarians/animation/spearman/BRB_spearman_10_death_A.FBX
+  artifactKey: Guid(f273e1e897dcf2c4c87682db8215edcf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Barbarians/animation/spearman/BRB_spearman_10_death_A.FBX using Guid(f273e1e897dcf2c4c87682db8215edcf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4357345c4c1f744aaa65f4a7f0eb3ced') in 0.014722 seconds 
+  Import took 0.020898 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000467 seconds.
+  path: Assets/Toon_RTS/Barbarians/animation/mage/BRB_mage_05_combat_idle.FBX
+  artifactKey: Guid(a37297c49d2ca484cbebef99e43bae58) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Barbarians/animation/mage/BRB_mage_05_combat_idle.FBX using Guid(a37297c49d2ca484cbebef99e43bae58) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd26c6295e336c23de0b0273cc26ca298') in 0.011769 seconds 
+  Import took 0.019537 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000402 seconds.
+  path: Assets/Toon_RTS/Barbarians/animation/worker/BRB_worker_01_idle_A.FBX
+  artifactKey: Guid(2cf5705caca24b44bbbb4c212fec546a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Barbarians/animation/worker/BRB_worker_01_idle_A.FBX using Guid(2cf5705caca24b44bbbb4c212fec546a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3e8c85fc1f9cbc95e966f9386a395900') in 0.011252 seconds 
+  Import took 0.016606 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000343 seconds.
+  path: Assets/Toon_RTS/Barbarians/animation/worker/BRB_worker_03_run.FBX
+  artifactKey: Guid(a7244fc4dae53c0458910724e17987d5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Barbarians/animation/worker/BRB_worker_03_run.FBX using Guid(a7244fc4dae53c0458910724e17987d5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5394e35ba3db27a44c2d8cdda0e448f0') in 0.013929 seconds 
+  Import took 0.020782 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000448 seconds.
+  path: Assets/Toon_RTS/Barbarians/animation/worker/BRB_worker_carry_bag_01_idle.FBX
+  artifactKey: Guid(a92b692dc8f2aa7408e99727a12a7e82) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Barbarians/animation/worker/BRB_worker_carry_bag_01_idle.FBX using Guid(a92b692dc8f2aa7408e99727a12a7e82) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9e20d7cbdaa31fdd42291b5938158cd2') in 0.012283 seconds 
+  Import took 0.016783 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000437 seconds.
+  path: Assets/Toon_RTS/Barbarians/animation/worker/BRB_worker_carry_bag_02_walk.FBX
+  artifactKey: Guid(ca352cea8b05e674481e4d178ee6109b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Barbarians/animation/worker/BRB_worker_carry_bag_02_walk.FBX using Guid(ca352cea8b05e674481e4d178ee6109b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7c6b7a8a4d0b027d990c2824abb2b3ad') in 0.011870 seconds 
+  Import took 0.017546 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000363 seconds.
+  path: Assets/Toon_RTS/Barbarians/animation/worker/BRB_worker_02_walk.FBX
+  artifactKey: Guid(f8f06f73ad7e5f84eace2546bada64c4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Barbarians/animation/worker/BRB_worker_02_walk.FBX using Guid(f8f06f73ad7e5f84eace2546bada64c4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6ef6e157ec0c735937171f6eb5b6febf') in 0.013588 seconds 
+  Import took 0.018221 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000477 seconds.
+  path: Assets/Toon_RTS/Elves/prefabs/Dark_Elves/DarkELF_Archer.prefab
+  artifactKey: Guid(1819ccceeb39cea4989f0b72f4e78622) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Elves/prefabs/Dark_Elves/DarkELF_Archer.prefab using Guid(1819ccceeb39cea4989f0b72f4e78622) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3030e20eba474b82fd39017eb86c0cf3') in 0.041097 seconds 
+  Import took 0.047408 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000410 seconds.
+  path: Assets/Toon_RTS/Barbarians/animation/worker/BRB_worker_carry_wood_03_run.FBX
+  artifactKey: Guid(fa444a6017c3b2f4f9e3b7a6ab0ce917) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Barbarians/animation/worker/BRB_worker_carry_wood_03_run.FBX using Guid(fa444a6017c3b2f4f9e3b7a6ab0ce917) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '73a5571cc2c711f3d2edcfe7758f9af2') in 0.013652 seconds 
+  Import took 0.019856 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000472 seconds.
+  path: Assets/Toon_RTS/Barbarians/animation/worker/BRB_worker_carry_wood_04_attack_A.FBX
+  artifactKey: Guid(e12131ecd412dbb4bb42c64ba2c2cab8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Barbarians/animation/worker/BRB_worker_carry_wood_04_attack_A.FBX using Guid(e12131ecd412dbb4bb42c64ba2c2cab8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '718e6a74d307fe9cf5726a675b9695cb') in 0.012413 seconds 
+  Import took 0.017535 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000535 seconds.
+  path: Assets/Toon_RTS/Elves/prefabs/Dark_Elves/DarkELF_Heavy_Cavalry.prefab
+  artifactKey: Guid(5a651124c3f4e6e4a8e48f008a1e432f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Elves/prefabs/Dark_Elves/DarkELF_Heavy_Cavalry.prefab using Guid(5a651124c3f4e6e4a8e48f008a1e432f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '961a3352edc88e0fe7e64998e93de650') in 0.034119 seconds 
+  Import took 0.042684 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000329 seconds.
+  path: Assets/Toon_RTS/Barbarians/animation/worker/BRB_worker_09_take_damage.FBX
+  artifactKey: Guid(1b54dd1ca0698244492d5464f8202b7c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Barbarians/animation/worker/BRB_worker_09_take_damage.FBX using Guid(1b54dd1ca0698244492d5464f8202b7c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b014c8c03bf3626afaf310b04a752a3f') in 0.012004 seconds 
+  Import took 0.016588 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000390 seconds.
+  path: Assets/Toon_RTS/Elves/prefabs/Dark_Elves/DarkELF_Heavy_Infantry.prefab
+  artifactKey: Guid(8811ffe08f518824fabe31f9f9b2406a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Elves/prefabs/Dark_Elves/DarkELF_Heavy_Infantry.prefab using Guid(8811ffe08f518824fabe31f9f9b2406a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ad0d409d2800f0b3157e9c6e1e961aba') in 0.027775 seconds 
+  Import took 0.033601 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000400 seconds.
+  path: Assets/Toon_RTS/Elves/prefabs/Dark_Elves/DarkELF_Light_Cavalry.prefab
+  artifactKey: Guid(aeee3ce2724f26c49acc9d5bba254636) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Elves/prefabs/Dark_Elves/DarkELF_Light_Cavalry.prefab using Guid(aeee3ce2724f26c49acc9d5bba254636) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '473f6e77bf68cd3dfb5078b3e77d493b') in 0.024659 seconds 
+  Import took 0.031056 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000430 seconds.
+  path: Assets/Toon_RTS/Elves/prefabs/Dark_Elves/DarkELF_Mounted_Mage.prefab
+  artifactKey: Guid(7adf1ae3d93bae54ea79658f5e0666c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Elves/prefabs/Dark_Elves/DarkELF_Mounted_Mage.prefab using Guid(7adf1ae3d93bae54ea79658f5e0666c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0a4d63cc1ae0e163b01b7023862f68e0') in 0.033740 seconds 
+  Import took 0.040056 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000352 seconds.
+  path: Assets/Toon_RTS/Elves/models/single_mesh/ELF_archer_B.FBX
+  artifactKey: Guid(a5c49e46e2b22b345986658c600dbc97) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Elves/models/single_mesh/ELF_archer_B.FBX using Guid(a5c49e46e2b22b345986658c600dbc97) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6c6960bfd47862ace27d4bd02891bd9e') in 0.036288 seconds 
+  Import took 0.042025 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000437 seconds.
+  path: Assets/Toon_RTS/Elves/animation/archer/ELF_archer_03_run.FBX
+  artifactKey: Guid(937c8ba9aa29dca4b96a30dea81fd6ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Elves/animation/archer/ELF_archer_03_run.FBX using Guid(937c8ba9aa29dca4b96a30dea81fd6ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '93ec347b8ff6aa0b5d36da11c8438c99') in 0.013965 seconds 
+  Import took 0.019225 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000360 seconds.
+  path: Assets/Toon_RTS/Elves/prefabs/Dark_Elves/DarkELF_Light_Infantry.prefab
+  artifactKey: Guid(584acf38be8f4614b9b36a63d4eca9dd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Elves/prefabs/Dark_Elves/DarkELF_Light_Infantry.prefab using Guid(584acf38be8f4614b9b36a63d4eca9dd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6ed99bcc73ddce8e453384772e01e881') in 0.026609 seconds 
+  Import took 0.031992 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000435 seconds.
+  path: Assets/Toon_RTS/Elves/animation/archer/ELF_archer_06_combat_walk.FBX
+  artifactKey: Guid(93f47ebef0f63d44c9f5555749b509bd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Elves/animation/archer/ELF_archer_06_combat_walk.FBX using Guid(93f47ebef0f63d44c9f5555749b509bd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd84496f1465b37c24b50d17ff7ce8a4d') in 0.014269 seconds 
+  Import took 0.019528 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000437 seconds.
+  path: Assets/Toon_RTS/Elves/models/extra models/ELF_arrow.FBX
+  artifactKey: Guid(e9fd768822e81b8428eef6c5f12fae5d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Elves/models/extra models/ELF_arrow.FBX using Guid(e9fd768822e81b8428eef6c5f12fae5d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6711cce4624cb289801e4a1920b19ce4') in 0.024082 seconds 
+  Import took 0.030489 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000403 seconds.
+  path: Assets/Toon_RTS/Elves/prefabs/Dark_Elves/DarkELF_Worker.prefab
+  artifactKey: Guid(fa50fc0ea7e9af9409ab5b1d9aab2a58) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Elves/prefabs/Dark_Elves/DarkELF_Worker.prefab using Guid(fa50fc0ea7e9af9409ab5b1d9aab2a58) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2e50a3e7f5b13d72150a93541d3f2fd6') in 0.025905 seconds 
+  Import took 0.031154 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000371 seconds.
+  path: Assets/Toon_RTS/Elves/animation/cavalry_mage/ELF_cavalry_mage_02_walk.FBX
+  artifactKey: Guid(fc4c762fda537e64e9a0143ad6f3d532) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Elves/animation/cavalry_mage/ELF_cavalry_mage_02_walk.FBX using Guid(fc4c762fda537e64e9a0143ad6f3d532) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7688dc52faaec79fbb7bc7b5930da783') in 0.018098 seconds 
+  Import took 0.024303 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000406 seconds.
+  path: Assets/Toon_RTS/Elves/models/ELF_Cavalry_customizable.FBX
+  artifactKey: Guid(033a38625572b7944955d8b2afd751ef) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Elves/models/ELF_Cavalry_customizable.FBX using Guid(033a38625572b7944955d8b2afd751ef) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9e4842e7d4964948ef7d1bc935a5f27d') in 0.430179 seconds 
+  Import took 0.434832 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000325 seconds.
+  path: Assets/Toon_RTS/Elves/animation/infantry/ELF_infantry_03_run.FBX
+  artifactKey: Guid(2b3a9066004906041a5a3ee4dec9d2fd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Elves/animation/infantry/ELF_infantry_03_run.FBX using Guid(2b3a9066004906041a5a3ee4dec9d2fd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3bd31f1c149580880a331e1c9e0ef760') in 0.016510 seconds 
+  Import took 0.020966 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000405 seconds.
+  path: Assets/Toon_RTS/Elves/animation/cavalry_mage/ELF_cavalry_mage_11_cast_B.FBX
+  artifactKey: Guid(5ab313e2062f38347814635a13e5b0fa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Elves/animation/cavalry_mage/ELF_cavalry_mage_11_cast_B.FBX using Guid(5ab313e2062f38347814635a13e5b0fa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4daaf42545ff3b4865fc4cd31e25520b') in 0.013839 seconds 
+  Import took 0.020161 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000448 seconds.
+  path: Assets/Toon_RTS/Elves/animation/infantry/ELF_infantry_04_charge.FBX
+  artifactKey: Guid(200f8956e856fa24589f5b45c23422ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Elves/animation/infantry/ELF_infantry_04_charge.FBX using Guid(200f8956e856fa24589f5b45c23422ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd37c355105e6293ff569bfceb2d59197') in 0.015383 seconds 
+  Import took 0.023063 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000555 seconds.
+  path: Assets/Toon_RTS/Elves/animation/infantry/ELF_infantry_08_attack_B.FBX
+  artifactKey: Guid(4d18e2fa017252442b1b0406994d3a4c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Elves/animation/infantry/ELF_infantry_08_attack_B.FBX using Guid(4d18e2fa017252442b1b0406994d3a4c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0303c50c0fbf80ade1cc75e2cae79929') in 0.012052 seconds 
+  Import took 0.017100 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000447 seconds.
+  path: Assets/Toon_RTS/Elves/animation/cavalry/ELF_cavalry_sword_06_combat_walk.FBX
+  artifactKey: Guid(7a308d2b33d81704a825bff38cd73c31) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Elves/animation/cavalry/ELF_cavalry_sword_06_combat_walk.FBX using Guid(7a308d2b33d81704a825bff38cd73c31) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '95bb3120e016cea96acb7503d15e1fdf') in 0.017437 seconds 
+  Import took 0.021926 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000496 seconds.
+  path: Assets/Toon_RTS/Elves/animation/infantry/ELF_infantry_02_walk.FBX
+  artifactKey: Guid(420cb4e9e2d265841ba6fa8d753d6ba7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Elves/animation/infantry/ELF_infantry_02_walk.FBX using Guid(420cb4e9e2d265841ba6fa8d753d6ba7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f7b68ae2b5ef156cbd5a6965ba587b77') in 0.016058 seconds 
+  Import took 0.022823 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000409 seconds.
+  path: Assets/Toon_RTS/Elves/models/single_mesh/ELF_heavy_cavalry_A.FBX
+  artifactKey: Guid(5df31b043c2a49440a78028045ac053c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Elves/models/single_mesh/ELF_heavy_cavalry_A.FBX using Guid(5df31b043c2a49440a78028045ac053c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'aea7ae1d017355336f5c9fbee09697ed') in 0.033699 seconds 
+  Import took 0.038254 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000446 seconds.
+  path: Assets/Toon_RTS/Elves/animation/boltthrower/ELF_boltthrower_03_attack.FBX
+  artifactKey: Guid(b61d6fe763a86c945acf93d27e3907a9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Elves/animation/boltthrower/ELF_boltthrower_03_attack.FBX using Guid(b61d6fe763a86c945acf93d27e3907a9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '629facdaa95dfd97765c8ffa3d08de29') in 0.014714 seconds 
+  Import took 0.019314 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000394 seconds.
+  path: Assets/Toon_RTS/Elves/animation/cavalry_mage/ELF_cavalry_mage_01_idle_A.FBX
+  artifactKey: Guid(57fbae63705f9a6479c2fbae085e5b7f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Elves/animation/cavalry_mage/ELF_cavalry_mage_01_idle_A.FBX using Guid(57fbae63705f9a6479c2fbae085e5b7f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b2853918b118084cff7f81e0b7ce6e4e') in 0.018918 seconds 
+  Import took 0.026008 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000418 seconds.
+  path: Assets/Toon_RTS/Elves/models/single_mesh/ELF_light_cavalry_B.FBX
+  artifactKey: Guid(b9028776488f1cf4b89cf27256674552) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Elves/models/single_mesh/ELF_light_cavalry_B.FBX using Guid(b9028776488f1cf4b89cf27256674552) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b99f9464d29f6b8eadbb82301279b900') in 0.036831 seconds 
+  Import took 0.041227 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000406 seconds.
+  path: Assets/Toon_RTS/Elves/models/single_mesh/ELF_light_infantry_A.FBX
+  artifactKey: Guid(eafb61036112dd84da480c28a1b6f10b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Elves/models/single_mesh/ELF_light_infantry_A.FBX using Guid(eafb61036112dd84da480c28a1b6f10b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e81b3af6b441bc726ccf619bd4a8be8e') in 0.036481 seconds 
+  Import took 0.042318 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000459 seconds.
+  path: Assets/Toon_RTS/Elves/animation/infantry/ELF_infantry_10_death_A.FBX
+  artifactKey: Guid(57fdb207b171eab47a1963767377fd4d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Elves/animation/infantry/ELF_infantry_10_death_A.FBX using Guid(57fdb207b171eab47a1963767377fd4d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '598be75d2013982f4ba364ecebc4e0f9') in 0.012759 seconds 
+  Import took 0.016958 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000347 seconds.
+  path: Assets/Toon_RTS/Elves/animation/infantry/ELF_infantry_10_death_B.FBX
+  artifactKey: Guid(dd2b99765c3d5a544a40db8aac580734) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Elves/animation/infantry/ELF_infantry_10_death_B.FBX using Guid(dd2b99765c3d5a544a40db8aac580734) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e28dc356c30487709faeca00e74a4a03') in 0.016252 seconds 
+  Import took 0.022727 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000360 seconds.
+  path: Assets/Toon_RTS/Elves/models/single_mesh/ELF_light_cavalry_A.FBX
+  artifactKey: Guid(e0b61e05e5b53d047ad041149c10d931) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Elves/models/single_mesh/ELF_light_cavalry_A.FBX using Guid(e0b61e05e5b53d047ad041149c10d931) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '878206f1e91fe8d2579d5733d4a7b908') in 0.034107 seconds 
+  Import took 0.039906 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000389 seconds.
+  path: Assets/Toon_RTS/Elves/animation/cavalry/ELF_cavalry_sword_02_walk.FBX
+  artifactKey: Guid(992b60982f673de4db83fb1416bdafd4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Elves/animation/cavalry/ELF_cavalry_sword_02_walk.FBX using Guid(992b60982f673de4db83fb1416bdafd4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '56721f775c944cd6d65d1507a158c2f8') in 0.013150 seconds 
+  Import took 0.019187 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000426 seconds.
+  path: Assets/Toon_RTS/Elves/models/extra models/weapons/ELF_Hammer.FBX
+  artifactKey: Guid(d88afc31ab10ff943b68689fe8cafe18) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Elves/models/extra models/weapons/ELF_Hammer.FBX using Guid(d88afc31ab10ff943b68689fe8cafe18) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2d391ee6b713229edb07f50f9c14c5a3') in 0.023640 seconds 
+  Import took 0.029727 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000428 seconds.
+  path: Assets/Toon_RTS/Elves/animation/archer/ELF_archer_10_death_A.FBX
+  artifactKey: Guid(4bf606b9e42a64545b5ccbd03f02e959) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Elves/animation/archer/ELF_archer_10_death_A.FBX using Guid(4bf606b9e42a64545b5ccbd03f02e959) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3d75878eb9de4e1e4fd9c9728b906a25') in 0.014410 seconds 
+  Import took 0.020982 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000391 seconds.
+  path: Assets/Toon_RTS/Elves/models/extra models/weapons/ELF_Dagger.FBX
+  artifactKey: Guid(ad2ab8cb5b4817147a8d7824613a46cf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Elves/models/extra models/weapons/ELF_Dagger.FBX using Guid(ad2ab8cb5b4817147a8d7824613a46cf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '86d0ed67e5a8ece92ec512939647543e') in 0.025598 seconds 
+  Import took 0.030281 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000604 seconds.
+  path: Assets/Toon_RTS/Elves/animation/infantry/ELF_infantry_05_combat_idle.FBX
+  artifactKey: Guid(03875711b7d25cb4d959efa156acb434) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Elves/animation/infantry/ELF_infantry_05_combat_idle.FBX using Guid(03875711b7d25cb4d959efa156acb434) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0c29e91df2b8871cb10b7e1d1a72daba') in 0.014058 seconds 
+  Import took 0.019657 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000377 seconds.
+  path: Assets/Toon_RTS/Elves/prefabs/Dark_Elves/DarkELF_Spearman.prefab
+  artifactKey: Guid(cf119de19f6e3124b8ff7202d5b34db8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Elves/prefabs/Dark_Elves/DarkELF_Spearman.prefab using Guid(cf119de19f6e3124b8ff7202d5b34db8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5c27055719aeb1f7c3ed23499f52d135') in 0.027662 seconds 
+  Import took 0.035186 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000385 seconds.
+  path: Assets/Toon_RTS/Elves/animation/archer/ELF_archer_10_death_B.FBX
+  artifactKey: Guid(073b311045a86bd43a569b72ade23967) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Elves/animation/archer/ELF_archer_10_death_B.FBX using Guid(073b311045a86bd43a569b72ade23967) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '03f3d38caaa37a7e7facba633ed14f0f') in 0.014257 seconds 
+  Import took 0.019605 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000732 seconds.
+  path: Assets/Toon_RTS/Elves/animation/cavalry_mage/ELF_cavalry_mage_10_death_A.FBX
+  artifactKey: Guid(d50f96bce87344a4ea04c4ac2484eeaa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Elves/animation/cavalry_mage/ELF_cavalry_mage_10_death_A.FBX using Guid(d50f96bce87344a4ea04c4ac2484eeaa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bae944c3a059a04d7e1d445e2c8dbb95') in 0.018659 seconds 
+  Import took 0.025275 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000502 seconds.
+  path: Assets/Toon_RTS/Elves/animation/cavalry_mage/ELF_cavalry_mage_11_cast_load.FBX
+  artifactKey: Guid(a977d6fc556b15040b01b3b085ec5314) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Elves/animation/cavalry_mage/ELF_cavalry_mage_11_cast_load.FBX using Guid(a977d6fc556b15040b01b3b085ec5314) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd5d66d5a6088c6099cc6066889a6e5af') in 0.015893 seconds 
+  Import took 0.021010 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000495 seconds.
+  path: Assets/Toon_RTS/Barbarians/animation/worker/BRB_worker_carry_bag_03_run.FBX
+  artifactKey: Guid(c225eb0bcaee183499aec50740f07171) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Barbarians/animation/worker/BRB_worker_carry_bag_03_run.FBX using Guid(c225eb0bcaee183499aec50740f07171) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b28aba251f3af5e182bd9b8630309d65') in 0.012005 seconds 
+  Import took 0.017739 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000763 seconds.
+  path: Assets/Toon_RTS/Elves/animation/cavalry_mage/ELF_cavalry_mage_10_death_B.FBX
+  artifactKey: Guid(9323a3b4de347fb4082b2e36fc914e57) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Elves/animation/cavalry_mage/ELF_cavalry_mage_10_death_B.FBX using Guid(9323a3b4de347fb4082b2e36fc914e57) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '41f153f3eb0bb919136bc5987cf8a25e') in 0.019140 seconds 
+  Import took 0.025778 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000395 seconds.
+  path: Assets/Toon_RTS/Elves/animation/archer/ELF_archer_01_idle_A.FBX
+  artifactKey: Guid(0b90587dd6594e54a92cf1712c0ce4da) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Elves/animation/archer/ELF_archer_01_idle_A.FBX using Guid(0b90587dd6594e54a92cf1712c0ce4da) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '06e1e5f478166b14ed0b646ea422e537') in 0.013986 seconds 
+  Import took 0.018145 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000371 seconds.
+  path: Assets/Toon_RTS/Barbarians/animation/worker/BRB_worker_carry_wood_02_walk.FBX
+  artifactKey: Guid(ccf497547b364114684a5d99f22b1c76) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Barbarians/animation/worker/BRB_worker_carry_wood_02_walk.FBX using Guid(ccf497547b364114684a5d99f22b1c76) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '16d11d1d0e17c5a245e20c1ee31dd8b1') in 0.012543 seconds 
+  Import took 0.017762 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000385 seconds.
+  path: Assets/Toon_RTS/Elves/animation/archer/ELF_archer_02_walk.FBX
+  artifactKey: Guid(d449fa6edc0b405478669504fd28b273) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Elves/animation/archer/ELF_archer_02_walk.FBX using Guid(d449fa6edc0b405478669504fd28b273) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd83a86f4c104243430b8e9deacb48682') in 0.010688 seconds 
+  Import took 0.016112 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000336 seconds.
+  path: Assets/Toon_RTS/Elves/animation/cavalry/ELF_cavalry_sword_03_run.FBX
+  artifactKey: Guid(56a749515af537542873dfd6b15fbfbc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Elves/animation/cavalry/ELF_cavalry_sword_03_run.FBX using Guid(56a749515af537542873dfd6b15fbfbc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '54c95849106fc811e70bfb12b08d08d2') in 0.013610 seconds 
+  Import took 0.019903 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000420 seconds.
+  path: Assets/Toon_RTS/Elves/animation/cavalry/ELF_cavalry_sword_04_charge.FBX
+  artifactKey: Guid(e84a289967f28834fa756fa1d3743267) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Elves/animation/cavalry/ELF_cavalry_sword_04_charge.FBX using Guid(e84a289967f28834fa756fa1d3743267) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '22284e812db966c62e42aa498c307247') in 0.014612 seconds 
+  Import took 0.019740 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000382 seconds.
+  path: Assets/Toon_RTS/Barbarians/animation/worker/BRB_worker_05_death_A.FBX
+  artifactKey: Guid(14bf397295d26b449b21042f4b7051cb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Barbarians/animation/worker/BRB_worker_05_death_A.FBX using Guid(14bf397295d26b449b21042f4b7051cb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7bf63b141bd6253562cd58a2aeba67ff') in 0.012743 seconds 
+  Import took 0.017374 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000367 seconds.
+  path: Assets/Toon_RTS/Elves/animation/archer/ELF_archer_07_attack_A.FBX
+  artifactKey: Guid(463972f6075023340b5fc925270eac20) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Elves/animation/archer/ELF_archer_07_attack_A.FBX using Guid(463972f6075023340b5fc925270eac20) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '74f44c46763b170ee43eca753cf37074') in 0.013140 seconds 
+  Import took 0.018330 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000473 seconds.
+  path: Assets/Toon_RTS/Elves/models/single_mesh/ELF_heavy_infantry_B.FBX
+  artifactKey: Guid(be29b17dbc3141e42ad5a779475180a7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Elves/models/single_mesh/ELF_heavy_infantry_B.FBX using Guid(be29b17dbc3141e42ad5a779475180a7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '05d98a1399efd9fe753e8c6500fba93b') in 0.039264 seconds 
+  Import took 0.044268 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000404 seconds.
+  path: Assets/Toon_RTS/Elves/animation/infantry/ELF_infantry_06_combat_walk.FBX
+  artifactKey: Guid(c1633ec3b33070246a4f5cbb7fc6aebe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Elves/animation/infantry/ELF_infantry_06_combat_walk.FBX using Guid(c1633ec3b33070246a4f5cbb7fc6aebe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '96f1031d19a7052cd766dd2486e00de1') in 0.011676 seconds 
+  Import took 0.015841 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000351 seconds.
+  path: Assets/Toon_RTS/Elves/animation/cavalry/ELF_cavalry_sword_09_take_damage.FBX
+  artifactKey: Guid(e436adf3a7646e6499cf5b52ec1d5c01) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Elves/animation/cavalry/ELF_cavalry_sword_09_take_damage.FBX using Guid(e436adf3a7646e6499cf5b52ec1d5c01) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3655d587758dfd952d84be677ea87d8d') in 0.013744 seconds 
+  Import took 0.018273 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000387 seconds.
+  path: Assets/Toon_RTS/Barbarians/animation/worker/BRB_worker_carry_wood_01_idle.FBX
+  artifactKey: Guid(33bd59068d144f648adf57817719b92b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Barbarians/animation/worker/BRB_worker_carry_wood_01_idle.FBX using Guid(33bd59068d144f648adf57817719b92b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd1b4958b1c4419e2b24387ec0f316140') in 0.013386 seconds 
+  Import took 0.018967 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000388 seconds.
+  path: Assets/Toon_RTS/Elves/models/ELF_Characters_customizable.FBX
+  artifactKey: Guid(4d96a0eecc83e2e4bab3541489dacb4d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Elves/models/ELF_Characters_customizable.FBX using Guid(4d96a0eecc83e2e4bab3541489dacb4d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '88b3378235740c3fddb37e97d35d6bd3') in 0.425880 seconds 
+  Import took 0.430710 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000355 seconds.
+  path: Assets/Toon_RTS/Elves/models/single_mesh/ELF_archer_A.FBX
+  artifactKey: Guid(2dc0986e562a188499861c31fefb89aa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Elves/models/single_mesh/ELF_archer_A.FBX using Guid(2dc0986e562a188499861c31fefb89aa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9d40043108df0339e43ae5c4f9d5083a') in 0.035829 seconds 
+  Import took 0.041034 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000418 seconds.
+  path: Assets/Toon_RTS/Elves/animation/boltthrower/ELF_boltthrower_02_move.FBX
+  artifactKey: Guid(2a36a7f3471a8984bb58a3ec1b5af5b5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Elves/animation/boltthrower/ELF_boltthrower_02_move.FBX using Guid(2a36a7f3471a8984bb58a3ec1b5af5b5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '43bc9d6bc0834fd4b7bef0052919c476') in 0.013412 seconds 
+  Import took 0.020383 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000408 seconds.
+  path: Assets/Toon_RTS/Elves/prefabs/Dark_Elves/DarkELF_BoltThrower.prefab
+  artifactKey: Guid(bff45daecc096ca46b024171e629fa6b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Elves/prefabs/Dark_Elves/DarkELF_BoltThrower.prefab using Guid(bff45daecc096ca46b024171e629fa6b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd02b58a519a47e1db0e419017fb24b6b') in 0.018880 seconds 
+  Import took 0.023855 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000391 seconds.
+  path: Assets/Toon_RTS/Elves/animation/infantry/ELF_infantry_01_idle_A.FBX
+  artifactKey: Guid(704ab232ced54fa4d9e5490e5a68118f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Elves/animation/infantry/ELF_infantry_01_idle_A.FBX using Guid(704ab232ced54fa4d9e5490e5a68118f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '63d3778e82fdd172974fe53a58141f60') in 0.014900 seconds 
+  Import took 0.022207 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000686 seconds.
+  path: Assets/Toon_RTS/Elves/prefabs/Dark_Elves/DarkELF_Mage.prefab
+  artifactKey: Guid(0e948031ce55ead46a9958c9be2d4c01) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Elves/prefabs/Dark_Elves/DarkELF_Mage.prefab using Guid(0e948031ce55ead46a9958c9be2d4c01) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1cc191b051ea1690d9116431007a8c2f') in 0.031053 seconds 
+  Import took 0.037350 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000401 seconds.
+  path: Assets/Toon_RTS/Elves/animation/infantry/ELF_infantry_09_take_damage.FBX
+  artifactKey: Guid(c441eecb282eea541b1a3d4872f591c8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Elves/animation/infantry/ELF_infantry_09_take_damage.FBX using Guid(c441eecb282eea541b1a3d4872f591c8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'afd6e8c05e24b06b07708717c40ce289') in 0.014988 seconds 
+  Import took 0.019592 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000389 seconds.
+  path: Assets/Toon_RTS/Elves/animation/cavalry/ELF_cavalry_sword_07_combat_hit_A.FBX
+  artifactKey: Guid(5e333ac445b21a4468daf451250f0bf8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Elves/animation/cavalry/ELF_cavalry_sword_07_combat_hit_A.FBX using Guid(5e333ac445b21a4468daf451250f0bf8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd83fc52287c4864b529dfb0e89e60ace') in 0.014214 seconds 
+  Import took 0.020565 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000465 seconds.
+  path: Assets/Toon_RTS/Elves/models/extra models/ELF_bolt.FBX
+  artifactKey: Guid(d8f6091684074a34bbeea1d17090da1e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Elves/models/extra models/ELF_bolt.FBX using Guid(d8f6091684074a34bbeea1d17090da1e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2c7416474328614fef9a86e76cd65e12') in 0.020932 seconds 
+  Import took 0.026140 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000397 seconds.
+  path: Assets/Toon_RTS/Elves/animation/cavalry_mage/ELF_cavalry_mage_07_attack_A.FBX
+  artifactKey: Guid(93d952ffb7503d14db047a43f7aeef48) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Elves/animation/cavalry_mage/ELF_cavalry_mage_07_attack_A.FBX using Guid(93d952ffb7503d14db047a43f7aeef48) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '547f189826c72ed4882884f1bfcbc853') in 0.015324 seconds 
+  Import took 0.020894 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000402 seconds.
+  path: Assets/Toon_RTS/Elves/models/single_mesh/ELF_heavy_cavalry_B.FBX
+  artifactKey: Guid(da2c36b915a4cb943a3c245ef211aa90) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Elves/models/single_mesh/ELF_heavy_cavalry_B.FBX using Guid(da2c36b915a4cb943a3c245ef211aa90) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c43720003b4f199d0d0b1b36c726b079') in 0.038953 seconds 
+  Import took 0.044315 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000349 seconds.
+  path: Assets/Toon_RTS/Barbarians/animation/worker/BRB_worker_04_attack_A.FBX
+  artifactKey: Guid(09c2d50106128824eb8bd246db049bc3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Barbarians/animation/worker/BRB_worker_04_attack_A.FBX using Guid(09c2d50106128824eb8bd246db049bc3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f15f10ec88408bb0ff0e1fb86d72049d') in 0.013811 seconds 
+  Import took 0.018191 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000452 seconds.
+  path: Assets/Toon_RTS/Elves/animation/cavalry/ELF_cavalry_sword_08_combat_hit_B.FBX
+  artifactKey: Guid(931b3753265c1ac49a0d073524ef9fe3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Elves/animation/cavalry/ELF_cavalry_sword_08_combat_hit_B.FBX using Guid(931b3753265c1ac49a0d073524ef9fe3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '15a7fd553d8fe58749e5e2190d5fc640') in 0.016713 seconds 
+  Import took 0.022570 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000618 seconds.
+  path: Assets/Toon_RTS/Barbarians/animation/worker/BRB_worker_carry_bag_09_take_damage.FBX
+  artifactKey: Guid(ce5c2e7c0e05e604894a54a0d8ac5af7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Barbarians/animation/worker/BRB_worker_carry_bag_09_take_damage.FBX using Guid(ce5c2e7c0e05e604894a54a0d8ac5af7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cadf4e6df4e443f2508505f74d89f20a') in 0.013329 seconds 
+  Import took 0.020189 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000372 seconds.
+  path: Assets/Toon_RTS/Elves/animation/cavalry_mage/ELF_cavalry_mage_03_run.FBX
+  artifactKey: Guid(f3ed42efccb99b24185ca6669cb58958) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Elves/animation/cavalry_mage/ELF_cavalry_mage_03_run.FBX using Guid(f3ed42efccb99b24185ca6669cb58958) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'efd54c014dd5d8915c033314e05b677d') in 0.015313 seconds 
+  Import took 0.020191 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000348 seconds.
+  path: Assets/Toon_RTS/Barbarians/animation/worker/BRB_worker_carry_bag_04_attack.FBX
+  artifactKey: Guid(428381c65de386740989e202ed120460) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Barbarians/animation/worker/BRB_worker_carry_bag_04_attack.FBX using Guid(428381c65de386740989e202ed120460) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '43a598e059b6518f4fa46e986605b746') in 0.013149 seconds 
+  Import took 0.017531 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000414 seconds.
+  path: Assets/Toon_RTS/Elves/models/ELF_BoltThrower.FBX
+  artifactKey: Guid(e6fe95228c173374989de6b8863f5406) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Elves/models/ELF_BoltThrower.FBX using Guid(e6fe95228c173374989de6b8863f5406) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e56048392323e4e954b4c9fa2aef8532') in 0.036015 seconds 
+  Import took 0.041308 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000649 seconds.
+  path: Assets/Toon_RTS/Elves/animation/cavalry_mage/ELF_cavalry_mage_09_take_damage.FBX
+  artifactKey: Guid(649699506bbf8d74bb1f9b382134c95d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Elves/animation/cavalry_mage/ELF_cavalry_mage_09_take_damage.FBX using Guid(649699506bbf8d74bb1f9b382134c95d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '965bc93d5018ea605f2bfa55175beee0') in 0.013238 seconds 
+  Import took 0.018181 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000497 seconds.
+  path: Assets/Toon_RTS/Barbarians/animation/worker/BRB_worker_06_death_B.FBX
+  artifactKey: Guid(a93825473cc7eb14c9e7f87445573200) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Barbarians/animation/worker/BRB_worker_06_death_B.FBX using Guid(a93825473cc7eb14c9e7f87445573200) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f8ad4de761291d14fa2a2b9cafe5facc') in 0.012810 seconds 
+  Import took 0.017499 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000373 seconds.
+  path: Assets/Toon_RTS/Elves/animation/boltthrower/ELF_boltthrower_01_idle.FBX
+  artifactKey: Guid(8e422e023ac903f4ea901ef32605c311) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Elves/animation/boltthrower/ELF_boltthrower_01_idle.FBX using Guid(8e422e023ac903f4ea901ef32605c311) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ca75d83b0e2cba2c46c95aab63da5a06') in 0.012948 seconds 
+  Import took 0.017299 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000333 seconds.
+  path: Assets/Toon_RTS/Elves/models/extra models/weapons/ELF_Bow.FBX
+  artifactKey: Guid(122d515a0ffa1614f9cc926cfbf38e98) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Elves/models/extra models/weapons/ELF_Bow.FBX using Guid(122d515a0ffa1614f9cc926cfbf38e98) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '660779ac113bdc068068e0b2df1b13ee') in 0.020955 seconds 
+  Import took 0.025005 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000370 seconds.
+  path: Assets/Scripts/Equipment System/Custom Prefabs/Elves/ELF_Characters_customizable_Base_Full.prefab
+  artifactKey: Guid(36b3d9693a29cc247bfa41d2c158699b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/Equipment System/Custom Prefabs/Elves/ELF_Characters_customizable_Base_Full.prefab using Guid(36b3d9693a29cc247bfa41d2c158699b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b5cb88c193396fd3f567d0ebbd2fa412') in 0.022582 seconds 
+  Import took 0.029188 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000384 seconds.
+  path: Assets/Toon_RTS/Elves/animation/boltthrower/ELF_boltthrower_04_death.FBX
+  artifactKey: Guid(708cfc68a16008d4385518b5e16baad3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Elves/animation/boltthrower/ELF_boltthrower_04_death.FBX using Guid(708cfc68a16008d4385518b5e16baad3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b054ad773e5e48db45114b929399c3fc') in 0.014804 seconds 
+  Import took 0.018973 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000413 seconds.
+  path: Assets/Toon_RTS/Elves/models/single_mesh/ELF_heavy_infantry_A.FBX
+  artifactKey: Guid(424c13580b3409a439febc75549c03c2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Elves/models/single_mesh/ELF_heavy_infantry_A.FBX using Guid(424c13580b3409a439febc75549c03c2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '48eaa9ed2afa2d5703b43033974d80dc') in 0.037738 seconds 
+  Import took 0.044277 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000380 seconds.
+  path: Assets/Toon_RTS/Elves/animation/infantry/ELF_infantry_07_attack_A.FBX
+  artifactKey: Guid(3d43d59b0ccb19d46b607630aba32f4a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Elves/animation/infantry/ELF_infantry_07_attack_A.FBX using Guid(3d43d59b0ccb19d46b607630aba32f4a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b7c8cf7f7023dae00c7460cbfd2649ad') in 0.015678 seconds 
+  Import took 0.022148 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000514 seconds.
+  path: Assets/Toon_RTS/Barbarians/animation/worker/BRB_worker_carry_wood_09_take_damage.FBX
+  artifactKey: Guid(213601889c2528b4f9e3d51b5b546ad7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Barbarians/animation/worker/BRB_worker_carry_wood_09_take_damage.FBX using Guid(213601889c2528b4f9e3d51b5b546ad7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'effe828078b27e919f8cc0a3eb3b54fb') in 0.012071 seconds 
+  Import took 0.018615 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000473 seconds.
+  path: Assets/Toon_RTS/Elves/models/single_mesh/ELF_archer_C.FBX
+  artifactKey: Guid(2b4e5b28cef913c449b1a47641a486d9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Elves/models/single_mesh/ELF_archer_C.FBX using Guid(2b4e5b28cef913c449b1a47641a486d9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0ddd888905f67019ef8f84e7c2293c90') in 0.033858 seconds 
+  Import took 0.038402 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000396 seconds.
+  path: Assets/Toon_RTS/Elves/animation/cavalry/ELF_cavalry_sword_01_idle_A.FBX
+  artifactKey: Guid(da2dc7c75b1ac424c9be16d28820972c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Elves/animation/cavalry/ELF_cavalry_sword_01_idle_A.FBX using Guid(da2dc7c75b1ac424c9be16d28820972c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2a08ef68bbd9acc37f4ce736d9c90e70') in 0.018442 seconds 
+  Import took 0.023743 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000457 seconds.
+  path: Assets/Toon_RTS/Elves/animation/cavalry/ELF_cavalry_sword_05_combat_idle.FBX
+  artifactKey: Guid(16efbf55f4788ba45ab284d8aadff318) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Elves/animation/cavalry/ELF_cavalry_sword_05_combat_idle.FBX using Guid(16efbf55f4788ba45ab284d8aadff318) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd9fd39c355fd7e17bd3affa72a40fe0e') in 0.014551 seconds 
+  Import took 0.020338 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000347 seconds.
+  path: Assets/Toon_RTS/Barbarians/prefabs/BRB_Mounted_mage.prefab
+  artifactKey: Guid(973b8f5ae6a4b734b86e252b71095a8d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Barbarians/prefabs/BRB_Mounted_mage.prefab using Guid(973b8f5ae6a4b734b86e252b71095a8d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1e9617ececc4199665086ba9acb1087b') in 0.023579 seconds 
+  Import took 0.029492 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000579 seconds.
+  path: Assets/Toon_RTS/Barbarians/animation/mage/BRB_mage_03_run.FBX
+  artifactKey: Guid(2aa70224020dd18439c2335ef55bc784) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Barbarians/animation/mage/BRB_mage_03_run.FBX using Guid(2aa70224020dd18439c2335ef55bc784) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3d4cb7d0e63ca805cec827299b9949ce') in 0.016488 seconds 
+  Import took 0.021836 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000363 seconds.
+  path: Assets/Toon_RTS/Elves/animation/archer/ELF_archer_05_combat_idle.FBX
+  artifactKey: Guid(543255e2ef4319243b2ada9f746fcc2f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Elves/animation/archer/ELF_archer_05_combat_idle.FBX using Guid(543255e2ef4319243b2ada9f746fcc2f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '09411e0d77e02d6de3fe5924c543269c') in 0.012888 seconds 
+  Import took 0.017854 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000361 seconds.
+  path: Assets/Toon_RTS/Elves/animation/cavalry_mage/ELF_cavalry_mage_11_cast_A.FBX
+  artifactKey: Guid(f87226d95fd2764408b17866b77871ed) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Elves/animation/cavalry_mage/ELF_cavalry_mage_11_cast_A.FBX using Guid(f87226d95fd2764408b17866b77871ed) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2e098d67b73d6b7a40bfc656eabbbcc7') in 0.015090 seconds 
+  Import took 0.018879 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000335 seconds.
+  path: Assets/Toon_RTS/Barbarians/animation/infantry/BRB_infantry_06_combat_walk.FBX
+  artifactKey: Guid(79140ab6b0c110348b7c2f00bac28b37) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Barbarians/animation/infantry/BRB_infantry_06_combat_walk.FBX using Guid(79140ab6b0c110348b7c2f00bac28b37) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '488529899880a65637754a8f68be0e4d') in 0.015135 seconds 
+  Import took 0.019281 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000433 seconds.
+  path: Assets/Toon_RTS/Barbarians/animation/mage/BRB_mage_10_death_B.FBX
+  artifactKey: Guid(caa5860965a41004aa7645b2cbdfda37) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Barbarians/animation/mage/BRB_mage_10_death_B.FBX using Guid(caa5860965a41004aa7645b2cbdfda37) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '891624772aa46c6616e852e543763f31') in 0.014746 seconds 
+  Import took 0.021417 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000379 seconds.
+  path: Assets/Toon_RTS/Elves/models/extra models/weapons/ELF_Axe.FBX
+  artifactKey: Guid(c21e88b21309fd448ada0743fc863f5a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Elves/models/extra models/weapons/ELF_Axe.FBX using Guid(c21e88b21309fd448ada0743fc863f5a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7e375925fa8f58ba20e24b44f56925ef') in 0.021036 seconds 
+  Import took 0.025892 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000398 seconds.
+  path: Assets/Toon_RTS/Barbarians/animation/mage/BRB_mage_11_cast_load.FBX
+  artifactKey: Guid(821c5003c2683254698ead2a5fdbfb37) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Barbarians/animation/mage/BRB_mage_11_cast_load.FBX using Guid(821c5003c2683254698ead2a5fdbfb37) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd4ef5ed6759399081ff484e9e8a660f5') in 0.010961 seconds 
+  Import took 0.015654 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000442 seconds.
+  path: Assets/Toon_RTS/Elves/animation/cavalry/ELF_cavalry_sword_10_death_A.FBX
+  artifactKey: Guid(f0061afdd199a7840ae6660e9f9cd9c7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Elves/animation/cavalry/ELF_cavalry_sword_10_death_A.FBX using Guid(f0061afdd199a7840ae6660e9f9cd9c7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3e5746d0fc90170b6701336697569617') in 0.019949 seconds 
+  Import took 0.026102 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000423 seconds.
+  path: Assets/Toon_RTS/Barbarians/animation/spearman/BRB_spearman_06_combat_walk.FBX
+  artifactKey: Guid(3ffa0f7866dc6634ab4e9fa5ea00fbb2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Barbarians/animation/spearman/BRB_spearman_06_combat_walk.FBX using Guid(3ffa0f7866dc6634ab4e9fa5ea00fbb2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '49cdb2a5b293e57c1ecfd21360071e12') in 0.012560 seconds 
+  Import took 0.017988 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000408 seconds.
+  path: Assets/Toon_RTS/Barbarians/animation/spearman/BRB_spearman_07_attack_A.FBX
+  artifactKey: Guid(c1e47805fdc1cf944a56460d299139da) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Barbarians/animation/spearman/BRB_spearman_07_attack_A.FBX using Guid(c1e47805fdc1cf944a56460d299139da) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ad2c4074b487f13e160ea9a2dc565fee') in 0.012556 seconds 
+  Import took 0.016081 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000422 seconds.
+  path: Assets/Toon_RTS/Elves/animation/archer/ELF_archer_09_take_damage.FBX
+  artifactKey: Guid(a7815eadd3e4825439848787af3cec2c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Elves/animation/archer/ELF_archer_09_take_damage.FBX using Guid(a7815eadd3e4825439848787af3cec2c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '48cb197beeba30c6e6b81aa5f1e343ba') in 0.013123 seconds 
+  Import took 0.018371 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000376 seconds.
+  path: Assets/Toon_RTS/Barbarians/animation/cavalry/BRB_cavalry_sword_10_death_B.FBX
+  artifactKey: Guid(264340d4af1c42b4c912bcd1c0d72b9d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Barbarians/animation/cavalry/BRB_cavalry_sword_10_death_B.FBX using Guid(264340d4af1c42b4c912bcd1c0d72b9d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5051804d758978b5e6f55ea3ee4477ac') in 0.018833 seconds 
+  Import took 0.025735 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000435 seconds.
+  path: Assets/Toon_RTS/Elves/animation/cavalry/ELF_cavalry_sword_10_death_B.FBX
+  artifactKey: Guid(d107e0f4fed2da84f9ba139da6f3b947) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Elves/animation/cavalry/ELF_cavalry_sword_10_death_B.FBX using Guid(d107e0f4fed2da84f9ba139da6f3b947) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b42cf14853feccf38048ef4cae8f5b97') in 0.016194 seconds 
+  Import took 0.020814 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.940863 seconds.
+  path: Assets/Toon_RTS/Undead/animation/spearman/UD_spearman_06_combat_walk.FBX
+  artifactKey: Guid(e0465349aeec84741a46e69f6362b081) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Undead/animation/spearman/UD_spearman_06_combat_walk.FBX using Guid(e0465349aeec84741a46e69f6362b081) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cbb8b6437a04ed1bb7fcd17ee53d6504') in 0.016347 seconds 
+  Import took 0.021848 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000442 seconds.
+  path: Assets/Toon_RTS/WesternKingdoms/animation/cavalry/WK_cavalry_sword_06_combat_walk.FBX
+  artifactKey: Guid(f307b258d03522e44b0e34657b8413f4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/WesternKingdoms/animation/cavalry/WK_cavalry_sword_06_combat_walk.FBX using Guid(f307b258d03522e44b0e34657b8413f4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0b564283d634d0a76c90936297744f0b') in 0.013797 seconds 
+  Import took 0.018279 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000508 seconds.
+  path: Assets/Toon_RTS/WesternKingdoms/animation/mage/WK_mage_06_combat_walk.FBX
+  artifactKey: Guid(507846200aa981d42acb927072c46011) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/WesternKingdoms/animation/mage/WK_mage_06_combat_walk.FBX using Guid(507846200aa981d42acb927072c46011) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a4bba6aff76c0af8b07da19ff78c2191') in 0.012260 seconds 
+  Import took 0.017976 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000366 seconds.
+  path: Assets/Toon_RTS/WesternKingdoms/animation/spearman/WK_spearman_02_walk.FBX
+  artifactKey: Guid(3ceb43028472a6a43a7352bcda25a510) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/WesternKingdoms/animation/spearman/WK_spearman_02_walk.FBX using Guid(3ceb43028472a6a43a7352bcda25a510) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '52c7570a21e1368a746358d008c54561') in 0.014003 seconds 
+  Import took 0.019997 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000497 seconds.
+  path: Assets/Toon_RTS/WesternKingdoms/animation/worker/WK_worker_02_walk.FBX
+  artifactKey: Guid(77c70dd3567cf964c948b94f697572dc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/WesternKingdoms/animation/worker/WK_worker_02_walk.FBX using Guid(77c70dd3567cf964c948b94f697572dc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '557366f21a1742f7e1bb75bd19159ef5') in 0.011926 seconds 
+  Import took 0.016203 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000389 seconds.
+  path: Assets/Toon_RTS/Undead/animation/worker/UD_worker_carry_bag_02_walk.FBX
+  artifactKey: Guid(8798d7a15b182b5429be426d42e3e530) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Undead/animation/worker/UD_worker_carry_bag_02_walk.FBX using Guid(8798d7a15b182b5429be426d42e3e530) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '554e58330b54152b09bcde4f5d670695') in 0.014941 seconds 
+  Import took 0.020621 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000714 seconds.
+  path: Assets/Toon_RTS/WesternKingdoms/animation/worker/WK_worker_carry_bag_02_walk.FBX
+  artifactKey: Guid(be770c014c7920b4b8a380953305a36d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/WesternKingdoms/animation/worker/WK_worker_carry_bag_02_walk.FBX using Guid(be770c014c7920b4b8a380953305a36d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '228684cba03638f532f8fb5be1954c1e') in 0.014566 seconds 
+  Import took 0.020534 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000450 seconds.
+  path: Assets/Toon_RTS/WesternKingdoms/animation/infantry/WK_heavy_infantry_06_combat_walk.FBX
+  artifactKey: Guid(c8816601e0ec6524480b9dd3562bc890) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/WesternKingdoms/animation/infantry/WK_heavy_infantry_06_combat_walk.FBX using Guid(c8816601e0ec6524480b9dd3562bc890) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8731df74a58abd814872d83ea72b80f6') in 0.015002 seconds 
+  Import took 0.019968 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000423 seconds.
+  path: Assets/Toon_RTS/Undead/animation/worker/UD_worker_02_walk.FBX
+  artifactKey: Guid(43f6e23344711014cb00194e8f26bb5e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Undead/animation/worker/UD_worker_02_walk.FBX using Guid(43f6e23344711014cb00194e8f26bb5e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0f4a1391eb36cd09c66121ecd118f8c3') in 0.013690 seconds 
+  Import took 0.019023 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000455 seconds.
+  path: Assets/Toon_RTS/WesternKingdoms/animation/cavalry/WK_cavalry_sword_02_walk.FBX
+  artifactKey: Guid(3442f40d479296848b97388a44160bdd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/WesternKingdoms/animation/cavalry/WK_cavalry_sword_02_walk.FBX using Guid(3442f40d479296848b97388a44160bdd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'be0dfdb8a8c6a1d8b48e4ea7f267fb42') in 0.015892 seconds 
+  Import took 0.021524 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000497 seconds.
+  path: Assets/Toon_RTS/WesternKingdoms/animation/cavalry_mage/WK_cavalry_mage_02_walk.FBX
+  artifactKey: Guid(28112ffe0df07864e8d49453fef8fabd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/WesternKingdoms/animation/cavalry_mage/WK_cavalry_mage_02_walk.FBX using Guid(28112ffe0df07864e8d49453fef8fabd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9f23ad39477615dd63956d7ad35ccccc') in 0.018282 seconds 
+  Import took 0.022939 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000425 seconds.
+  path: Assets/Toon_RTS/WesternKingdoms/animation/archer/WK_archer_02_walk.FBX
+  artifactKey: Guid(7369969fc3294e5488672637eac103d2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/WesternKingdoms/animation/archer/WK_archer_02_walk.FBX using Guid(7369969fc3294e5488672637eac103d2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e46b5a450ede97ca4b8f0500d0127bae') in 0.011634 seconds 
+  Import took 0.016854 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000451 seconds.
+  path: Assets/Toon_RTS/WesternKingdoms/animation/infantry/WK_heavy_infantry_02_walk.FBX
+  artifactKey: Guid(4a40565f5d9586f4085976808631e017) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/WesternKingdoms/animation/infantry/WK_heavy_infantry_02_walk.FBX using Guid(4a40565f5d9586f4085976808631e017) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f8997f8d6655178cd6eacfb734d39027') in 0.012645 seconds 
+  Import took 0.018541 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000397 seconds.
+  path: Assets/Toon_RTS/WesternKingdoms/animation/mage/WK_mage_02_walk.FBX
+  artifactKey: Guid(7f79ab84fe101e946b9d270741d45d05) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/WesternKingdoms/animation/mage/WK_mage_02_walk.FBX using Guid(7f79ab84fe101e946b9d270741d45d05) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4c415dac2cbb8600a2544384d26f3fc8') in 0.015441 seconds 
+  Import took 0.023051 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000424 seconds.
+  path: Assets/Toon_RTS/Undead/animation/worker/UD_worker_carry_wood_02_walk.FBX
+  artifactKey: Guid(bbd03906db21e8649a2306cdf7be0e09) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/Undead/animation/worker/UD_worker_carry_wood_02_walk.FBX using Guid(bbd03906db21e8649a2306cdf7be0e09) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '091bc092e0cc36a6d45827c5289b13e3') in 0.014012 seconds 
+  Import took 0.019417 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000397 seconds.
+  path: Assets/Toon_RTS/WesternKingdoms/animation/spearman/WK_spearman_06_combat_walk.FBX
+  artifactKey: Guid(f4bbc87320a552c41be73b01e3dfe917) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/WesternKingdoms/animation/spearman/WK_spearman_06_combat_walk.FBX using Guid(f4bbc87320a552c41be73b01e3dfe917) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f4832bcca345fa44cceffaca90598359') in 0.012198 seconds 
+  Import took 0.018482 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000462 seconds.
+  path: Assets/Toon_RTS/WesternKingdoms/animation/worker/WK_worker_carry_wood_02_walk.FBX
+  artifactKey: Guid(92c20eeda07b50d4e8fa67c484a71d39) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/WesternKingdoms/animation/worker/WK_worker_carry_wood_02_walk.FBX using Guid(92c20eeda07b50d4e8fa67c484a71d39) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd8ccdbcb11ab242ff401c0343759ec06') in 0.012260 seconds 
+  Import took 0.016636 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000293 seconds.
+  path: Assets/Toon_RTS/WesternKingdoms/animation/archer/WK_archer_06_combat_walk.FBX
+  artifactKey: Guid(8b9d8bb5c100d724fae039a40b8eec1d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Toon_RTS/WesternKingdoms/animation/archer/WK_archer_06_combat_walk.FBX using Guid(8b9d8bb5c100d724fae039a40b8eec1d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5867ae38b6cd0892b98b728c25022273') in 0.014435 seconds 
+  Import took 0.019614 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.007935 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.91 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  2.151 seconds
+Domain Reload Profiling:
+	ReloadAssembly (2152ms)
+		BeginReloadAssembly (202ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (7ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (52ms)
+		EndReloadAssembly (1744ms)
+			LoadAssemblies (237ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (618ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (85ms)
+			SetupLoadedEditorAssemblies (531ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (9ms)
+				SetLoadedEditorAssemblies (1ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (148ms)
+				ProcessInitializeOnLoadAttributes (347ms)
+				ProcessInitializeOnLoadMethodAttributes (13ms)
+				AfterProcessingInitializeOnLoad (11ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (11ms)
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.54 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1570 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 104.5 MB.
+System memory in use after: 104.6 MB.
+
+Unloading 12 unused Assets to reduce memory usage. Loaded Objects now: 2061.
+Total: 5.070700 ms (FindLiveObjects: 0.164600 ms CreateObjectMapping: 0.060300 ms MarkObjects: 4.802600 ms  DeleteObjects: 0.041900 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-codec-MediaFoundation-h265: 746d11721c4dcdbdad8f713fa42b33f4 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.004623 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.46 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.337 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1338ms)
+		BeginReloadAssembly (171ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (6ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (45ms)
+		EndReloadAssembly (1074ms)
+			LoadAssemblies (153ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (366ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (61ms)
+			SetupLoadedEditorAssemblies (366ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (6ms)
+				SetLoadedEditorAssemblies (1ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (105ms)
+				ProcessInitializeOnLoadAttributes (231ms)
+				ProcessInitializeOnLoadMethodAttributes (11ms)
+				AfterProcessingInitializeOnLoad (10ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (8ms)
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.49 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1570 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 104.5 MB.
+System memory in use after: 104.7 MB.
+
+Unloading 11 unused Assets to reduce memory usage. Loaded Objects now: 2063.
+Total: 3.164000 ms (FindLiveObjects: 0.144400 ms CreateObjectMapping: 0.048700 ms MarkObjects: 2.948400 ms  DeleteObjects: 0.021800 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-codec-MediaFoundation-h265: 746d11721c4dcdbdad8f713fa42b33f4 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 

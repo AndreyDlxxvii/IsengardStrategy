@@ -13,8 +13,10 @@ public class GameConfig : ScriptableObject
     [SerializeField] private Building _buildSecond;
     [SerializeField] private VoxelTile _firstTile;
     [SerializeField] private VoxelTile _secondTile;
-    [SerializeField] private Button _buttonSpawn;
     [SerializeField] private VoxelTile _thirdTile;
+    [SerializeField] private GameObject _prefabWarehouse;
+    [SerializeField] private Button _buttonSpawn;
+    
     [SerializeField] private Mineral [] _mineralT1;
     [SerializeField] private Mineral [] _mineralT2;
     [SerializeField] private Mineral [] _mineralT3;
@@ -37,7 +39,9 @@ public class GameConfig : ScriptableObject
     [TextArea(3, 5)] [SerializeField] private string _annotation =
         "Если выключено, то вариант Николая и сумма весов должна равняться 1, если включено, то вариант Иоанна, " +
         " 1 - сумма всех весов = вероятности спавна пустоты";
-    
+
+    public GameObject PrefabWarehouse => _prefabWarehouse;
+
     public float TearOneWeightSecondVariant => _tearOneWeightSecondVariant;
 
     public float TearTwoWeightSecondVariant => _tearTwoWeightSecondVariant;

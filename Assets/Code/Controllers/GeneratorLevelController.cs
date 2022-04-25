@@ -8,7 +8,7 @@ using Random = UnityEngine.Random;
 
 public class GeneratorLevelController : IOnController, IOnStart, IOnLateUpdate
 {
-    public List<VoxelTile> PositionSpawnedTiles => _positionSpawnedTiles;
+    //public List<VoxelTile> PositionSpawnedTiles => _positionSpawnedTiles;
 
     private List<VoxelTile> _positionSpawnedTiles = new List<VoxelTile>();
     private VoxelTile _firstTile;
@@ -22,7 +22,7 @@ public class GeneratorLevelController : IOnController, IOnStart, IOnLateUpdate
     private NavMeshSurface _navMesh;
     private BtnUIController _btnUIController;
     private Dictionary<Button, Vector3> _spawnedButtons = new Dictionary<Button, Vector3>();
-    private int count = 0;
+    private int _count = 0;
     private VoxelTile prefab;
 
     public event Action<VoxelTile> SpawnResources; 
@@ -143,7 +143,7 @@ public class GeneratorLevelController : IOnController, IOnStart, IOnLateUpdate
         var pos = new Vector3(voxelTile.transform.position.x + spawnPos.x, 0 , voxelTile.transform.position.z + spawnPos.z);
         byte[] test = {0, 1, 0, 1};
         byte[] testSecond = {1, 0, 1, 0};
-        if (count < 2)
+        if (_count < 2)
         {
             foreach (var tilePrefab in _availableTiles)
             {
@@ -156,7 +156,7 @@ public class GeneratorLevelController : IOnController, IOnStart, IOnLateUpdate
                 prefab = _availableTiles[Random.Range(0, _availableTiles.Count)];
             }
 
-            count++;
+            _count++;
         }
         else
         {
@@ -166,7 +166,7 @@ public class GeneratorLevelController : IOnController, IOnStart, IOnLateUpdate
             {
                 prefab = _availableTiles[Random.Range(0, _availableTiles.Count)];
             }
-            count = 0;
+            _count = 0;
         }
         var tile = GameObject.Instantiate(prefab, pos, Quaternion.identity);
         
@@ -186,8 +186,14 @@ public class GeneratorLevelController : IOnController, IOnStart, IOnLateUpdate
         _positionSpawnedTiles.Add(tile);
         SpawnResources?.Invoke(tile);
         CreateButton(tile);
+        CreateWarehouse(tile);
     }
-    
+
+    private void CreateWarehouse(VoxelTile tile)
+    {
+        GameObject.Instantiate(_gameConfig.PrefabWarehouse, tile.transform.position, Quaternion.identity);
+    }
+
     public void OnLateUpdate(float deltaTime)
     {
         if (_spawnedButtons.Count != 0)
