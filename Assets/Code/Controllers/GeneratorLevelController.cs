@@ -8,8 +8,6 @@ using Random = UnityEngine.Random;
 
 public class GeneratorLevelController : IOnController, IOnStart, IOnLateUpdate
 {
-    //public List<VoxelTile> PositionSpawnedTiles => _positionSpawnedTiles;
-
     private List<VoxelTile> _positionSpawnedTiles = new List<VoxelTile>();
     private VoxelTile _firstTile;
     private List<VoxelTile> _voxelTiles;
@@ -186,7 +184,9 @@ public class GeneratorLevelController : IOnController, IOnStart, IOnLateUpdate
         _positionSpawnedTiles.Add(tile);
         SpawnResources?.Invoke(tile);
         CreateButton(tile);
-        CreateWarehouse(tile);
+        
+        //установка склада при создании тайла
+        //CreateWarehouse(tile);
     }
 
     private void CreateWarehouse(VoxelTile tile)
