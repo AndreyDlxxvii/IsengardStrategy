@@ -18,18 +18,28 @@ public class GameInit
         var unitController = new UnitController();
         var outPostSpawner = new OutpostSpawner(unitUISpawnerTest);
         var buildController = new BuildGenerator(gameConfig, leftUI, layerMask, outPostSpawner);
-        var resourceGenerator = new ResourceGenerator(levelGenerator.PositionSpawnedTiles, buildController.Buildings, leftUI, gameConfig);
+        //var resourceGenerator = new ResourceGenerator(levelGenerator.PositionSpawnedTiles, buildController.Buildings, leftUI, gameConfig);
         var unitSpawner = new BaseUnitSpawner(gameConfig,unitController,outPostSpawner,gameConfig.BaseUnit);
         var inputController = new InputController(unitSpawner);
+        //var buildController = new BuildGenerator(gameConfig, leftUI, layerMask, outPostSpawner);
+        if (!gameConfig.ChangeVariant)
+        {
+            new ResourceGenerator(buildController.Buildings, gameConfig, levelGenerator);
+        }
+        else
+        {
+            new ResourceGenerator(buildController.Buildings, gameConfig, levelGenerator, 2);
+        }
 
         controller.Add(btnConroller);
         controller.Add(levelGenerator);
         controller.Add(buildController);
-        controller.Add(resourceGenerator);
+        //controller.Add(resourceGenerator);
         controller.Add(unitController);
         controller.Add(outPostSpawner);
         controller.Add(unitSpawner);
         controller.Add(inputController);
+
 
     }
 }

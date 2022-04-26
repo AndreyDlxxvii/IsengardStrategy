@@ -5,6 +5,7 @@ using Views.Outpost;
 
 public class BuildGenerator : IOnController, IOnUpdate, IDisposable
 {
+    //возможно переполнение массива при большом количестве зданий и ресурсов
     public BaseBuildAndResources[,] Buildings => _buildings;
 
     private LeftUI _leftUI;
@@ -45,18 +46,18 @@ public class BuildGenerator : IOnController, IOnUpdate, IDisposable
             
             if (Physics.Raycast(ray, out var position, 100f, _layerMask))
             {
-                var t = position.collider.transform.position;
+                var pos = new Vector3(position.collider.bounds.center.x, 0f, position.collider.bounds.center.z);
+                
                 Vector3 worldPosition = position.point;
                 int x = Mathf.RoundToInt(worldPosition.x);
                 int y = Mathf.RoundToInt(worldPosition.z);
                 _flyingBuilding.transform.position = new Vector3(x, _offsetY, y);
                 _flyingBuilding.SetAvailableToInstant(false);
-                if (position.point.y > _offsetY && _buildings[x, y] == null)
+                if (position.point.y > _offsetY || Math.Abs(pos.x - x) == 0 && Math.Abs(pos.z - y) == 0 && _buildings[x, y] == null)
                 {
                     _flyingBuilding.SetAvailableToInstant(true);
                     if (Input.GetMouseButtonDown(0))
                     {
-                        
                         Vector3 pointDestination = new Vector3(position.transform.parent.position.x - _flyingBuilding.transform.position.x, 
                             0f, position.transform.parent.position.z - _flyingBuilding.transform.position.z);
                         _flyingBuilding.SetPointDestination(pointDestination);
