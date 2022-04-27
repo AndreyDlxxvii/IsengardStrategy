@@ -43,9 +43,22 @@ namespace Controllers.OutPost
             }
         }
 
+        private Vector2 CalculatePositionOfPlacementCircle(float maxCount, int currentNumberOfPoint,
+            double radius, Vector3 center)
+        {
+            float x = (float)(Math.Cos(2 * Math.PI * currentNumberOfPoint / maxCount) * radius + center.x);
+            float z = (float)(Math.Sin(2 * Math.PI * currentNumberOfPoint / maxCount) * radius + center.z);
+            return new Vector2(x, z);
+        }
+
+        private int counter = 0;
         private void OutpostViewDetection(UnitMovement unitMovement)
         {
-            unitMovement.EnterWorkZone.Invoke();
+            OutpostUnitView.GetColliderParameters(out Vector3 center, out Vector3 size);
+            var positionInZone = CalculatePositionOfPlacementCircle(OutpostUnitView.OutpostParametersData.GetMaxCountOfNPC(),
+                counter,size.x,center);
+            counter++;
+            unitMovement.EnterWorkZone.Invoke(positionInZone);
         }
         
     }

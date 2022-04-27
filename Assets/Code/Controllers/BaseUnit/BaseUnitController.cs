@@ -1,19 +1,22 @@
-﻿using Enums.BaseUnit;
+﻿using System;
+using System.Collections.Generic;
+using Enums.BaseUnit;
 using Models.BaseUnit;
 using UnityEngine;
 using Views.BaseUnit;
 
 namespace Controllers.BaseUnit
 {
-    public class BaseUnitController: IOnController,IOnStart, IOnUpdate
+    public class BaseUnitController: IOnController,IOnStart, IOnUpdate, IOnLateUpdate, IDisposable
     {
         #region Fields
-
-        private UnitStates _currentUnitState;
+        
         private BaseUnitModel _unitModel;
         private UnitMovement _unitMovementView;
         private UnitAnimation _unitAnimation;
-
+        public IUnitHandler CurrentUnitHandler;
+        public int MoveCounter;
+        
         #endregion
 
         #region Ctor
@@ -32,43 +35,39 @@ namespace Controllers.BaseUnit
 
         public void OnStart()
         {
-            
+            _unitMovementView.OnStart();
+            _unitMovementView.StoppedAtPosition += SetStateMachine;
         }
 
         public void OnUpdate(float deltaTime)
         {
+            Check(deltaTime);
+        }
+        
+        public void OnLateUpdate(float deltaTime)
+        {
             
         }
 
+        public void Dispose()
+        {
+            _unitMovementView.StoppedAtPosition += SetStateMachine;
+        }
+        
         #endregion
 
 
         #region Methods
 
-        public virtual void SetStateMachine(UnitStates unitStates)
-        {
-            _currentUnitState = unitStates;
-            switch (_currentUnitState)
-            {
-                case UnitStates.IDLE:
-                    //Anim state, looking for target, waiting destination
-                    break;
-            
-                case UnitStates.MOVING:
-                    //AnimState
-                    break;
-            
-                case UnitStates.DEAD:
-                    //AnimeState, destroy
-                    break;
-            }
-        }
+        public virtual void SetStateMachine(UnitStates unitStates) { }
 
-        public void SetDestination(Vector3 whereToGo)
-        {
-            _unitMovementView.pointWhereToGo = whereToGo;
-            _unitMovementView.SetThePointWhereToGo();
-        }
+        public virtual void SetDestination(Vector3 whereToGo) { }
+        
+        public virtual void SetEndTime(float time){}
+        
+        public virtual void SetUnitSequence(List<UnitStates> workerActionsList){}
+
+        public virtual void Check(float deltaTime) { }
         
         #endregion
     }

@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using Controllers.OutPost;
+using Controllers.Worker;
 using Models.BaseUnit;
 using UnityEngine;
 using Views.BaseUnit;
@@ -17,7 +19,7 @@ namespace Controllers.BaseUnit
         private OutpostSpawner _outpostSpawner;
         private BaseUnitFactory _baseUnitFactory;
         private bool _flag;
-        public Action<int,Vector3> unitWasSpawned;
+        public Action<int,List<Vector3>,List<float>> unitWasSpawned;
         public int SpawnIsActiveIndex;
 
         #endregion
@@ -84,10 +86,14 @@ namespace Controllers.BaseUnit
             var movementHolder = gameObject.GetComponent<UnitMovement>();
             var animHolder = gameObject.GetComponent<UnitAnimation>();
             var listOfUnitC = _unitController.GetBaseUnitController();
-            listOfUnitC.Add(new BaseUnitController(
+            //костыль
+            listOfUnitC.Add(new WorkerController(
                 _outpostSpawner.OutPostUnitControllers[SpawnIsActiveIndex].UiSpawnerTest.Model,movementHolder,
                 animHolder));
-            unitWasSpawned.Invoke(listOfUnitC.Count-1,endPos);
+            listOfUnitC[listOfUnitC.Count-1].OnStart();
+            unitWasSpawned.Invoke(listOfUnitC.Count-1,
+                new List<Vector3>(){endPos,gameObject.transform.position},
+                new List<float>(){3});
         }
 
         #endregion
