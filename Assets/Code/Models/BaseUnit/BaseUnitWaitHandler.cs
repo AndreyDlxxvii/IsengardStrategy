@@ -1,27 +1,19 @@
-﻿using Controllers;
-using Controllers.BaseUnit;
+﻿using Controllers.BaseUnit;
+using UnityEngine;
 
 
-public sealed class BaseUnitWaitHandler : UnitHandler, IOnUpdate
+public sealed class BaseUnitWaitHandler : UnitHandler
 {
-    private TimeController _timeController;
+   // private TimeController _timeController;
     private readonly BaseUnitController _baseUnitController;
     private float _time;
 
-    public BaseUnitWaitHandler(TimeController timeController, float time, BaseUnitController baseUnitController)
+    public BaseUnitWaitHandler(float time, BaseUnitController baseUnitController)
     {
-        _timeController = timeController;
         _time = time;
         _baseUnitController = baseUnitController;
     }
 
-    public void OnUpdate(float deltaTime)
-    {
-        _timeController.OnUpdate(deltaTime);
-        if (_timeController.TimerIsDone())
-            TimeIsUp();
-    }
-    
     private void TimeIsUp()
     {
         base.Handle();
@@ -30,8 +22,7 @@ public sealed class BaseUnitWaitHandler : UnitHandler, IOnUpdate
     public override IUnitHandler Handle()
     {
         _baseUnitController.CurrentUnitHandler = GetCurrent();
-        _timeController.AddTimer(_time);
-        _timeController.TurnOnTimer();
+        TimeRemainingExtensions.AddTimeRemaining(new TimeRemaining(TimeIsUp,_time,false));
         return this;
     }
 

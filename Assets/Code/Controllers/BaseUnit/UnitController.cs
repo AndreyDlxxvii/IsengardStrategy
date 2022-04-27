@@ -8,8 +8,10 @@ namespace Controllers.BaseUnit
 {
     public class UnitController: IOnController, IOnStart, IDisposable, IOnUpdate, IOnLateUpdate
     {
-        #region Fields
+        
 
+        #region Fields
+        
         private List<BaseUnitController> _baseUnitControllers;
         public BaseUnitSpawner BaseUnitSpawner;
 
@@ -18,8 +20,9 @@ namespace Controllers.BaseUnit
 
         #region UnityMethods
 
-        public UnitController()
+        public UnitController( )
         {
+            
             _baseUnitControllers = new List<BaseUnitController>();
         }
         
@@ -61,8 +64,6 @@ namespace Controllers.BaseUnit
 
         private void SetCommandLooking(int id, List<Vector3> listPositions,List<float> listOfTimers)
         {
-            //TODO: конструктор - инспектор
-            //TODO: Поиск ближайшей точки интереса
             List<UnitStates> workerActionsList = new List<UnitStates>();
             workerActionsList.Add(UnitStates.MOVING);
             SetEndPosition(id,listPositions[0]);

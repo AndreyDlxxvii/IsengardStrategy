@@ -1,4 +1,5 @@
-﻿using Controllers.BaseUnit;
+﻿using System;
+using Controllers.BaseUnit;
 using UnityEngine;
 using UnityEngine.AI;
 using Views.BaseUnit;
@@ -18,15 +19,20 @@ public sealed class BaseUnitMoveHandler: UnitHandler, IOnUpdate
 
     public void OnUpdate(float deltaTime)
     {
-        //TODO: hasPath - потестировать
-        //if (Math.Abs(Agent.stoppingDistance - _stoppingDistance) > Mathf.Epsilon)
-        // {
-        //     Agent.stoppingDistance = _stoppingDistance;
-        // }
-        if (_unitMovement.navMeshAgent.destination.x == _unitMovement.transform.position.x&&
-            _unitMovement.navMeshAgent.destination.z == _unitMovement.transform.position.z)
+        _unitMovement.navMeshAgent.autoTraverseOffMeshLink = false;
+        if (_unitMovement.navMeshAgent.isOnOffMeshLink)
+        {
+            OffMeshLinkData data = _unitMovement.navMeshAgent.currentOffMeshLinkData;
+            Vector3 endPos = data.endPos;
+            _baseUnitController.NormalSpeed(_unitMovement.navMeshAgent,endPos,deltaTime);
+      
+        }
+        else if (_unitMovement.navMeshAgent.destination.x == _unitMovement.transform.position.x &&
+                 _unitMovement.navMeshAgent.destination.z == _unitMovement.transform.position.z)
+        {
             StoppedAtPosition();
-        
+        }
+          
     }
       
     public override IUnitHandler Handle()

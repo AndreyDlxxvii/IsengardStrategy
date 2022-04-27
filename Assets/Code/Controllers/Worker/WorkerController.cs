@@ -52,16 +52,17 @@ namespace Controllers.Worker
             int timerCount = 0;
             foreach (var workerAction in workerActionsList)
             {
+               
                 switch (workerAction)
                 {
-                    case UnitStates.MOVING:
-                        _unitHandlers.Add(new BaseUnitMoveHandler(_unitMovement,this));
-                        MoveCounter++;
-                        break;
-                    case UnitStates.ATTAKING:
-                        _unitHandlers.Add(new BaseUnitWaitHandler(new TimeController(),_timerPositions[timerCount],this));
-                        timerCount++;
-                        break;
+                        case UnitStates.MOVING:
+                            _unitHandlers.Add(new BaseUnitMoveHandler(_unitMovement, this));
+                            MoveCounter++;
+                            break;
+                        case UnitStates.ATTAKING:
+                            _unitHandlers.Add(new BaseUnitWaitHandler(_timerPositions[timerCount], this));
+                            timerCount++;
+                            break;
                 }
             }
             _unitHandlers[0].Handle();
@@ -69,8 +70,6 @@ namespace Controllers.Worker
             {
                 if (i != _unitHandlers.Count)
                     _unitHandlers[i - 1].SetNext(_unitHandlers[i]);
-                // else
-                //     _unitHandlers[i - 1].SetNext(_unitHandlers[0]);
             }
             _unitHandlers[_unitHandlers.Count - 1].SetNext(_unitHandlers[0]);
         }
@@ -90,11 +89,6 @@ namespace Controllers.Worker
             if (CurrentUnitHandler is BaseUnitMoveHandler moveHandler)
             {
                 moveHandler.OnUpdate(deltaTime);
-            }
-            if (CurrentUnitHandler is BaseUnitWaitHandler)
-            {
-                var handler= (BaseUnitWaitHandler)CurrentUnitHandler;
-                handler.OnUpdate(deltaTime);
             }
         }
     }

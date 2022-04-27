@@ -55,7 +55,7 @@ namespace Views.BaseUnit
                 ,PointWhereToGo[CountOfSequence].z+endPosition.y);
             _navMeshAgent.SetDestination(PointWhereToGo[CountOfSequence]);
         }
-        
+
         public void StopAgent()
         {
             _navMeshAgent.isStopped = true;

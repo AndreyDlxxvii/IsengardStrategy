@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using Enums.BaseUnit;
 using Models.BaseUnit;
 using UnityEngine;
+using UnityEngine.AI;
 using Views.BaseUnit;
 
 namespace Controllers.BaseUnit
@@ -16,7 +18,8 @@ namespace Controllers.BaseUnit
         private UnitAnimation _unitAnimation;
         public IUnitHandler CurrentUnitHandler;
         public int MoveCounter;
-        
+        private float normalizedTime = 0.0f;
+
         #endregion
 
         #region Ctor
@@ -68,7 +71,16 @@ namespace Controllers.BaseUnit
         public virtual void SetUnitSequence(List<UnitStates> workerActionsList){}
 
         public virtual void Check(float deltaTime) { }
-        
+    
+        public void NormalSpeed(NavMeshAgent agent,Vector3 endPos,float deltaTime)
+        {
+            if (agent.transform.position != endPos)
+                agent.transform.position =
+                    Vector3.MoveTowards(agent.transform.position, endPos, agent.speed * deltaTime);
+            else
+                agent.CompleteOffMeshLink();
+        }
+
         #endregion
     }
 }
