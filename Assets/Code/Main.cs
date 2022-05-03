@@ -1,7 +1,8 @@
 using Controllers.OutPost;
 using UnityEngine;
-using ResurseSystem;
 using UnityEngine.AI;
+using ResurseSystem;
+using Views.BaseUnit.UI;
 
 public class Main : MonoBehaviour
 {
@@ -11,21 +12,17 @@ public class Main : MonoBehaviour
     [SerializeField] private Transform _canvas;
     [SerializeField] private LeftUI _leftUI;
     [SerializeField] private LayerMask _layerMaskTiles;
-    [SerializeField] private OutpostSpawner _outpostSpawner;
-    [SerializeField] private TopResUiVew TopResUI;
+    [SerializeField] private UnitUISpawnerTest _unitUISpawnerTest;   
+    [SerializeField] private BuildingsUI buildingsUI;
     [SerializeField] private GlobalResurseStock GlobalResStock;
-    private BuildingsUI buildingResursesUI;
-    [SerializeField] private BuildingResursesUIController _buildingResController;
+    [SerializeField] private TopResUiVew TopResUI;
     private Controller _controllers;
-   
+
     private void Start()
     {
         GlobalResStock.ResetGlobalRes();
         _controllers = new Controller();
-        new GameInit(_controllers, _gameConfig, _rightUI, _navMeshSurface, _canvas, _leftUI, _layerMaskTiles, _outpostSpawner);
-        _buildingResController=new BuildingResursesUIController(buildingResursesUI);
-        _controllers.Add(_buildingResController);
-        _controllers.Add(new MainResursesController(GlobalResStock, TopResUI));
+        new GameInit(_controllers, _gameConfig, _rightUI, _navMeshSurface, _canvas, _leftUI, _layerMaskTiles,_unitUISpawnerTest, buildingsUI, GlobalResStock, TopResUI);
         _controllers.OnStart();
     }
 
@@ -37,5 +34,5 @@ public class Main : MonoBehaviour
     private void LateUpdate()
     {
         _controllers.OnLateUpdate(Time.deltaTime);
-    }    
+    }
 }

@@ -199,7 +199,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4437343820552527172}
-  - component: {fileID: 4192988155575534325}
+  - component: {fileID: -5290629530044244883}
   m_Layer: 0
   m_Name: MainTower
   m_TagString: Untagged
@@ -224,7 +224,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4192988155575534325
+--- !u!114 &-5290629530044244883
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -236,8 +236,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59a795461707c4c4db1f57288b4fef40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BaseResurseStock: {fileID: 11400000, guid: a2c722bf9d79ce847ae79b00f9d1dafc, type: 2}
-  iconStock: {fileID: 21300000, guid: 9f705dd328be8b14d90c11b6caaa2361, type: 3}
+  BuildingModel: {fileID: 11400000, guid: 3421124e91066be489bc0ed385db572d, type: 2}
   _globalResurseStock: {fileID: 11400000, guid: 773c01e314bc240498d8957b12fb437a, type: 2}
 --- !u!1 &6159994257669579350
 GameObject:
