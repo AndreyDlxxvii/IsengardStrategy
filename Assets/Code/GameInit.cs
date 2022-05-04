@@ -1,6 +1,7 @@
 using Controllers;
 using Controllers.BaseUnit;
 using Controllers.OutPost;
+using Controllers.ResouresesPlace;
 using UnityEngine;
 using ResurseSystem;
 using UnityEngine.AI;
@@ -17,11 +18,13 @@ public class GameInit
         var levelGenerator = new GeneratorLevelController(tiles, gameConfig, rightUI, btnConroller, canvas, navMeshSurface);
         var unitController = new UnitController();
         var outPostSpawner = new OutpostSpawner(unitUISpawnerTest);
+        var resPlaceSpawner = new ResourcesPlaceSpawner(unitUISpawnerTest);
         var buildController = new BuildGenerator(gameConfig, leftUI, layerMask, outPostSpawner);
         var timeRemaining = new TimeRemainingController();
-        var unitSpawner = new BaseUnitSpawner(gameConfig, unitController, outPostSpawner, gameConfig.BaseUnit);
+        var unitSpawner = new BaseUnitSpawner(gameConfig, unitController, outPostSpawner,resPlaceSpawner, gameConfig.BaseUnit);
         var buildingController = new BuildingResursesUIController(buildingsUI);
         var inputController = new InputController(unitSpawner, buildingController);
+
         
         var globalResController = new MainResursesController(globalResStock, topResUI);
         //var unitSpawner = new BaseUnitSpawner(gameConfig,unitController,outPostSpawner,gameConfig.BaseUnit);
@@ -29,11 +32,11 @@ public class GameInit
         //var buildController = new BuildGenerator(gameConfig, leftUI, layerMask, outPostSpawner);
         if (!gameConfig.ChangeVariant)
         {
-            new ResourceGenerator(buildController.Buildings, gameConfig, levelGenerator);
+            new ResourceGenerator(buildController.Buildings, gameConfig, levelGenerator,resPlaceSpawner);
         }
         else
         {
-            new ResourceGenerator(buildController.Buildings, gameConfig, levelGenerator, 2);
+            new ResourceGenerator(buildController.Buildings, gameConfig, levelGenerator, 2,resPlaceSpawner);
         }
 
         controller.Add(btnConroller);
@@ -42,6 +45,7 @@ public class GameInit
         controller.Add(timeRemaining);
         controller.Add(unitController);
         controller.Add(outPostSpawner);
+        controller.Add(resPlaceSpawner);
         controller.Add(unitSpawner);
         controller.Add(inputController);
         controller.Add(buildingController);

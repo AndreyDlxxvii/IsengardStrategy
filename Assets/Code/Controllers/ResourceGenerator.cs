@@ -1,6 +1,9 @@
 using System;
 using System.Collections.Generic;
+using Code.View.ResourcesPlace;
+using Controllers.ResouresesPlace;
 using UnityEngine;
+using Views.Outpost;
 using Random = UnityEngine.Random;
 
 public class ResourceGenerator : IDisposable
@@ -12,24 +15,27 @@ public class ResourceGenerator : IDisposable
     private Mineral _mineral;
     private GeneratorLevelController _generatorLevelController;
     private int _numOfVariant = 0;
+    private readonly ResourcesPlaceSpawner _resourcesPlaceSpawner;
     private bool _flag;
     public ResourceGenerator(BaseBuildAndResources[,] installedBuildings,
-        GameConfig gameConfig, GeneratorLevelController generatorLevelController)
+        GameConfig gameConfig, GeneratorLevelController generatorLevelController, ResourcesPlaceSpawner resourcesPlaceSpawner)
     {
         _installedBuildings = installedBuildings;
         _gameConfig = gameConfig;
         _generatorLevelController = generatorLevelController;
+        _resourcesPlaceSpawner = resourcesPlaceSpawner;
         _generatorLevelController.SpawnResources += SpawnResources;
     }
     
     public ResourceGenerator(BaseBuildAndResources[,] installedBuildings,
-        GameConfig gameConfig, GeneratorLevelController generatorLevelController, int i)
+        GameConfig gameConfig, GeneratorLevelController generatorLevelController, int i,ResourcesPlaceSpawner resourcesPlaceSpawner)
     {
         _installedBuildings = installedBuildings;
         _gameConfig = gameConfig;
         _generatorLevelController = generatorLevelController;
         _generatorLevelController.SpawnResources += SpawnResources;
         _numOfVariant = i;
+        _resourcesPlaceSpawner = resourcesPlaceSpawner;
     }
     
     
@@ -101,7 +107,6 @@ public class ResourceGenerator : IDisposable
         {
             PlaceResourcesSecondVariant(numTile);
         }
-        
     }
 
     private void PlaceResources(int numTile)
@@ -307,6 +312,11 @@ public class ResourceGenerator : IDisposable
             _mineral = GameObject.Instantiate(res, new Vector3(pos.x, 0.1f, pos.y), Quaternion.identity);
             _installedBuildings[pos.x, pos.y] = _mineral;
             _possiblePlaceResource.Remove(pos);
+            var outpost = _mineral.gameObject.GetComponentInChildren<ResourcesPlaceView>();
+            if (outpost)
+            {
+                _resourcesPlaceSpawner.SpawnLogic(outpost);
+            }
         }
     }
 
