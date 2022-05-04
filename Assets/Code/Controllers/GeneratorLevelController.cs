@@ -184,9 +184,7 @@ public class GeneratorLevelController : IOnController, IOnStart, IOnLateUpdate
         _positionSpawnedTiles.Add(tile);
         SpawnResources?.Invoke(tile);
         CreateButton(tile);
-        
-        //установка склада при создании тайла
-        //CreateWarehouse(tile);
+        CreateWarehouse(tile);
     }
 
     private void CreateWarehouse(VoxelTile tile)

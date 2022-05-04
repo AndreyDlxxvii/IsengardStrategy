@@ -53,7 +53,7 @@ public class BuildGenerator : IOnController, IOnUpdate, IDisposable
                 int y = Mathf.RoundToInt(worldPosition.z);
                 _flyingBuilding.transform.position = new Vector3(x, _offsetY, y);
                 _flyingBuilding.SetAvailableToInstant(false);
-                if (position.point.y > _offsetY || Math.Abs(pos.x - x) == 0 && Math.Abs(pos.z - y) == 0 && _buildings[x, y] == null)
+                if (position.point.y > _offsetY && _buildings[x, y] == null)
                 {
                     _flyingBuilding.SetAvailableToInstant(true);
                     if (Input.GetMouseButtonDown(0))
