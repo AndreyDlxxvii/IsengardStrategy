@@ -4,6 +4,7 @@ using UnityEngine;
 namespace EquipSystem
 { 
     [CreateAssetMenu(fileName = "Equipable Item", menuName = "Interactable Item/Equipable Item", order = 1)]
+    [SerializeField]
     public class EquipableItemBase : ScriptableObject, IEquippable
     {
         public EquipType ItemType => _itemType;

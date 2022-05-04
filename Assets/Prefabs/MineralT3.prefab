@@ -44,7 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c2fcd8e029c4a689215e2b1bf83152f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _tier: 3
+  BaseResurseMine: {fileID: 11400000, guid: 140e5f51c7ddccc4caeb58e9c872d931, type: 2}
+  mineralIcon: {fileID: 21300000, guid: 8e438106b0288e94f9d53f43ddb61293, type: 3}
 --- !u!1001 &3853282719717006182
 PrefabInstance:
   m_ObjectHideFlags: 0

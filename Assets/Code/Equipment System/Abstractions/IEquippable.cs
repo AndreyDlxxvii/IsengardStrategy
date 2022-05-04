@@ -3,6 +3,7 @@ using UnityEngine;
 
 namespace EquipSystem
 { 
+    [SerializeField]
     public interface IEquippable : ISelectable
     {
         public EquipType ItemType { get; }

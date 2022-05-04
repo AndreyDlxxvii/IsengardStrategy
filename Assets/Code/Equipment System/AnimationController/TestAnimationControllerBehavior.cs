@@ -19,6 +19,8 @@ public class TestAnimationControllerBehavior : MonoBehaviour
     [SerializeField]
     private TMP_Text actualLayerTxt;
 
+    [SerializeField]
+    private const string MeleeWariorLayer = "MeleeWariorLayer", ArcherLayer = "ArcherLayer", MageLayer = "MageLayer", WorkerLayer = "WorkerLayer", SpearmanLayer = "SpearmanLayer";
 
     private int MeleeWeaponLayerID, ArcherLayerID, MageLayerID, WorkerLayerID, SpearmanLayerID;
 
@@ -31,11 +33,16 @@ public class TestAnimationControllerBehavior : MonoBehaviour
         CharacterAnimator = CharacterPrefab.GetComponent<Animator>();
         _characterEQSysBehavior= CharacterPrefab.GetComponent<EquipSystemBehaviour>();
 
-        MeleeWeaponLayerID = CharacterAnimator.GetLayerIndex("MeleeWariorLayer");
-        ArcherLayerID = CharacterAnimator.GetLayerIndex("ArcherLayer");
-        MageLayerID = CharacterAnimator.GetLayerIndex("MageLayer");
-        WorkerLayerID = CharacterAnimator.GetLayerIndex("WorkerLayer");
-        SpearmanLayerID = CharacterAnimator.GetLayerIndex("SpearmanLayer");
+        MeleeWeaponLayerID = CharacterAnimator.GetLayerIndex(MeleeWariorLayer);
+        ArcherLayerID = CharacterAnimator.GetLayerIndex(ArcherLayer);
+        MageLayerID = CharacterAnimator.GetLayerIndex(MageLayer);
+        WorkerLayerID = CharacterAnimator.GetLayerIndex(WorkerLayer);
+        SpearmanLayerID = CharacterAnimator.GetLayerIndex(SpearmanLayer);
+        //MeleeWeaponLayerID = CharacterAnimator.GetLayerIndex("MeleeWariorLayer");
+       // ArcherLayerID = CharacterAnimator.GetLayerIndex("ArcherLayer");
+        //MageLayerID = CharacterAnimator.GetLayerIndex("MageLayer");
+        //WorkerLayerID = CharacterAnimator.GetLayerIndex("WorkerLayer");
+        //SpearmanLayerID = CharacterAnimator.GetLayerIndex("SpearmanLayer");
 
     }
 
