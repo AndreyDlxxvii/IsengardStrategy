@@ -10,10 +10,9 @@ public class GameInit
 {
     public GameInit(Controller controller, GameConfig gameConfig, RightUI rightUI, NavMeshSurface navMeshSurface,
         Transform canvas, LeftUI leftUI, LayerMask layerMask,UnitUISpawnerTest unitUISpawnerTest, BuildingsUI buildingsUI,GlobalResurseStock globalResStock, TopResUiVew topResUI)
-    {
-
+        //Transform canvas, LeftUI leftUI, LayerMask layerMask,UnitUISpawnerTest unitUISpawnerTest)
+        {
         var tiles = GetTileList.GetTiles(gameConfig);
-            
         var btnConroller = new BtnUIController(rightUI, gameConfig);
         var levelGenerator = new GeneratorLevelController(tiles, gameConfig, rightUI, btnConroller, canvas, navMeshSurface);
         var unitController = new UnitController();
@@ -25,6 +24,8 @@ public class GameInit
         var inputController = new InputController(unitSpawner, buildingController);
         
         var globalResController = new MainResursesController(globalResStock, topResUI);
+        //var unitSpawner = new BaseUnitSpawner(gameConfig,unitController,outPostSpawner,gameConfig.BaseUnit);
+        //var inputController = new InputController(unitSpawner);
         //var buildController = new BuildGenerator(gameConfig, leftUI, layerMask, outPostSpawner);
         if (!gameConfig.ChangeVariant)
         {
@@ -45,6 +46,5 @@ public class GameInit
         controller.Add(inputController);
         controller.Add(buildingController);
         controller.Add(globalResController);
-
     }
 }

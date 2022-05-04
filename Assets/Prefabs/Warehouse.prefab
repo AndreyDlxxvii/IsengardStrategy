@@ -105,6 +105,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6717141701841531542}
   - component: {fileID: 1022040614819044588}
+
   m_Layer: 0
   m_Name: Warehouse
   m_TagString: Untagged

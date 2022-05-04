@@ -1462,6 +1462,7 @@ MonoBehaviour:
   buildingsUI: {fileID: 211228970}
   GlobalResStock: {fileID: 11400000, guid: 773c01e314bc240498d8957b12fb437a, type: 2}
   TopResUI: {fileID: 1866968321}
+
 --- !u!4 &927765853
 Transform:
   m_ObjectHideFlags: 0

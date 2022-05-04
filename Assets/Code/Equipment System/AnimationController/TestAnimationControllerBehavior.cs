@@ -22,8 +22,6 @@ public class TestAnimationControllerBehavior : MonoBehaviour
     [SerializeField]
     private const string MeleeWariorLayer = "MeleeWariorLayer", ArcherLayer = "ArcherLayer", MageLayer = "MageLayer", WorkerLayer = "WorkerLayer", SpearmanLayer = "SpearmanLayer";
 
-
-
     private int MeleeWeaponLayerID, ArcherLayerID, MageLayerID, WorkerLayerID, SpearmanLayerID;
 
     private bool _inCombat=false, _walkFlag=false, _runFlag=false, _chargeFlag=false, _castLoad=false, _areYouDeath=false,_resursesFlag=false,_bagFlag=false;
@@ -40,6 +38,11 @@ public class TestAnimationControllerBehavior : MonoBehaviour
         MageLayerID = CharacterAnimator.GetLayerIndex(MageLayer);
         WorkerLayerID = CharacterAnimator.GetLayerIndex(WorkerLayer);
         SpearmanLayerID = CharacterAnimator.GetLayerIndex(SpearmanLayer);
+        //MeleeWeaponLayerID = CharacterAnimator.GetLayerIndex("MeleeWariorLayer");
+       // ArcherLayerID = CharacterAnimator.GetLayerIndex("ArcherLayer");
+        //MageLayerID = CharacterAnimator.GetLayerIndex("MageLayer");
+        //WorkerLayerID = CharacterAnimator.GetLayerIndex("WorkerLayer");
+        //SpearmanLayerID = CharacterAnimator.GetLayerIndex("SpearmanLayer");
 
     }
 

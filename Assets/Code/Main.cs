@@ -16,6 +16,7 @@ public class Main : MonoBehaviour
     [SerializeField] private BuildingsUI buildingsUI;
     [SerializeField] private GlobalResurseStock GlobalResStock;
     [SerializeField] private TopResUiVew TopResUI;
+    //[SerializeField] private UnitUISpawnerTest _unitUISpawnerTest;
     private Controller _controllers;
 
     private void Start()
@@ -23,6 +24,7 @@ public class Main : MonoBehaviour
         GlobalResStock.ResetGlobalRes();
         _controllers = new Controller();
         new GameInit(_controllers, _gameConfig, _rightUI, _navMeshSurface, _canvas, _leftUI, _layerMaskTiles,_unitUISpawnerTest, buildingsUI, GlobalResStock, TopResUI);
+        //new GameInit(_controllers, _gameConfig, _rightUI, _navMeshSurface, _canvas, _leftUI, _layerMaskTiles,_unitUISpawnerTest);
         _controllers.OnStart();
     }
 
