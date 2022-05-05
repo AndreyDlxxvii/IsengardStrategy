@@ -26,5 +26,6 @@ public class Building : BaseBuildAndResources
     public void SetPointDestination(Vector3 pointDestination)
     {
         _navMeshLink.endPoint = pointDestination;
+        _navMeshLink.width = 0.5f;
     }
 }

@@ -13,6 +13,7 @@ public class BuildGenerator : IOnController, IOnUpdate, IDisposable
     private BaseBuildAndResources[,] _buildings;
     private Building _flyingBuilding;
     private LayerMask _layerMask;
+    private float _sizeNavmeshLink = 0.7f;
     
 
     private OutpostSpawner _outpostSpawner;
@@ -46,8 +47,6 @@ public class BuildGenerator : IOnController, IOnUpdate, IDisposable
             
             if (Physics.Raycast(ray, out var position, 100f, _layerMask))
             {
-                var pos = new Vector3(position.collider.bounds.center.x, 0f, position.collider.bounds.center.z);
-                
                 Vector3 worldPosition = position.point;
                 int x = Mathf.RoundToInt(worldPosition.x);
                 int y = Mathf.RoundToInt(worldPosition.z);
@@ -58,9 +57,50 @@ public class BuildGenerator : IOnController, IOnUpdate, IDisposable
                     _flyingBuilding.SetAvailableToInstant(true);
                     if (Input.GetMouseButtonDown(0))
                     {
+                        var tablePassAccess = position.transform.parent.GetComponent<VoxelTile>().TablePassAccess;
                         Vector3 pointDestination = new Vector3(position.transform.parent.position.x - _flyingBuilding.transform.position.x, 
-                            0f, position.transform.parent.position.z - _flyingBuilding.transform.position.z);
-                        _flyingBuilding.SetPointDestination(pointDestination);
+                            -_offsetY/2f, position.transform.parent.position.z - _flyingBuilding.transform.position.z);
+
+                        switch (Vector3.Dot(pointDestination, Vector3.forward))
+                        {
+                            case 1:
+                                if (tablePassAccess[0] == 1 && pointDestination.x > 0)
+                                {
+                                    pointDestination.z = 0f;
+                                }
+                                else if (tablePassAccess[1] == 1 && pointDestination.x > 0)
+                                {
+                                    pointDestination.x = 0f;
+                                }
+                                else if (tablePassAccess[0] == 1 && pointDestination.x < 0)
+                                {
+                                    pointDestination.z = 0f;
+                                }
+                                else if (tablePassAccess[3] == 1 && pointDestination.x < 0)
+                                {
+                                    pointDestination.x = 0f;
+                                }
+                                break;
+                            case -1:
+                                if (tablePassAccess[1] == 1 && pointDestination.x > 0)
+                                {
+                                    pointDestination.x = 0f;
+                                }
+                                else if (tablePassAccess[2] == 1 && pointDestination.x > 0 )
+                                {
+                                    pointDestination.z = 0f;
+                                }
+                                else if (tablePassAccess[2] == 1 && pointDestination.x < 0)
+                                {
+                                    pointDestination.z = 0f;
+                                }
+                                else if (tablePassAccess[3] == 1 && pointDestination.x < 0)
+                                {
+                                    pointDestination.x = 0f;
+                                }
+                                break;
+                        }
+                        _flyingBuilding.SetPointDestination(pointDestination*_sizeNavmeshLink);
                         _buildings[x, y] = _flyingBuilding;
                         _flyingBuilding.SetNormalColor();
                         var outpost = _flyingBuilding.gameObject.GetComponentInChildren<OutpostUnitView>();
