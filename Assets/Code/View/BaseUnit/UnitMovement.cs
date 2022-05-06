@@ -56,6 +56,21 @@ namespace Views.BaseUnit
             _navMeshAgent.SetDestination(PointWhereToGo[CountOfSequence]);
         }
 
+        public bool CalculateZoneOfDestination() //when we have not got the zone to stay, like near mine
+        {
+            //maybe better use colliders
+            var distance = Math.Sqrt( Math.Pow( (transform.position.x-_navMeshAgent.destination.x ), 2 ) + 
+                                  Math.Pow( (transform.position.z - _navMeshAgent.destination.z), 2 ) ); 
+            if(distance <= 0.1f)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        
         public void StopAgent()
         {
             _navMeshAgent.isStopped = true;

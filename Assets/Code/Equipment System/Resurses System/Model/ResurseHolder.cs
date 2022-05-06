@@ -44,6 +44,7 @@ namespace ResurseSystem
             if (_currentResurseCount<=0)
             {
                 minedRes += _currentResurseCount;
+                _currentResurseCount = 0;
                 Debug.Log($"This holder of {_resurseInHolder.NameOFResurse} is empty");
             }
             return minedRes;

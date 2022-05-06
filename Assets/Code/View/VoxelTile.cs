@@ -1,3 +1,4 @@
+using ResurseSystem;
 using UnityEngine;
 using UnityEngine.AI;
 using static UnityEngine.Vector3;
@@ -5,12 +6,18 @@ using static UnityEngine.Vector3;
 public class VoxelTile : MonoBehaviour
 {
     [SerializeField] private Sprite _iconTile;
-    
+    private BuildingView _mainOrWarehouse;
     private float offset = 0.1f;
     private byte [] _tablePassAccess = new byte[4];
     private int sizeTile;
     private float _sizeTileY;
 
+    public BuildingView MainOrWarehouse
+    {
+        get => _mainOrWarehouse;
+        set => _mainOrWarehouse = value;
+    }
+    
     public int NumZone { get; set; }
 
     public int WeightTile { get; set; }

@@ -1,4 +1,5 @@
 using System;
+using Data;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -19,7 +20,7 @@ public class GameConfig : ScriptableObject
     [SerializeField] private VoxelTile _thirdTile;
     [SerializeField] private GameObject _prefabWarehouse;
     [SerializeField] private Button _buttonSpawn;
-    
+
     [SerializeField] private Mineral [] _mineralT1;
     [SerializeField] private Mineral [] _mineralT2;
     [SerializeField] private Mineral [] _mineralT3;
@@ -88,5 +89,5 @@ public class GameConfig : ScriptableObject
     public GameObject MainTower => _mainTower;
 
     public GameObject BaseUnit => _baseUnit;
-
+   
 }

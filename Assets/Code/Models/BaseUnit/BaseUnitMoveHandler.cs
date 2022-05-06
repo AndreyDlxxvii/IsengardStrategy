@@ -27,8 +27,7 @@ public sealed class BaseUnitMoveHandler: UnitHandler, IOnUpdate
             _baseUnitController.NormalSpeed(_unitMovement.navMeshAgent,endPos,deltaTime);
       
         }
-        else if (_unitMovement.navMeshAgent.destination.x == _unitMovement.transform.position.x &&
-                 _unitMovement.navMeshAgent.destination.z == _unitMovement.transform.position.z)
+        else if (_unitMovement.CalculateZoneOfDestination())
         {
             StoppedAtPosition();
         }

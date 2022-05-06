@@ -1,4 +1,6 @@
-﻿using Controllers.BaseUnit;
+﻿using Code.View.ResourcesPlace;
+using Controllers.BaseUnit;
+using Interfaces;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using ResurseSystem;
@@ -33,13 +35,13 @@ namespace Controllers
                 {
                     if (EventSystem.current.IsPointerOverGameObject())
                         return;
-                    var outpost = hit.collider.gameObject.GetComponent<OutpostUnitView>();
+                    var outpost = hit.collider.gameObject.GetComponent<ISpawnerLogicView>();
                     var currBuild = hit.collider.gameObject.GetComponentInParent<BuildingView>();
                     var currMine = hit.collider.gameObject.GetComponentInParent<Mineral>();
 
                     if (_spawner.SpawnIsActiveIndex != -1)
                     {
-                        _spawner.UnShowMenu();
+                         _spawner.UnShowMenu(outpost);
                     }
                     if (currBuild)
                     {                        
@@ -57,12 +59,15 @@ namespace Controllers
                             _rescontoller.DisableMenu();
                         }
                     }
-
-
-
-                    if (outpost)
+                    
+                    switch (outpost)
                     {
-                        _spawner.ShowMenu(outpost);
+                        case ResourcesPlaceView resourcesPlaceView:
+                            _spawner.ShowMenu(resourcesPlaceView);
+                            break;
+                        case OutpostUnitView outpostUnitView:
+                            _spawner.ShowMenu(outpostUnitView);
+                            break;
                     }
                 }
 

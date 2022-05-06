@@ -1,49 +1,59 @@
 ﻿using System;
+using Code.View.ResourcesPlace;
 using Interfaces;
+using ResurseSystem;
 using UnityEngine;
 using Views.BaseUnit;
 using Views.BaseUnit.UI;
-using Views.Outpost;
 
-namespace Controllers.OutPost
+
+namespace Controllers.ResouresesPlace
 {
-    public class OutPostUnitController: IOnController, IDisposable, IUnitMovementDetected, IBuyUnit,IUnitSpawner
+    public class ResourcesPlaceController: IOnController, IDisposable, IUnitMovementDetected,IBuyUnit,IUnitSpawner
     {
         private int index;
         private int _currentCountOfNPC = 0;
+        public ResourcesPlaceView PlaceView;
         public UnitUISpawnerTest UiSpawnerTest;
-        public OutpostUnitView OutpostUnitView;
-        public Action<Vector3,OutPostUnitController> Transaction;
-
-        public OutPostUnitController(int index,OutpostUnitView outpostUnitView,UnitUISpawnerTest uiSpawnerTest)
+        private readonly BuildingView _warehouse;
+        public ResurseMine ResurseMine;
+        public Action<Vector3,ResourcesPlaceController> Transaction;
+        
+        public BuildingView Warehouse => _warehouse;
+        
+        public ResourcesPlaceController(int index,ResourcesPlaceView placeUnitView,UnitUISpawnerTest uiSpawnerTest,BuildingView buildingView)
         {
-            OutpostUnitView = outpostUnitView;
-            OutpostUnitView.IndexInArray = index;
-            OutpostUnitView.UnitInZone += ViewDetection;
+            PlaceView = placeUnitView;
             UiSpawnerTest = uiSpawnerTest;
+            _warehouse = buildingView;
+            PlaceView.IndexInArray = index;
+            ResurseMine = PlaceView.gameObject.GetComponent<Mineral>().GetMineRes();
+            PlaceView.UnitInZone += ViewDetection;
             UiSpawnerTest.spawnUnit += BuyAUnit;
         }
-
+        
         public void Dispose()
         {
-            OutpostUnitView.UnitInZone -= ViewDetection;
             UiSpawnerTest.spawnUnit -= BuyAUnit;
+            PlaceView.UnitInZone -= ViewDetection;
         }
-        
+
         public void BuyAUnit(IUnitSpawner UnitController)
         {
             if (this != UnitController)
             {
                 return;
             }
-            if (OutpostUnitView.OutpostParametersData.GetMaxCountOfNPC() >
+            if (PlaceView.Data.GetMaxCountOfNPC() >
                 _currentCountOfNPC)
             {
                 _currentCountOfNPC++;
-                Transaction.Invoke(OutpostUnitView.gameObject.transform.position,this);
+                Transaction.Invoke(PlaceView.gameObject.transform.position,this);
             }
         }
-
+        
+        //TODO: COPY+PAST ALERT
+        //NEED SET IT IN UTILS
         private Vector2 CalculatePositionOfPlacementCircle(float maxCount, int currentNumberOfPoint,
             double radius, Vector3 center)
         {
@@ -51,18 +61,15 @@ namespace Controllers.OutPost
             float z = (float)(Math.Sin(2 * Math.PI * currentNumberOfPoint / maxCount) * radius + center.z);
             return new Vector2(x, z);
         }
-
+        
         private int counter = 0;
-
         public void ViewDetection(UnitMovement unitMovement)
         {
-            OutpostUnitView.GetColliderParameters(out Vector3 center, out Vector3 size);
-            var positionInZone = CalculatePositionOfPlacementCircle(OutpostUnitView.OutpostParametersData.GetMaxCountOfNPC(),
+            PlaceView.GetColliderParameters(out Vector3 center, out Vector3 size);
+            var positionInZone = CalculatePositionOfPlacementCircle(PlaceView.Data.GetMaxCountOfNPC(),
                 counter,size.x,center);
             counter++;
             unitMovement.EnterWorkZone.Invoke(positionInZone);
         }
-
-      
     }
 }

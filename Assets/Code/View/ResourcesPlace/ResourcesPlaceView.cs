@@ -4,12 +4,13 @@ using Interfaces;
 using UnityEngine;
 using Views.BaseUnit;
 
-namespace Views.Outpost
+namespace Code.View.ResourcesPlace
 {
-    public class OutpostUnitView : MonoBehaviour, ISpawnerLogicView
+    public sealed class ResourcesPlaceView: MonoBehaviour, ISpawnerLogicView
     {
-        public OutpostParametersData OutpostParametersData;
+        public OutpostParametersData Data;
         public Action<UnitMovement> UnitInZone;
+        [NonSerialized]
         public int IndexInArray;
 
         private void OnTriggerEnter(Collider other)
