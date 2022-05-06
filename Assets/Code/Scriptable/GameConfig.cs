@@ -1,5 +1,6 @@
 using System;
 using Data;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,6 +12,7 @@ public class GameConfig : ScriptableObject
     [SerializeField] private VoxelTile[] _tilePrefabs;
     [SerializeField] private GameObject _mainTower;
     [SerializeField] private GameObject _baseUnit;
+    [SerializeField] private List<Building> _buildings = new List<Building>();
     [SerializeField] private Building _buildFirst;
     [SerializeField] private Building _buildSecond;
     [SerializeField] private VoxelTile _firstTile;
@@ -41,6 +43,8 @@ public class GameConfig : ScriptableObject
     [TextArea(3, 5)] [SerializeField] private string _annotation =
         "Если выключено, то вариант Николая и сумма весов должна равняться 1, если включено, то вариант Иоанна, " +
         " 1 - сумма всех весов = вероятности спавна пустоты";
+
+    public List<Building> Buildings => _buildings;
 
     public GameObject PrefabWarehouse => _prefabWarehouse;
 

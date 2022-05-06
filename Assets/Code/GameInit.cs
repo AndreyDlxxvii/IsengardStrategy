@@ -15,12 +15,15 @@ public class GameInit
         //Transform canvas, LeftUI leftUI, LayerMask layerMask,UnitUISpawnerTest unitUISpawnerTest)
         {
         var tiles = GetTileList.GetTiles(gameConfig);
-        var btnConroller = new BtnUIController(rightUI, gameConfig);
-        var levelGenerator = new GeneratorLevelController(tiles, gameConfig, rightUI, btnConroller, canvas, navMeshSurface);
+        var btnRightUIController = new BtnRightUIController(rightUI, gameConfig);
+        var btnLeftUIController = new BtnLeftUIController(leftUI, gameConfig);
+        var levelGenerator = new GeneratorLevelController(tiles, gameConfig, rightUI, btnRightUIController, canvas, navMeshSurface);
         var unitController = new UnitController();
         var outPostSpawner = new OutpostSpawner(unitUISpawnerTest);
         var resPlaceSpawner = new ResourcesPlaceSpawner(unitUISpawnerTest);
-        var buildController = new BuildGenerator(gameConfig, leftUI, layerMask, outPostSpawner);
+        
+        var buildController = new BuildGenerator(gameConfig, leftUI, layerMask, outPostSpawner, btnLeftUIController);
+        
         var timeRemaining = new TimeRemainingController();
         var unitSpawner = new BaseUnitSpawner(gameConfig, unitController, outPostSpawner,resPlaceSpawner, gameConfig.BaseUnit);
         var buildingController = new BuildingResursesUIController(buildingsUI);
@@ -40,7 +43,7 @@ public class GameInit
             new ResourceGenerator(buildController.Buildings, gameConfig, levelGenerator, 2,resPlaceSpawner);
         }
 
-        controller.Add(btnConroller);
+        controller.Add(btnRightUIController);
         controller.Add(levelGenerator);
         controller.Add(buildController);
         controller.Add(timeRemaining);
@@ -51,5 +54,6 @@ public class GameInit
         controller.Add(inputController);
         controller.Add(buildingController);
         controller.Add(globalResController);
-    }
+        controller.Add(btnLeftUIController);
+        }
 }

@@ -19,7 +19,7 @@ public class GeneratorLevelController : IOnController, IOnStart, IOnLateUpdate
     private RightUI _rightUI;
     private Transform _canvas;
     private NavMeshSurface _navMesh;
-    private BtnUIController _btnUIController;
+    private BtnRightUIController _btnRightUIController;
     private Dictionary<Button, Vector3> _spawnedButtons = new Dictionary<Button, Vector3>();
     private int _count = 0;
     private VoxelTile prefab;
@@ -27,14 +27,14 @@ public class GeneratorLevelController : IOnController, IOnStart, IOnLateUpdate
     public event Action<VoxelTile> SpawnResources; 
 
     public GeneratorLevelController(List<VoxelTile> tiles, GameConfig gameConfig, RightUI rightUI,
-        BtnUIController btnUIController, Transform canvas, NavMeshSurface navMesh)
+        BtnRightUIController btnRightUIController, Transform canvas, NavMeshSurface navMesh)
     {
         _spawnedTiles = new VoxelTile[gameConfig.MapSizeX,gameConfig.MapSizeY];
         _voxelTiles = tiles;
         _gameConfig = gameConfig;
         _offsetInstanceTiles = _voxelTiles[0].SizeTile;
         _rightUI = rightUI;
-        _btnUIController = btnUIController;
+        _btnRightUIController = btnRightUIController;
         buttonRespawn = gameConfig.ButtonSpawn;
         _canvas = canvas;
         _navMesh = navMesh;
@@ -43,7 +43,7 @@ public class GeneratorLevelController : IOnController, IOnStart, IOnLateUpdate
     public void OnStart()
     {
         GameObject.Instantiate(buttonRespawn);
-        _btnUIController.TileSelected += SelectFirstTile;
+        _btnRightUIController.TileSelected += SelectFirstTile;
     }
     
     private void SelectFirstTile(int numTile)
@@ -61,7 +61,7 @@ public class GeneratorLevelController : IOnController, IOnStart, IOnLateUpdate
                 break;
         }
         PlaceFirstTile(_firstTile);
-        _btnUIController.TileSelected -= SelectFirstTile;
+        _btnRightUIController.TileSelected -= SelectFirstTile;
         _rightUI.gameObject.SetActive(false);
     }
     
