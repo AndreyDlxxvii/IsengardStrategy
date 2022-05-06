@@ -1,13 +1,14 @@
 using System;
 
-public class BtnUIController : IOnController, IOnStart, IDisposable
+public class BtnRightUIController : IOnController, IOnStart, IDisposable
 {
     private RightUI _rightUI;
     private GameConfig _gameConfig;
     
     public event Action<int> TileSelected;
     
-    public BtnUIController(RightUI rightUI, GameConfig gameConfig)
+    
+    public BtnRightUIController(RightUI rightUI, GameConfig gameConfig)
     {
         _rightUI = rightUI;
         _rightUI.ButtonSelectTileFirst.image.sprite = gameConfig.FirstTile.IconTile;

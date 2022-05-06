@@ -3,12 +3,10 @@ using UnityEngine.UI;
 
 public class LeftUI : MonoBehaviour
 {
-    [SerializeField] private Button _buildFirstButton;
-    [SerializeField] private Button _buildSecondButton;
-    
-    public Button BuildFirstButton => _buildFirstButton;
+    [SerializeField] private RectTransform _contentRectTransform;
+    [SerializeField] private Button _buttonPrefab;
 
-    public Button BuildSecondButton => _buildSecondButton;
-    
-    
+    public Button ButtonPrefab => _buttonPrefab;
+
+    public RectTransform ContentRectTransform => _contentRectTransform;
 }

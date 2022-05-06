@@ -3,7 +3,7 @@ using Controllers.OutPost;
 using UnityEngine;
 using Views.Outpost;
 
-public class BuildGenerator : IOnController, IOnUpdate, IDisposable
+public class BuildGenerator : IOnController, IOnUpdate, IDisposable, IOnStart
 {
     //возможно переполнение массива при большом количестве зданий и ресурсов
     public BaseBuildAndResources[,] Buildings => _buildings;
@@ -14,20 +14,26 @@ public class BuildGenerator : IOnController, IOnUpdate, IDisposable
     private Building _flyingBuilding;
     private LayerMask _layerMask;
     private float _sizeNavmeshLink = 0.7f;
+    private BtnLeftUIController _leftUIController;
     
 
     private OutpostSpawner _outpostSpawner;
     //привязать к ширине тайла
     private float _offsetY = 0.1f;
-    public BuildGenerator(GameConfig gameConfig, LeftUI leftUI, LayerMask layerMask, OutpostSpawner outpostSpawner)
+    public BuildGenerator(GameConfig gameConfig, LeftUI leftUI, LayerMask layerMask, OutpostSpawner outpostSpawner,
+        BtnLeftUIController btnLeftUIController)
     {
         _leftUI = leftUI;
        _buildings = new BaseBuildAndResources[gameConfig.MapSizeX,gameConfig.MapSizeY];
-       _leftUI.BuildFirstButton.onClick.AddListener(() => StartPlacingBuild(gameConfig.BuildFirst));
-       _leftUI.BuildSecondButton.onClick.AddListener(() => StartPlacingBuild(gameConfig.BuildSecond));
        _layerMask = layerMask;
        _mainCamera = Camera.main;
        _outpostSpawner = outpostSpawner;
+       _leftUIController = btnLeftUIController;
+    }
+    
+    public void OnStart()
+    {
+        _leftUIController.BuildingSelected += StartPlacingBuild;
     }
     
     public void StartPlacingBuild(Building build)
@@ -38,7 +44,7 @@ public class BuildGenerator : IOnController, IOnUpdate, IDisposable
         }
         _flyingBuilding = GameObject.Instantiate(build);
     }
-
+    
     public void OnUpdate(float deltaTime)
     {
         if (_flyingBuilding != null)
@@ -126,7 +132,6 @@ public class BuildGenerator : IOnController, IOnUpdate, IDisposable
 
     public void Dispose()
     {
-        _leftUI.BuildFirstButton.onClick.RemoveAllListeners();
-        _leftUI.BuildSecondButton.onClick.RemoveAllListeners();
+        _leftUIController.BuildingSelected -= StartPlacingBuild;
     }
 }
