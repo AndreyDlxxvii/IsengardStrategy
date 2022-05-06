@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using ResurseSystem;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
@@ -76,8 +77,10 @@ public class GeneratorLevelController : IOnController, IOnStart, IOnLateUpdate
             _positionSpawnedTiles.Add(_spawnedTiles[x, y]);
             CreateButton(_spawnedTiles[x, y]);
         }
+       
+        _spawnedTiles[x, y].MainOrWarehouse = GameObject.Instantiate(_gameConfig.MainTower,new Vector3(x, 0, y), Quaternion.identity).
+            GetComponent<BuildingView>();
         SpawnResources?.Invoke(_spawnedTiles[x, y]);
-        GameObject.Instantiate(_gameConfig.MainTower,new Vector3(x, 0, y), Quaternion.identity);
     }
     
     private void CreateButton(VoxelTile tile)
@@ -182,14 +185,16 @@ public class GeneratorLevelController : IOnController, IOnStart, IOnLateUpdate
         _availableTiles.Clear();
         _spawnedTiles[(int) pos.x, (int) pos.z] = tile;
         _positionSpawnedTiles.Add(tile);
+        CreateWarehouse(tile);
         SpawnResources?.Invoke(tile);
         CreateButton(tile);
-        CreateWarehouse(tile);
+        
     }
 
     private void CreateWarehouse(VoxelTile tile)
     {
-        GameObject.Instantiate(_gameConfig.PrefabWarehouse, tile.transform.position, Quaternion.identity);
+        tile.MainOrWarehouse = GameObject.Instantiate(_gameConfig.PrefabWarehouse, tile.transform.position, Quaternion.identity).
+            GetComponent<BuildingView>();
     }
 
     public void OnLateUpdate(float deltaTime)

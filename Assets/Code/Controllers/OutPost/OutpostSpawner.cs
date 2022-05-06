@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Interfaces;
+using ResurseSystem;
 using Views.BaseUnit.UI;
 using Views.Outpost;
 

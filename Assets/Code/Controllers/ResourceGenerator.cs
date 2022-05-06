@@ -6,7 +6,8 @@ using UnityEngine;
 using Views.Outpost;
 using Random = UnityEngine.Random;
 
-public class ResourceGenerator : IDisposable
+public class 
+    ResourceGenerator : IDisposable
 {
     private BaseBuildAndResources[,] _installedBuildings;
     private List<Vector2Int> _possiblePlaceResource = new List<Vector2Int>();
@@ -17,6 +18,7 @@ public class ResourceGenerator : IDisposable
     private int _numOfVariant = 0;
     private readonly ResourcesPlaceSpawner _resourcesPlaceSpawner;
     private bool _flag;
+    private VoxelTile _currentUsingTile;
     public ResourceGenerator(BaseBuildAndResources[,] installedBuildings,
         GameConfig gameConfig, GeneratorLevelController generatorLevelController, ResourcesPlaceSpawner resourcesPlaceSpawner)
     {
@@ -99,6 +101,7 @@ public class ResourceGenerator : IDisposable
             }
         }
 
+        _currentUsingTile = tile;
         if (_numOfVariant == 0)
         {
             PlaceResources(numTile);
@@ -315,7 +318,7 @@ public class ResourceGenerator : IDisposable
             var outpost = _mineral.gameObject.GetComponentInChildren<ResourcesPlaceView>();
             if (outpost)
             {
-                _resourcesPlaceSpawner.SpawnLogic(outpost);
+                _resourcesPlaceSpawner.SpawnLogic(outpost,_currentUsingTile.MainOrWarehouse);
             }
         }
     }

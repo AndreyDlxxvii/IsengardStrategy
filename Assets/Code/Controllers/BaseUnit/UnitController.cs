@@ -69,8 +69,10 @@ namespace Controllers.BaseUnit
             SetEndPosition(id,listPositions[0]);
             workerActionsList.Add(UnitStates.ATTAKING); //work
             SetEndTime(id,listOfTimers[0]);
+            workerActionsList.Add(UnitStates.GETSTAFF);
             workerActionsList.Add(UnitStates.MOVING);
             SetEndPosition(id,listPositions[1]);
+            workerActionsList.Add(UnitStates.SETSTAFF);
             _baseUnitControllers[id].SetUnitSequence(workerActionsList);
         }
 

@@ -10,7 +10,8 @@ using Views.BaseUnit.UI;
 public class GameInit
 {
     public GameInit(Controller controller, GameConfig gameConfig, RightUI rightUI, NavMeshSurface navMeshSurface,
-        Transform canvas, LeftUI leftUI, LayerMask layerMask,UnitUISpawnerTest unitUISpawnerTest, BuildingsUI buildingsUI,GlobalResurseStock globalResStock, TopResUiVew topResUI)
+        Transform canvas, LeftUI leftUI, LayerMask layerMask,UnitUISpawnerTest unitUISpawnerTest, BuildingsUI buildingsUI,
+        GlobalResurseStock globalResStock, TopResUiVew topResUI)
         //Transform canvas, LeftUI leftUI, LayerMask layerMask,UnitUISpawnerTest unitUISpawnerTest)
         {
         var tiles = GetTileList.GetTiles(gameConfig);
