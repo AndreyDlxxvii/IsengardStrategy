@@ -13,34 +13,43 @@ using Views.Outpost;
 
 namespace Controllers.BaseUnit
 {
-    public class BaseUnitSpawner: IOnController, IOnStart, IDisposable
+    public class BaseUnitSpawner: IOnController, IOnStart
     {
         #region Fields
         
         private GameObject _unitPrefab;
         private Vector3 _whereToSpawn;
-        private UnitController _unitController;
-        private OutpostSpawner _outpostSpawner;
-        private readonly ResourcesPlaceSpawner _resourcesPlaceSpawner;
         private BaseUnitFactory _baseUnitFactory;
-        private bool _flag;
+        //private readonly ResourcesPlaceSpawner _resourcesPlaceSpawner;
+        //private UnitController _unitController;
+        //private OutpostSpawner _outpostSpawner;
+        
+        
+        /*private bool _flag;
+       
         public Action<int,List<Vector3>,List<float>> unitWasSpawned;
-        public int SpawnIsActiveIndex = -1;
+        public int SpawnIsActiveIndex = -1;*/
 
         #endregion
 
+        #region Properties
+        
+        public Vector3 WhereToSpawn => _whereToSpawn;
+
+        public BaseUnitFactory BaseUnitFactory => _baseUnitFactory;
+
+        #endregion
 
         #region UnityMethods
 
-        public BaseUnitSpawner(GameConfig gameConfig,UnitController unitController, OutpostSpawner outpostSpawner, ResourcesPlaceSpawner resourcesPlaceSpawner,
-            GameObject unitPrefab)
+        public BaseUnitSpawner(GameConfig gameConfig, GameObject unitPrefab)
         {
             _whereToSpawn = new Vector3(gameConfig.MapSizeX / 2.0f,0,gameConfig.MapSizeY / 2.0f);
-            _unitController = unitController;
-            _unitController.BaseUnitSpawner = this;
-            _outpostSpawner = outpostSpawner;
-            _resourcesPlaceSpawner = resourcesPlaceSpawner;
-            _unitPrefab = unitPrefab;
+            // _unitController = unitController;
+            // _unitController.BaseUnitSpawner = this;
+            // _outpostSpawner = outpostSpawner;
+            // _resourcesPlaceSpawner = resourcesPlaceSpawner;
+            //_unitPrefab = unitPrefab;
         }
         
         public void OnStart()
@@ -48,20 +57,12 @@ namespace Controllers.BaseUnit
             _baseUnitFactory = new BaseUnitFactory();
         }
 
-        public void Dispose()
-        {
-            foreach (var outpost in _outpostSpawner.OutPostUnitControllers)
-            {
-                outpost.Transaction -= Spawn;
-            }
-        }
-
         #endregion
 
 
         #region Methods
         
-        public void ShowMenu(OutpostUnitView outpostUnitView)
+        /*public void ShowMenu(OutpostUnitView outpostUnitView)
         {
             SpawnIsActiveIndex = outpostUnitView.IndexInArray;
             _outpostSpawner.OutPostUnitControllers[outpostUnitView.IndexInArray].Transaction += Spawn;
@@ -69,8 +70,8 @@ namespace Controllers.BaseUnit
                 _outpostSpawner.OutPostUnitControllers[outpostUnitView.IndexInArray];
             _outpostSpawner.OutPostUnitControllers[outpostUnitView.IndexInArray].UiSpawnerTest.gameObject.SetActive(true);
             _flag = true;
-        }
-        public void ShowMenu(ResourcesPlaceView resourcesPlaceView)
+        }*/
+        /*public void ShowMenu(ResourcesPlaceView resourcesPlaceView)
         {
             SpawnIsActiveIndex = resourcesPlaceView.IndexInArray;
             _resourcesPlaceSpawner.ResourcesPlaceControllers[resourcesPlaceView.IndexInArray].Transaction += Spawn;
@@ -91,7 +92,7 @@ namespace Controllers.BaseUnit
                         _outpostSpawner.OutPostUnitControllers[SpawnIsActiveIndex].Transaction -= Spawn;
                         _outpostSpawner.OutPostUnitControllers[SpawnIsActiveIndex].UiSpawnerTest.gameObject.SetActive(false);
                         /*_resourcesPlaceSpawner.ResourcesPlaceControllers[SpawnIsActiveIndex].UiSpawnerTest
-                            .currentController = null;*/
+                            .currentController = null;#1#
                         // переработать очищение выделенных зданий для данного класса
                         break;
                     case ResourcesPlaceView resourcesPlaceView:
@@ -99,7 +100,7 @@ namespace Controllers.BaseUnit
                         _resourcesPlaceSpawner.ResourcesPlaceControllers[SpawnIsActiveIndex].Transaction -= Spawn;
                         _resourcesPlaceSpawner.ResourcesPlaceControllers[SpawnIsActiveIndex].UiSpawnerTest.gameObject.SetActive(false);
                         /*_outpostSpawner.OutPostUnitControllers[SpawnIsActiveIndex].UiSpawnerTest
-                            .currentController = null;*/
+                            .currentController = null;#1#
                         break;
                     default:
                         _resourcesPlaceSpawner.ResourcesPlaceControllers[0].UiSpawnerTest.gameObject.SetActive(false);
@@ -108,17 +109,18 @@ namespace Controllers.BaseUnit
                 SpawnIsActiveIndex = -1;
                 _flag = false;
             }
+        }*/
+
+        public virtual GameObject Spawn()
+        {
+            return null;
+            /*var go = _baseUnitFactory.CreateUnit(_unitPrefab,_whereToSpawn);
+            SendInfoToGroupController(go,endPos,type);*/
         }
 
-        private void Spawn(Vector3 endPos, IUnitSpawner type)
-        {
-            var go = _baseUnitFactory.CreateUnit(_unitPrefab,_whereToSpawn);
-            SendInfoToGroupController(go,endPos,type);
-        }
-        
         private void SendInfoToGroupController(GameObject gameObject,Vector3 endPos,IUnitSpawner type)
         {
-            var movementHolder = gameObject.GetComponent<UnitMovement>();
+            /*var movementHolder = gameObject.GetComponent<UnitMovement>();
             var animHolder = gameObject.GetComponent<UnitAnimation>();
             var listOfUnitC = _unitController.GetBaseUnitController();
             List<float> timers = new List<float>();
@@ -142,7 +144,7 @@ namespace Controllers.BaseUnit
             listOfUnitC[listOfUnitC.Count-1].OnStart();
             unitWasSpawned.Invoke(listOfUnitC.Count-1,
                 whereToGo,
-                timers);
+                timers);*/
         }
 
         #endregion

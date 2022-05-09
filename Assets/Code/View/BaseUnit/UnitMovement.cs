@@ -6,7 +6,7 @@ using UnityEngine.AI;
 
 namespace Views.BaseUnit
 {
-    public class UnitMovement : MonoBehaviour, IOnStart
+    public class UnitMovement : MonoBehaviour
     {
         #region Fields
 
@@ -28,18 +28,13 @@ namespace Views.BaseUnit
 
         private void Start()
         {
+            CountOfSequence = 0;
             EnterWorkZone += SetPositionInZone;
         }
 
         private void OnDestroy()
         {
             EnterWorkZone -= SetPositionInZone;
-        }
-        
-        public void OnStart()
-        {
-            CountOfSequence = 0;
-            PointWhereToGo = new List<Vector3>();
         }
         
         public void SetThePointWhereToGo()

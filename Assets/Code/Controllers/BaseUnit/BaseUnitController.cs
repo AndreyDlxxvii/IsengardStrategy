@@ -38,7 +38,6 @@ namespace Controllers.BaseUnit
 
         public void OnStart()
         {
-            _unitMovementView.OnStart();
             _unitMovementView.StoppedAtPosition += SetStateMachine;
         }
 

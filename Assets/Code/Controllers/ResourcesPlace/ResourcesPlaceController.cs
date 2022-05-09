@@ -1,5 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using Code.View.ResourcesPlace;
+using Controllers.Worker;
 using Interfaces;
 using ResurseSystem;
 using UnityEngine;
@@ -9,47 +12,69 @@ using Views.BaseUnit.UI;
 
 namespace Controllers.ResouresesPlace
 {
-    public class ResourcesPlaceController: IOnController, IDisposable, IUnitMovementDetected,IBuyUnit,IUnitSpawner
+    public class ResourcesPlaceController: IOnController, IDisposable, IUnitMovementDetected,IUnitSpawner
     {
         private int index;
         private int _currentCountOfNPC = 0;
-        public ResourcesPlaceView PlaceView;
-        public UnitUISpawnerTest UiSpawnerTest;
         private readonly BuildingView _warehouse;
+        private readonly UnitUISpawnerTest _unitUISpawnerTest;
+        private List<WorkerController> _workerControllers;
+        public ResourcesPlaceView PlaceView;
         public ResurseMine ResurseMine;
-        public Action<Vector3,ResourcesPlaceController> Transaction;
+        public Action<Vector3,ResourcesPlaceController> AddUnitToMine;
+        public Action<ResourcesPlaceController> LessUnitFromMine;
         
         public BuildingView Warehouse => _warehouse;
         
-        public ResourcesPlaceController(int index,ResourcesPlaceView placeUnitView,UnitUISpawnerTest uiSpawnerTest,BuildingView buildingView)
+        public ResourcesPlaceController(int index,ResourcesPlaceView placeUnitView,BuildingView buildingView, UnitUISpawnerTest unitUISpawnerTest)
         {
             PlaceView = placeUnitView;
-            UiSpawnerTest = uiSpawnerTest;
             _warehouse = buildingView;
+            _unitUISpawnerTest = unitUISpawnerTest;
             PlaceView.IndexInArray = index;
             ResurseMine = PlaceView.gameObject.GetComponent<Mineral>().GetMineRes();
+            _unitUISpawnerTest.addUnit += SendUnit;
+            _unitUISpawnerTest.lessUnit += LessUnit;
             PlaceView.UnitInZone += ViewDetection;
-            UiSpawnerTest.spawnUnit += BuyAUnit;
+            _workerControllers = new List<WorkerController>();
         }
         
         public void Dispose()
         {
-            UiSpawnerTest.spawnUnit -= BuyAUnit;
+            _unitUISpawnerTest.addUnit -= SendUnit;
+            _unitUISpawnerTest.lessUnit -= LessUnit;
             PlaceView.UnitInZone -= ViewDetection;
         }
 
-        public void BuyAUnit(IUnitSpawner UnitController)
+        public void AddNewUnit(WorkerController workerController)
         {
-            if (this != UnitController)
-            {
-                return;
-            }
+            _workerControllers.Add(workerController);
+        }
+
+        public WorkerController GetLastUnit()
+        {
+            return _workerControllers.Last();
+        }
+
+        public void DeleteLastUnitFromList()
+        {
+            _workerControllers.Remove(_workerControllers.Last());
+        }
+        
+        public void SendUnit()
+        {
             if (PlaceView.Data.GetMaxCountOfNPC() >
                 _currentCountOfNPC)
             {
                 _currentCountOfNPC++;
-                Transaction.Invoke(PlaceView.gameObject.transform.position,this);
+                AddUnitToMine.Invoke(PlaceView.gameObject.transform.position,this);
             }
+        }
+
+        public void LessUnit()
+        {
+            _currentCountOfNPC--;
+            LessUnitFromMine.Invoke(this);
         }
         
         //TODO: COPY+PAST ALERT

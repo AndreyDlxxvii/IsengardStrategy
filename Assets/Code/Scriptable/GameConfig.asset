@@ -27,7 +27,7 @@ MonoBehaviour:
   - {fileID: 2207685555743648068, guid: 27cd86a72d95ed842aebfe8be9103e23, type: 3}
   - {fileID: -6135819058454172838, guid: 8c5f872f0957c03419aaa20dcfa83e9f, type: 3}
   _mainTower: {fileID: 4437343820552527173, guid: f83ebf818c4168f42a870a67eb8e73b7, type: 3}
-  _baseUnit: {fileID: 4278957194176336866, guid: 327741d9696b557489e748f8da1d9f0e, type: 3}
+  _worker: {fileID: 4278957194176336866, guid: 327741d9696b557489e748f8da1d9f0e, type: 3}
   _buildings:
   - {fileID: 1173469307, guid: 17bebd10d20903d4e9afe753a32c4787, type: 3}
   - {fileID: 1173469307, guid: 83d904b6bf3982e4392967f84e8eb5f5, type: 3}

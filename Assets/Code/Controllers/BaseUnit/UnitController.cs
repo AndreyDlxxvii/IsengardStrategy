@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace Controllers.BaseUnit
 {
-    public class UnitController: IOnController, IOnStart, IDisposable, IOnUpdate, IOnLateUpdate
+    public class UnitController: IOnController, IOnStart, IOnUpdate, IOnLateUpdate
     {
         
 
@@ -28,7 +28,7 @@ namespace Controllers.BaseUnit
         
         public void OnStart()
         {
-            BaseUnitSpawner.unitWasSpawned += SetCommandLooking;
+            //BaseUnitSpawner.unitWasSpawned += SetCommandLooking;
         }
         
         public void OnUpdate(float deltaTime)
@@ -52,10 +52,6 @@ namespace Controllers.BaseUnit
                 }
             }
         }
-        public void Dispose()
-        {
-            BaseUnitSpawner.unitWasSpawned -= SetCommandLooking;
-        }
 
         #endregion
 
@@ -64,16 +60,7 @@ namespace Controllers.BaseUnit
 
         private void SetCommandLooking(int id, List<Vector3> listPositions,List<float> listOfTimers)
         {
-            List<UnitStates> workerActionsList = new List<UnitStates>();
-            workerActionsList.Add(UnitStates.MOVING);
-            SetEndPosition(id,listPositions[0]);
-            workerActionsList.Add(UnitStates.ATTAKING); //work
-            SetEndTime(id,listOfTimers[0]);
-            workerActionsList.Add(UnitStates.GETSTAFF);
-            workerActionsList.Add(UnitStates.MOVING);
-            SetEndPosition(id,listPositions[1]);
-            workerActionsList.Add(UnitStates.SETSTAFF);
-            _baseUnitControllers[id].SetUnitSequence(workerActionsList);
+           
         }
 
         public List<BaseUnitController> GetBaseUnitController()

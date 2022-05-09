@@ -1,25 +1,30 @@
-﻿using Code.View.ResourcesPlace;
+﻿using Code.View;
+using Code.View.ResourcesPlace;
 using Controllers.BaseUnit;
+using Controllers.ResouresesPlace;
+using Controllers.Worker;
 using Interfaces;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using ResurseSystem;
-
+using Views.BaseUnit.UI;
 using Views.Outpost;
 
 namespace Controllers
 {
     public class InputController : IOnController, IOnUpdate
     {
-        private BaseUnitSpawner _spawner;
-        private BuildingResursesUIController _rescontoller;   
+        private readonly UnitUISpawnerTest _uiSpawnerTest;
+        private BuildingResursesUIController _rescontoller;
+        private readonly BuyUnitUI _buyUnitUI;
+        private ResourcesPlaceView _resourcesPlaceViewCopy;
 
-        public InputController(BaseUnitSpawner baseUnitSpawner, BuildingResursesUIController rescontoller)
+        public InputController(UnitUISpawnerTest uiSpawnerTest,BuildingResursesUIController rescontoller,
+            BuyUnitUI buyUnitUI)
         {
-            _spawner = baseUnitSpawner;
-            _rescontoller = rescontoller;            
-
-
+            _uiSpawnerTest = uiSpawnerTest;
+            _rescontoller = rescontoller;
+            _buyUnitUI = buyUnitUI;
         }
 
         public void OnUpdate(float deltaTime)
@@ -35,13 +40,17 @@ namespace Controllers
                 {
                     if (EventSystem.current.IsPointerOverGameObject())
                         return;
-                    var outpost = hit.collider.gameObject.GetComponent<ISpawnerLogicView>();
+                    var workersPlaceView = hit.collider.gameObject.GetComponentInParent<WorkersPlaceView>();
                     var currBuild = hit.collider.gameObject.GetComponentInParent<BuildingView>();
                     var currMine = hit.collider.gameObject.GetComponentInParent<Mineral>();
-
-                    if (_spawner.SpawnIsActiveIndex != -1)
+                    
+                    if (workersPlaceView)
                     {
-                         _spawner.UnShowMenu(outpost);
+                        _buyUnitUI.gameObject.SetActive(true);
+                    }
+                    else
+                    {
+                        _buyUnitUI.gameObject.SetActive(false);
                     }
                     if (currBuild)
                     {                        
@@ -51,24 +60,24 @@ namespace Controllers
                     {
                         if (currMine)
                         {
+                            _uiSpawnerTest.gameObject.SetActive(true);
                             _rescontoller.SetActiveUI(currMine);
                                                        
                         }
                         else
                         {
+                            _uiSpawnerTest.gameObject.SetActive(false);
                             _rescontoller.DisableMenu();
                         }
                     }
                     
-                    switch (outpost)
+                    /*switch (outpost)
                     {
                         case ResourcesPlaceView resourcesPlaceView:
-                            _spawner.ShowMenu(resourcesPlaceView);
+                            _resourcesPlaceSpawner.ShowMenu(resourcesPlaceView);
+                            _resourcesPlaceViewCopy = resourcesPlaceView;
                             break;
-                        case OutpostUnitView outpostUnitView:
-                            _spawner.ShowMenu(outpostUnitView);
-                            break;
-                    }
+                    }*/
                 }
 
             }

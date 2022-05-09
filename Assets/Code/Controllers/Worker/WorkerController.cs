@@ -16,31 +16,37 @@ namespace Controllers.Worker
         private readonly UnitMovement _unitMovement;
         private readonly UnitAnimation _unitAnimation;
         private readonly WorkerView _workerView;
-        private readonly ResourcesPlaceController _resourcesPlaceController;
+        private ResourcesPlaceController _resourcesPlaceController;
         private List<UnitHandler> _unitHandlers;
         private List<float> _timerPositions;
         private UnitStates _currentUnitState;
 
+        public WorkerView WorkerView => _workerView;
+
+        public ResourcesPlaceController ResourcesPlaceController
+        {
+            get => _resourcesPlaceController;
+            set => _resourcesPlaceController = value;
+        }
+        
         public WorkerController(BaseUnitModel baseUnitModel, UnitMovement unitMovement, UnitAnimation unitAnimation,
-             ResourcesPlaceController resourcesPlaceController,WorkerView workerView) :
+             WorkerView workerView) :
             base(baseUnitModel, unitMovement, unitAnimation)
         {
             _baseUnitModel = baseUnitModel;
             _unitMovement = unitMovement;
             _unitAnimation = unitAnimation;
-            _resourcesPlaceController = resourcesPlaceController;
+            //_resourcesPlaceController = resourcesPlaceController;
             _workerView = workerView;
-            _workerView.
-                AddResource(new ResurseHolder(_resourcesPlaceController.ResurseMine.ResurseHolderMine.ResurseInHolder,
-                    20,0));
+            // _workerView.
+            //     AddResource(new ResurseHolder(_resourcesPlaceController.ResurseMine.ResurseHolderMine.ResurseInHolder,
+            //         20,0));
             _unitHandlers = new List<UnitHandler>();
             _timerPositions = new List<float>();
         }
 
         public override void SetStateMachine(UnitStates unitStates)
         {
-            //_unitMovement.WaitingForNextCommand = false;
-            //base.SetStateMachine(unitStates);
             _currentUnitState = unitStates;
             switch (_currentUnitState)
             {
@@ -66,6 +72,7 @@ namespace Controllers.Worker
                 switch (workerAction)
                 {
                         case UnitStates.MOVING:
+                            //_unitHandlers.Add(new BaseUnitDoActionHandler(SetStateMachine));
                             _unitHandlers.Add(new BaseUnitMoveHandler(_unitMovement, this));
                             MoveCounter++;
                             break;
@@ -92,6 +99,8 @@ namespace Controllers.Worker
 
         public override void SetDestination(Vector3 whereToGo)
         {
+            if (_unitMovement.PointWhereToGo==null)
+                _unitMovement.PointWhereToGo = new List<Vector3>();
             _unitMovement.PointWhereToGo.Add(whereToGo);
         }
 
@@ -109,6 +118,8 @@ namespace Controllers.Worker
             return true;
         }
 
+        
+        
         public bool PutSomeStaff()
         {
             var resource= _workerView.GetResurseOutOfHolder();
