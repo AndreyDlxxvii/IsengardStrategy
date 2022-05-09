@@ -25,7 +25,7 @@ namespace Controllers.ResouresesPlace
         public Action<ResourcesPlaceController> LessUnitFromMine;
         
         public BuildingView Warehouse => _warehouse;
-        
+
         public ResourcesPlaceController(int index,ResourcesPlaceView placeUnitView,BuildingView buildingView, UnitUISpawnerTest unitUISpawnerTest)
         {
             PlaceView = placeUnitView;
@@ -48,6 +48,7 @@ namespace Controllers.ResouresesPlace
 
         public void AddNewUnit(WorkerController workerController)
         {
+            Debug.Log("!");
             _workerControllers.Add(workerController);
         }
 
@@ -73,6 +74,10 @@ namespace Controllers.ResouresesPlace
 
         public void LessUnit()
         {
+            if (_currentCountOfNPC <= 0)
+            {
+                return;
+            }
             _currentCountOfNPC--;
             LessUnitFromMine.Invoke(this);
         }

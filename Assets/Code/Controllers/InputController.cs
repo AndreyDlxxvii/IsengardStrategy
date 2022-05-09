@@ -43,6 +43,9 @@ namespace Controllers
                     var workersPlaceView = hit.collider.gameObject.GetComponentInParent<WorkersPlaceView>();
                     var currBuild = hit.collider.gameObject.GetComponentInParent<BuildingView>();
                     var currMine = hit.collider.gameObject.GetComponentInParent<Mineral>();
+                    ResourcesPlaceView resourcesPlaceView = null;
+                    if (currMine)
+                        resourcesPlaceView = currMine.gameObject.GetComponent<ResourcesPlaceView>();
                     
                     if (workersPlaceView)
                     {
@@ -60,12 +63,20 @@ namespace Controllers
                     {
                         if (currMine)
                         {
+                            if (_resourcesPlaceViewCopy is { })
+                            {
+                                _resourcesPlaceViewCopy.IsActive = false;
+                            }
+                            _resourcesPlaceViewCopy = resourcesPlaceView;
+                            _resourcesPlaceViewCopy.IsActive = true;
                             _uiSpawnerTest.gameObject.SetActive(true);
                             _rescontoller.SetActiveUI(currMine);
                                                        
                         }
                         else
                         {
+                            if (_resourcesPlaceViewCopy is { })
+                                _resourcesPlaceViewCopy.IsActive = false;
                             _uiSpawnerTest.gameObject.SetActive(false);
                             _rescontoller.DisableMenu();
                         }

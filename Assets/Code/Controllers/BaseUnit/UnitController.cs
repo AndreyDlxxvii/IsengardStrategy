@@ -37,7 +37,7 @@ namespace Controllers.BaseUnit
             {
                 foreach (var baseUnit in _baseUnitControllers)
                 {
-                    baseUnit.OnUpdate(deltaTime);
+                    //baseUnit.OnUpdate(deltaTime);
                 }
             }
         }
@@ -48,7 +48,7 @@ namespace Controllers.BaseUnit
             {
                 foreach (var baseUnit in _baseUnitControllers)
                 {
-                    baseUnit.OnLateUpdate(deltaTime);
+                    //baseUnit.OnLateUpdate(deltaTime);
                 }
             }
         }

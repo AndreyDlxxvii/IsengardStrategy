@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Controllers.BaseUnit;
 using Controllers.ResouresesPlace;
 using Data;
@@ -10,7 +11,7 @@ using Views.BaseUnit;
 
 namespace Controllers.Worker
 {
-    public sealed class WorkerController: BaseUnitController
+    public sealed class WorkerController: BaseUnitController,IOnStart, IOnUpdate, IOnLateUpdate, IDisposable
     {
         private readonly BaseUnitModel _baseUnitModel;
         private readonly UnitMovement _unitMovement;
@@ -38,12 +39,34 @@ namespace Controllers.Worker
             _unitAnimation = unitAnimation;
             //_resourcesPlaceController = resourcesPlaceController;
             _workerView = workerView;
-            // _workerView.
-            //     AddResource(new ResurseHolder(_resourcesPlaceController.ResurseMine.ResurseHolderMine.ResurseInHolder,
-            //         20,0));
             _unitHandlers = new List<UnitHandler>();
             _timerPositions = new List<float>();
         }
+        
+        #region Interfaces
+
+        public void OnStart()
+        {
+            _unitMovement.StoppedAtPosition += SetStateMachine;
+        }
+
+        public void OnUpdate(float deltaTime)
+        {
+           
+            Check(deltaTime);
+        }
+        
+        public void OnLateUpdate(float deltaTime)
+        {
+            
+        }
+
+        public void Dispose()
+        {
+            _unitMovement.StoppedAtPosition += SetStateMachine;
+        }
+        
+        #endregion
 
         public override void SetStateMachine(UnitStates unitStates)
         {
@@ -112,6 +135,7 @@ namespace Controllers.Worker
         public bool GetSomeStaff()
         {
             var holder = _workerView.GetResurseOutOfHolder();
+            // сделать остановку скрипта.
             var countOfAdding = _resourcesPlaceController.ResurseMine.MinedResurse(holder.MaxResurseCount);
             holder.AddResurse(countOfAdding,out var addedRes);
             _workerView.AddResource(holder);

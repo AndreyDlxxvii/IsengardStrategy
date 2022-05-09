@@ -7,8 +7,7 @@ namespace Data
     {
         [SerializeField] private int _countOfStartWorkers;
 
-        
-        
+
         public int countOfStartWorkers => _countOfStartWorkers;
     }
 }

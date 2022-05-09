@@ -31,7 +31,7 @@ public class GameInit
         //var unitSpawner = new BaseUnitSpawner(gameConfig, unitController, outPostSpawner,resPlaceSpawner, gameConfig.BaseUnit);
         var workerSpawner = new WorkerSpawner(gameConfig,gameConfig.Worker);
         var workerCommandSender = new WorkersCommandSender();
-        var workersPool = new WorkersPlaceController(workerSpawner,workerCommandSender,resPlaceSpawner,buyUnitUI);
+        var workersPool = new WorkersPlaceController(workerSpawner,workerCommandSender,resPlaceSpawner,buyUnitUI,gameConfig);
         
         
         var buildingController = new BuildingResursesUIController(buildingsUI);
