@@ -2,11 +2,18 @@
 using UnityEngine;
 
 
-public sealed class BaseUnitWaitHandler : UnitHandler
+public sealed class BaseUnitWaitHandler : UnitHandler, IOnUpdate
 {
-   // private TimeController _timeController;
+    #region Fields
+
     private readonly BaseUnitController _baseUnitController;
+    private TimeRemaining _timeHolder;
     private float _time;
+
+    #endregion
+
+
+    #region Ctor
 
     public BaseUnitWaitHandler(float time, BaseUnitController baseUnitController)
     {
@@ -14,16 +21,43 @@ public sealed class BaseUnitWaitHandler : UnitHandler
         _baseUnitController = baseUnitController;
     }
 
-    private void TimeIsUp()
+    #endregion
+
+
+    #region IOnUpdate
+
+    public void OnUpdate(float deltaTime)
     {
-        base.Handle();
+        if (CancellationToken && CancellationHandler != null)
+        {
+            TimeRemainingExtensions.RemoveTimeRemaining(_timeHolder);
+            CancellationHandler.Handle();
+        }
     }
 
+    #endregion
+
+
+    #region UnitHandler
+    
     public override IUnitHandler Handle()
     {
         _baseUnitController.CurrentUnitHandler = GetCurrent();
-        TimeRemainingExtensions.AddTimeRemaining(new TimeRemaining(TimeIsUp,_time,false));
+        _timeHolder = new TimeRemaining(TimeIsUp, _time, false);
+        TimeRemainingExtensions.AddTimeRemaining(_timeHolder);
         return this;
     }
 
+    #endregion
+    
+    
+    #region Methods
+
+    private void TimeIsUp()
+    {
+        _baseUnitController.CurrentUnitHandler = null;
+        base.Handle();
+    }
+
+    #endregion
 }

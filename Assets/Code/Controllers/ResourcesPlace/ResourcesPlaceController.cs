@@ -48,7 +48,6 @@ namespace Controllers.ResouresesPlace
 
         public void AddNewUnit(WorkerController workerController)
         {
-            Debug.Log("!");
             _workerControllers.Add(workerController);
         }
 

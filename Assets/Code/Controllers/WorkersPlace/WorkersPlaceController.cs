@@ -60,7 +60,6 @@ namespace Controllers.WorkersPlace
 
         public void ListenNewMine()
         {
-            Debug.Log("new was added");
             var action = _resourcesPlaceSpawner.ResourcesPlaceControllers.Last();
             action.AddUnitToMine += SendWorker;
             action.LessUnitFromMine += BackUnit;
@@ -73,7 +72,6 @@ namespace Controllers.WorkersPlace
         
         public void SendWorker(Vector3 whereToSend,ResourcesPlaceController resourcesPlaceController)
         {
-            Debug.Log(resourcesPlaceController.PlaceView.GetInstanceID());
             if (!resourcesPlaceController.PlaceView.IsActive)
             {
                 return;
@@ -90,12 +88,12 @@ namespace Controllers.WorkersPlace
 
         public void BackUnit(ResourcesPlaceController resourcesPlaceController)
         {
-            Debug.Log(resourcesPlaceController.PlaceView.GetInstanceID());
             if (!resourcesPlaceController.PlaceView.IsActive)
             {
                 return;
             }
             var worker = resourcesPlaceController.GetLastUnit();
+            worker.CurrentUnitHandler.SetCancellationTokenFlag(true);
             worker.WorkerView.GetResurseOutOfHolder();
             _workersCommandSender.StopCommand(worker);
             _poolOfWorkers.ReturnToPool(worker);

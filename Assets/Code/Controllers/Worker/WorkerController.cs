@@ -39,7 +39,6 @@ namespace Controllers.Worker
             _unitAnimation = unitAnimation;
             //_resourcesPlaceController = resourcesPlaceController;
             _workerView = workerView;
-            _unitHandlers = new List<UnitHandler>();
             _timerPositions = new List<float>();
         }
         
@@ -52,7 +51,6 @@ namespace Controllers.Worker
 
         public void OnUpdate(float deltaTime)
         {
-           
             Check(deltaTime);
         }
         
@@ -88,6 +86,7 @@ namespace Controllers.Worker
 
         public override void SetUnitSequence(List<UnitStates> workerActionsList)
         {
+            _unitHandlers = new List<UnitHandler>();
             int timerCount = 0;
             foreach (var workerAction in workerActionsList)
             {
@@ -111,13 +110,23 @@ namespace Controllers.Worker
                             break;
                 }
             }
+            //example of making a cancellation token
+
+            var cancellationToken = new CancellationHandler(new BaseUnitMoveHandler(_unitMovement,this));
+            cancellationToken.SetNext(new CancellationHandler(new BaseUnitMoveHandler(_unitMovement,this)));
+            //
             _unitHandlers[0].Handle();
             for (int i = 1; i < _unitHandlers.Count; i++)
             {
                 if (i != _unitHandlers.Count)
+                {
                     _unitHandlers[i - 1].SetNext(_unitHandlers[i]);
+                    _unitHandlers[i-1].SetCancellationToken(cancellationToken);
+                }
+                    
             }
             _unitHandlers[_unitHandlers.Count - 1].SetNext(_unitHandlers[0]);
+            _unitHandlers[_unitHandlers.Count - 1].SetCancellationToken(cancellationToken);
         }
 
         public override void SetDestination(Vector3 whereToGo)
@@ -159,6 +168,10 @@ namespace Controllers.Worker
             if (CurrentUnitHandler is BaseUnitMoveHandler moveHandler)
             {
                 moveHandler.OnUpdate(deltaTime);
+            }
+            else if(CurrentUnitHandler is BaseUnitWaitHandler timeHandler)
+            {
+                timeHandler.OnUpdate(deltaTime);
             }
         }
     }

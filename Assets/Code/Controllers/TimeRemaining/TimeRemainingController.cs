@@ -28,6 +28,7 @@
             var time = Time.deltaTime;
             for (var i = 0; i < _timeRemainings.Count; i++)
             {
+                Debug.Log("Time is work");
                 var obj = _timeRemainings[i];
                 obj.CurrentTime -= time;
                 if (obj.CurrentTime <= 0.0f)

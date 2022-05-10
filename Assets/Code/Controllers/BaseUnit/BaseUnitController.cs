@@ -22,6 +22,7 @@ namespace Controllers.BaseUnit
 
         #endregion
 
+        
         #region Ctor
 
         public BaseUnitController(BaseUnitModel baseUnitModel, UnitMovement unitMovement, UnitAnimation unitAnimation)
@@ -32,10 +33,7 @@ namespace Controllers.BaseUnit
         }
 
         #endregion
-
-
-      
-
+        
 
         #region Methods
 
