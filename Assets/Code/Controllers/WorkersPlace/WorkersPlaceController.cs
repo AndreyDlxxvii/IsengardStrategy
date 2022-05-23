@@ -95,8 +95,8 @@ namespace Controllers.WorkersPlace
             var worker = resourcesPlaceController.GetLastUnit();
             worker.CurrentUnitHandler.SetCancellationTokenFlag(true);
             worker.WorkerView.GetResurseOutOfHolder();
-            _workersCommandSender.StopCommand(worker);
-            _poolOfWorkers.ReturnToPool(worker);
+            worker.CleanPointsAndGoHome(new Vector3(_gameConfig.MapSizeX / 2.0f,0,_gameConfig.MapSizeY / 2.0f));
+            //_poolOfWorkers.ReturnToPool(worker);
             resourcesPlaceController.DeleteLastUnitFromList();
         }
     }

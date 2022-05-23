@@ -54,11 +54,6 @@ namespace Controllers.BaseUnit
             SetEndPosition(workerController,listPositions[1]);
             workerController.SetUnitSequence(workerActionsList);*/
         }
-
-        public void StopCommand(WorkerController workerController) //Go home
-        {
-            
-        }
         
         private void SetEndPosition(WorkerController workerController, Vector3 endpos)
         {

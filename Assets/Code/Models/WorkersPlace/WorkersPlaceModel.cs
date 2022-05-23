@@ -65,6 +65,7 @@ namespace Code.Models.WorkersPlace
             var animator = instantiate.GetComponent<UnitAnimation>();
             _workersPool.Add(new WorkerController(new BaseUnitModel(),movement,animator,view),false);
             ReturnToPool(_workersPool.Last().Key);
+            SetVisible(_workersPool.Last().Key.WorkerView.transform.gameObject,false);
         }
         
         public void ReturnToPool(WorkerController controller)
@@ -72,9 +73,14 @@ namespace Code.Models.WorkersPlace
             //can place navmeshagent
             _workersPool[controller] = false;
             controller.WorkerView.transform.localPosition = _whereIsABase;
-            controller.WorkerView.transform.gameObject.SetActive(false);
             controller.WorkerView.transform.SetParent(_rootPool);
         }
+
+        public void SetVisible(GameObject gameObject,bool isVisible)
+        {
+            gameObject.SetActive(isVisible);
+        }
+        
         public void RemovePool()
         {
             Object.Destroy(_rootPool.gameObject);

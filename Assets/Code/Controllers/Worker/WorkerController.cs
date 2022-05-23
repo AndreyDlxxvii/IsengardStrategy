@@ -112,10 +112,9 @@ namespace Controllers.Worker
             }
             //example of making a cancellation token
 
-            var cancellationToken = new CancellationHandler(new BaseUnitMoveHandler(_unitMovement,this));
-            cancellationToken.SetNext(new CancellationHandler(new BaseUnitMoveHandler(_unitMovement,this)));
-            //
-            _unitHandlers[0].Handle();
+            var cancellationToken = new CancellationHandler(new BaseUnitMoveHandler(_unitMovement,this),this);
+            
+            
             for (int i = 1; i < _unitHandlers.Count; i++)
             {
                 if (i != _unitHandlers.Count)
@@ -125,6 +124,8 @@ namespace Controllers.Worker
                 }
                     
             }
+            _unitHandlers[0].Handle();
+            // Цикличность
             _unitHandlers[_unitHandlers.Count - 1].SetNext(_unitHandlers[0]);
             _unitHandlers[_unitHandlers.Count - 1].SetCancellationToken(cancellationToken);
         }
@@ -136,6 +137,14 @@ namespace Controllers.Worker
             _unitMovement.PointWhereToGo.Add(whereToGo);
         }
 
+        public void CleanPointsAndGoHome(Vector3 whereToGo)
+        {
+            _unitMovement.PointWhereToGo.Clear();
+            _unitMovement.CountOfSequence = 0;
+            SetDestination(whereToGo);
+            _unitMovement.SetThePointWhereToGo();
+        }
+        
         public override void SetEndTime(float time)
         {
             _timerPositions.Add(time);
