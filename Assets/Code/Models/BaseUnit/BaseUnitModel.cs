@@ -2,7 +2,7 @@
 
 namespace Models.BaseUnit
 {
-    public class BaseUnitModel
+    public sealed class BaseUnitModel
     {
         public UnitType UnitType;
     }

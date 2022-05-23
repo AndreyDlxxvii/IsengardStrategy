@@ -200,6 +200,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4437343820552527172}
   - component: {fileID: -5290629530044244883}
+  - component: {fileID: 816484014054809877}
   m_Layer: 0
   m_Name: MainTower
   m_TagString: Untagged
@@ -238,6 +239,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BuildingModel: {fileID: 11400000, guid: 3421124e91066be489bc0ed385db572d, type: 2}
   _globalResurseStock: {fileID: 11400000, guid: 773c01e314bc240498d8957b12fb437a, type: 2}
+--- !u!114 &816484014054809877
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4437343820552527173}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b862c97caf5433f9474c685263fe1ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6159994257669579350
 GameObject:
   m_ObjectHideFlags: 0

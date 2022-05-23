@@ -11,6 +11,8 @@ namespace Code.View.ResourcesPlace
         public OutpostParametersData Data;
         public Action<UnitMovement> UnitInZone;
         [NonSerialized]
+        public bool IsActive = false;
+        [NonSerialized]
         public int IndexInArray;
 
         private void OnTriggerEnter(Collider other)

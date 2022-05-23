@@ -1,3 +1,4 @@
+using Code.View;
 using Controllers.OutPost;
 using UnityEngine;
 using UnityEngine.AI;
@@ -12,7 +13,8 @@ public class Main : MonoBehaviour
     [SerializeField] private Transform _canvas;
     [SerializeField] private LeftUI _leftUI;
     [SerializeField] private LayerMask _layerMaskTiles;
-    [SerializeField] private UnitUISpawnerTest _unitUISpawnerTest;   
+    [SerializeField] private UnitUISpawnerTest _unitUISpawnerTest;
+    [SerializeField] private BuyUnitUI _buyUnitUI;
     [SerializeField] private BuildingsUI buildingsUI;
     [SerializeField] private GlobalResurseStock GlobalResStock;
     [SerializeField] private TopResUiVew TopResUI;
@@ -23,7 +25,8 @@ public class Main : MonoBehaviour
     {
         GlobalResStock.ResetGlobalRes();
         _controllers = new Controller();
-        new GameInit(_controllers, _gameConfig, _rightUI, _navMeshSurface, _canvas, _leftUI, _layerMaskTiles,_unitUISpawnerTest, buildingsUI, GlobalResStock, TopResUI);
+        new GameInit(_controllers, _gameConfig, _rightUI, _navMeshSurface, _canvas, _leftUI, 
+            _layerMaskTiles,_unitUISpawnerTest,_buyUnitUI, buildingsUI, GlobalResStock, TopResUI);
         //new GameInit(_controllers, _gameConfig, _rightUI, _navMeshSurface, _canvas, _leftUI, _layerMaskTiles,_unitUISpawnerTest);
         _controllers.OnStart();
     }

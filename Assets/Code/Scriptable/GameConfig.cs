@@ -11,7 +11,7 @@ public class GameConfig : ScriptableObject
     [SerializeField] private int _mapSizeY;
     [SerializeField] private VoxelTile[] _tilePrefabs;
     [SerializeField] private GameObject _mainTower;
-    [SerializeField] private GameObject _baseUnit;
+    [SerializeField] private GameObject _worker;
     [SerializeField] private List<Building> _buildings = new List<Building>();
     [SerializeField] private Building _buildFirst;
     [SerializeField] private Building _buildSecond;
@@ -20,7 +20,9 @@ public class GameConfig : ScriptableObject
     [SerializeField] private VoxelTile _thirdTile;
     [SerializeField] private GameObject _prefabWarehouse;
     [SerializeField] private Button _buttonSpawn;
-
+    
+    [SerializeField] private WorkersPoolOptions _workersPoolOptions;
+    
     [SerializeField] private Mineral [] _mineralT1;
     [SerializeField] private Mineral [] _mineralT2;
     [SerializeField] private Mineral [] _mineralT3;
@@ -88,6 +90,7 @@ public class GameConfig : ScriptableObject
 
     public GameObject MainTower => _mainTower;
 
-    public GameObject BaseUnit => _baseUnit;
-   
+    public GameObject Worker => _worker;
+
+    public WorkersPoolOptions WorkersPoolOptions => _workersPoolOptions;
 }

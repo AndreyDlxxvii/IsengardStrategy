@@ -9,7 +9,7 @@ using Views.BaseUnit;
 
 namespace Controllers.BaseUnit
 {
-    public class BaseUnitController: IOnController,IOnStart, IOnUpdate, IOnLateUpdate, IDisposable
+    public class BaseUnitController: IOnController
     {
         #region Fields
         
@@ -22,6 +22,7 @@ namespace Controllers.BaseUnit
 
         #endregion
 
+        
         #region Ctor
 
         public BaseUnitController(BaseUnitModel baseUnitModel, UnitMovement unitMovement, UnitAnimation unitAnimation)
@@ -32,33 +33,7 @@ namespace Controllers.BaseUnit
         }
 
         #endregion
-
-
-        #region Interfaces
-
-        public void OnStart()
-        {
-            _unitMovementView.OnStart();
-            _unitMovementView.StoppedAtPosition += SetStateMachine;
-        }
-
-        public void OnUpdate(float deltaTime)
-        {
-            Check(deltaTime);
-        }
         
-        public void OnLateUpdate(float deltaTime)
-        {
-            
-        }
-
-        public void Dispose()
-        {
-            _unitMovementView.StoppedAtPosition += SetStateMachine;
-        }
-        
-        #endregion
-
 
         #region Methods
 

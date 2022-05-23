@@ -19,33 +19,46 @@ public sealed class BaseUnitMoveHandler: UnitHandler, IOnUpdate
 
     public void OnUpdate(float deltaTime)
     {
-        _unitMovement.navMeshAgent.autoTraverseOffMeshLink = false;
-        if (_unitMovement.navMeshAgent.isOnOffMeshLink)
+        if (!CancellationToken)
         {
-            OffMeshLinkData data = _unitMovement.navMeshAgent.currentOffMeshLinkData;
-            Vector3 endPos = data.endPos;
-            _baseUnitController.NormalSpeed(_unitMovement.navMeshAgent,endPos,deltaTime);
-      
+            _unitMovement.navMeshAgent.autoTraverseOffMeshLink = false;
+            if (_unitMovement.navMeshAgent.isOnOffMeshLink)
+            {
+                OffMeshLinkData data = _unitMovement.navMeshAgent.currentOffMeshLinkData;
+                Vector3 endPos = data.endPos;
+                _baseUnitController.NormalSpeed(_unitMovement.navMeshAgent, endPos, deltaTime);
+
+            }
+            else if (_unitMovement.CalculateZoneOfDestination())
+            {
+                StoppedAtPosition();
+            }
         }
-        else if (_unitMovement.CalculateZoneOfDestination())
+        else
         {
-            StoppedAtPosition();
+            Debug.Log("Cancel");
+            CancellationHandler?.Handle();
         }
-          
+
     }
       
     public override IUnitHandler Handle()
     {
+        Debug.Log("Handle BaseUnitMoveHandler");
         _baseUnitController.CurrentUnitHandler = GetCurrent();
         _unitMovement.SetThePointWhereToGo();
         return this;
     }
+    
+    
     private void StoppedAtPosition()
     {
+        Debug.Log("StoppedAtPosition");
         if (_unitMovement.CountOfSequence+1 < _baseUnitController.MoveCounter)
             _unitMovement.CountOfSequence++;
         else
             _unitMovement.CountOfSequence = 0;
+        _baseUnitController.CurrentUnitHandler = null;
         base.Handle();
     }
 

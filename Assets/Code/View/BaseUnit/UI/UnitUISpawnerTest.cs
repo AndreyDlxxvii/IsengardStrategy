@@ -10,25 +10,31 @@ namespace Views.BaseUnit.UI
 {
     public class UnitUISpawnerTest : MonoBehaviour
     {
-        [SerializeField] private Button _spawnButton;
-        public IUnitSpawner currentController;
-        public BaseUnitModel Model;
-        public Action<IUnitSpawner> spawnUnit;
+        [SerializeField] private Button _addButton;
+        [SerializeField] private Button _lessButton;
+        public Action addUnit;
+        public Action lessUnit;
 
         private void Start()
         {
-            _spawnButton.onClick.AddListener(buttonPressed);
+            _addButton.onClick.AddListener(buttonAddPressed);
+            _lessButton.onClick.AddListener(buttonLessPressed);
         }
 
-        private void buttonPressed()
+        private void buttonAddPressed()
         {
-            Model = new BaseUnitModel();
-            spawnUnit.Invoke(currentController);
+            addUnit.Invoke();
+        }
+        
+        private void buttonLessPressed()
+        {
+            lessUnit.Invoke();
         }
 
         private void OnDestroy()
         {
-            _spawnButton.onClick.RemoveAllListeners();
+            _addButton.onClick.RemoveAllListeners();
+            _lessButton.onClick.RemoveAllListeners();
         }
     }
 }

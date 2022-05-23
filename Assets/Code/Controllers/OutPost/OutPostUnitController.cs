@@ -7,7 +7,7 @@ using Views.Outpost;
 
 namespace Controllers.OutPost
 {
-    public class OutPostUnitController: IOnController, IDisposable, IUnitMovementDetected, IBuyUnit,IUnitSpawner
+    public class OutPostUnitController: IOnController, IDisposable, IUnitMovementDetected,IUnitSpawner
     {
         private int index;
         private int _currentCountOfNPC = 0;
@@ -21,13 +21,12 @@ namespace Controllers.OutPost
             OutpostUnitView.IndexInArray = index;
             OutpostUnitView.UnitInZone += ViewDetection;
             UiSpawnerTest = uiSpawnerTest;
-            UiSpawnerTest.spawnUnit += BuyAUnit;
         }
 
         public void Dispose()
         {
             OutpostUnitView.UnitInZone -= ViewDetection;
-            UiSpawnerTest.spawnUnit -= BuyAUnit;
+            
         }
         
         public void BuyAUnit(IUnitSpawner UnitController)
