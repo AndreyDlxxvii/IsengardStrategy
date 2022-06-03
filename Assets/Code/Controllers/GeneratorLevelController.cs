@@ -24,6 +24,8 @@ public class GeneratorLevelController : IOnController, IOnStart, IOnLateUpdate
     private int _count = 0;
     private VoxelTile prefab;
 
+    public VoxelTile Prefab => prefab;
+
     public event Action<VoxelTile> SpawnResources; 
 
     public GeneratorLevelController(List<VoxelTile> tiles, GameConfig gameConfig, RightUI rightUI,

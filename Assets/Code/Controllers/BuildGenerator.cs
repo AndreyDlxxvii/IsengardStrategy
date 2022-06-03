@@ -121,15 +121,6 @@ public class BuildGenerator : IOnController, IOnUpdate, IDisposable, IOnStart
         }
     }
     
-    public bool IsFlyingBuildingTrue()
-    {
-        if (_flyingBuilding != null)
-        {
-            return true;
-        }
-        return false;
-    }
-
     public void Dispose()
     {
         _leftUIController.BuildingSelected -= StartPlacingBuild;
