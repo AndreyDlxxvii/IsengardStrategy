@@ -10,33 +10,47 @@ namespace ResurseSystem
     {
         public List<ResurseHolder> CoastInResurse => _coastInResurse;
 
-        public bool PricePaidFlag => _pricePaid;
+        public bool PricePaidFlag => _pricePaid;       
 
         [SerializeField]
         private List<ResurseHolder> _coastInResurse;
         [SerializeField]
-        private bool _pricePaid;        
-        public Action BuildingPaidFor;
+        private bool _pricePaid;       
+        [SerializeField]
+        private bool _itIsResetable;
 
         public ResurseCost(List<ResurseHolder> resurseHolders)
         {
-            _coastInResurse = resurseHolders;
+            _coastInResurse = new List<ResurseHolder>(resurseHolders);
             _pricePaid = false;
+        }
+        public ResurseCost(ResurseCost cost)
+        {
+            _coastInResurse = new List<ResurseHolder>(cost.CoastInResurse);
+            _pricePaid = cost.PricePaidFlag;
         }
 
         public void CheckRequiredResurses()
         {
             foreach (ResurseHolder holder in _coastInResurse)
             {
-                if (holder.CurrentResurseCount==holder.MaxResurseCount)
+                if (holder.CurrentResurseCount!=holder.MaxResurseCount)
                 {
-                    _coastInResurse.Remove(holder);
+                    _pricePaid = false;
+                    Debug.Log($"Need {holder.MaxResurseCount-holder.CurrentResurseCount} of {holder.ResurseInHolder.NameOFResurse} for produce or building");
                 }
+                
             }
-            if (_coastInResurse==null)
+            if (_pricePaid)
             {
-                _pricePaid = true;
-                BuildingPaidFor?.Invoke();
+                if (!_itIsResetable)
+                {
+                    _coastInResurse = null;
+                }
+                else
+                {
+                    ResetPaid();
+                }
             }
         }
         
@@ -57,6 +71,23 @@ namespace ResurseSystem
                 }
             }
             return null;
+        }
+        public void GetNeededResurse(ResurseStock stock)
+        {            
+            foreach (ResurseHolder costHolder in _coastInResurse)
+            {
+                var tempRes= stock.GetResursesInStock(costHolder.ResurseInHolder.ResurseType, costHolder.MaxResurseCount - costHolder.CurrentResurseCount);
+                costHolder.AddResurse(tempRes, out tempRes);
+            }            
+            CheckRequiredResurses();
+        }
+        public void ResetPaid()
+        {
+            _pricePaid = false;
+            foreach (ResurseHolder holder in _coastInResurse)
+            {
+                holder.SetCurrentResValue(0);
+            }
         }
     }
 }

@@ -10,9 +10,11 @@ namespace ResurseSystem
 
         public int GetResursesCount(ResurseType type);
         public int GetResursesInStock(ResurseType type, int count);
-        public void AddResursesCount(ResurseType type,int count);
-        public void AddResurseHolder(ResurseHolder holder);       
-       
+        public void AddResursesFromHolder(IResurseHolder _getterHolder);
+        public void AddResurseHolder(ResurseHolder holder);
+        public void AddResursesCount(ResurseType res, int value);
+
+
 
 
 

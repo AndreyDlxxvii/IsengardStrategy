@@ -49,11 +49,12 @@ namespace ResurseSystem
             _icon = icon;
         }
 
-        public IResurseHolder MinedResurseHolder(int value)
+        public ResurseHolder MinedResurseHolder(int value)
         {
-            ResurseHolder minedResurse = new ResurseHolder(ResurseHolderMine.ResurseInHolder, value, value);
+            var currentValue = ResurseHolderMine.TryGetResurses(value);
+            ResurseHolder minedResurse = new ResurseHolder(ResurseHolderMine.ResurseInHolder, currentValue, value);
             return minedResurse;
-        }
+        }        
 
         public ResurseMine(string name, float time, ResurseHolder resholder, Sprite icon )
         {

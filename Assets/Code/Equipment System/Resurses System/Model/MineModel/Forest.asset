@@ -16,6 +16,6 @@ MonoBehaviour:
   _extractionTime: 5
   _resurseHolderMine:
     _maxResurseCount: 500
-    _currentResurseCount: 300
+    _currentResurseCount: 500
     _resurseInHolder: {fileID: 11400000, guid: 869b0147c4507f2408e1f6552b08af7d, type: 2}
   _icon: {fileID: 21300000, guid: 3961678b441cf904aa593035474f0444, type: 3}

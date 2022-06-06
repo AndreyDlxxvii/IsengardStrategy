@@ -11,7 +11,7 @@ namespace ResurseSystem
         public ResurseHolder ResurseHolderMine { get; }
         public void SetExtractionTime(float time);
         public int MinedResurse(int value);
-        public IResurseHolder MinedResurseHolder(int value);
+        public ResurseHolder MinedResurseHolder(int value);
 
 
 

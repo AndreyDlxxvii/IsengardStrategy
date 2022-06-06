@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using ResurseSystem;
 using Views.Outpost;
+using BuildingSystem;
 
 namespace Controllers
 {
