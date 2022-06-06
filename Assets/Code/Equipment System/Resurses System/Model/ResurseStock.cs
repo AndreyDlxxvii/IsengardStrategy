@@ -43,15 +43,16 @@ namespace ResurseSystem
             return 0;
         }
 
-        public void AddResursesCount(ResurseType type,int count)
+        public void AddResursesFromHolder(IResurseHolder _getterHolder)
         {
             foreach (ResurseHolder holder in _resurseInStock)
             {
-                if (holder.ResurseInHolder.ResurseType == type)
+                if (holder.ResurseInHolder.ResurseType == _getterHolder.ResurseInHolder.ResurseType)
                 {
-                    holder.AddResurse(count,out int addedRes);
+                    holder.AddResurse(_getterHolder.CurrentResurseCount,out int addedRes);
+                    _getterHolder.MineResurses(addedRes);
                     ResursesChange?.Invoke(holder);
-                    ResValueChange?.Invoke(addedRes, type);
+                    ResValueChange?.Invoke(addedRes, _getterHolder.ResurseInHolder.ResurseType);
                 }                    
             }            
         } 
@@ -71,19 +72,23 @@ namespace ResurseSystem
             }
             return mainedResurse;
         }
-        public IResurseHolder GetResurseInStock(ResurseType type, int count)
+        public void ChangeHoldersInStock(List<ResurseHolder> newHolders)
         {
-            
-            foreach(ResurseHolder tempholder in _resurseInStock)
+            _resurseInStock = newHolders;
+        }
+
+        public void AddResursesCount(ResurseType typeRes, int value)
+        {
+            foreach (ResurseHolder holder in _resurseInStock)
             {
-                if (tempholder.ResurseInHolder.ResurseType==type)
+                if (holder.ResurseInHolder.ResurseType== typeRes)
                 {
-                    ResurseHolder MinedResurseHolder = new ResurseHolder(tempholder.ResurseInHolder, tempholder.TryGetResurses(count), tempholder.TryGetResurses(count));
-                    return MinedResurseHolder;
+                    holder.AddResurse(value, out int addedRes);
+                    ResursesChange?.Invoke(holder);
+                    ResValueChange?.Invoke(addedRes, typeRes);
                 }
             }
-            return null;             
-        }        
+        }
     }
 
 

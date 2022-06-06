@@ -68,6 +68,7 @@ namespace ResurseSystem
             {
                 holder.SetCurrentResValue(0);
             }
+            AllResursesStockPlayer = new List<ResurseStock>();
         }
     }
 }

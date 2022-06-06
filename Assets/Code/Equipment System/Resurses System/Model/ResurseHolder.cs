@@ -17,31 +17,36 @@ namespace ResurseSystem
         [SerializeField]
         private int _currentResurseCount;
         [SerializeField]
-        private ResurseCraft _resurseInHolder;              
+        private ResurseCraft _resurseInHolder;
 
-        public void AddResurse(int ResurseCount, out int addedRes)
-        {
-            addedRes = ResurseCount;
-            _currentResurseCount+= ResurseCount;
-            if (_currentResurseCount >= MaxResurseCount)
-            {
-                addedRes = ResurseCount - _currentResurseCount + MaxResurseCount;
-                _currentResurseCount=MaxResurseCount;
-                Debug.Log($"The holder of {_resurseInHolder.NameOFResurse} is full ");
-            }
-        }       
-        public ResurseHolder(ResurseCraft resurse, int thisMaxResurseCount,int currentResurseCount)
+        public ResurseHolder(ResurseCraft resurse, int thisMaxResurseCount, int currentResurseCount)
         {
             _resurseInHolder = resurse;
             _maxResurseCount = thisMaxResurseCount;
             _currentResurseCount = currentResurseCount;
 
         }
+        public void AddResurse(int ResurseCount, out int addedRes)
+        {
+            addedRes = ResurseCount;
+            _currentResurseCount+= ResurseCount;
+            if (_currentResurseCount >= MaxResurseCount)
+            {
+                addedRes = ResurseCount - (_currentResurseCount - MaxResurseCount);
+                _currentResurseCount=MaxResurseCount;
+                Debug.Log($"The holder of {_resurseInHolder.NameOFResurse} is full ");
+            }
+            if (_currentResurseCount<0)
+            {
+                addedRes -= _currentResurseCount;
+                _currentResurseCount = 0;                
+            }
+        }               
         public int MineResurses(int countMineRes)
         {
             int minedRes = countMineRes;
             _currentResurseCount-=countMineRes;
-            if (_currentResurseCount<=0)
+            if (_currentResurseCount<0)
             {
                 minedRes += _currentResurseCount;
                 _currentResurseCount = 0;
@@ -59,8 +64,10 @@ namespace ResurseSystem
             int minedRes=0;
             
             if (_currentResurseCount < count)
-            {                
-                Debug.Log($"Not enough {_resurseInHolder.NameOFResurse} in holder");
+            {   
+                minedRes = _currentResurseCount;
+                _currentResurseCount = 0;
+                Debug.Log($"Not enough {_resurseInHolder.NameOFResurse} in holder! Не хватает ещё{count-minedRes} ресурса!");
             }
             else
             {
