@@ -19,46 +19,34 @@ public sealed class BaseUnitMoveHandler: UnitHandler, IOnUpdate
 
     public void OnUpdate(float deltaTime)
     {
-        if (!CancellationToken)
+        _unitMovement.navMeshAgent.autoTraverseOffMeshLink = false;
+        if (_unitMovement.navMeshAgent.isOnOffMeshLink)
         {
-            _unitMovement.navMeshAgent.autoTraverseOffMeshLink = false;
-            if (_unitMovement.navMeshAgent.isOnOffMeshLink)
-            {
-                OffMeshLinkData data = _unitMovement.navMeshAgent.currentOffMeshLinkData;
-                Vector3 endPos = data.endPos;
-                _baseUnitController.NormalSpeed(_unitMovement.navMeshAgent, endPos, deltaTime);
-
-            }
-            else if (_unitMovement.CalculateZoneOfDestination())
-            {
-                StoppedAtPosition();
-            }
+            OffMeshLinkData data = _unitMovement.navMeshAgent.currentOffMeshLinkData;
+            Vector3 endPos = data.endPos;
+            _baseUnitController.NormalSpeed(_unitMovement.navMeshAgent,endPos,deltaTime);
+      
         }
-        else
+        else if (_unitMovement.navMeshAgent.destination.x == _unitMovement.transform.position.x &&
+                 _unitMovement.navMeshAgent.destination.z == _unitMovement.transform.position.z)
         {
-            Debug.Log("Cancel");
-            CancellationHandler?.Handle();
+            StoppedAtPosition();
         }
-
+          
     }
       
     public override IUnitHandler Handle()
     {
-        Debug.Log("Handle BaseUnitMoveHandler");
         _baseUnitController.CurrentUnitHandler = GetCurrent();
         _unitMovement.SetThePointWhereToGo();
         return this;
     }
-    
-    
     private void StoppedAtPosition()
     {
-        Debug.Log("StoppedAtPosition");
         if (_unitMovement.CountOfSequence+1 < _baseUnitController.MoveCounter)
             _unitMovement.CountOfSequence++;
         else
             _unitMovement.CountOfSequence = 0;
-        _baseUnitController.CurrentUnitHandler = null;
         base.Handle();
     }
 

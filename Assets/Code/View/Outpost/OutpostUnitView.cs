@@ -1,12 +1,11 @@
 ﻿using System;
 using Data;
-using Interfaces;
 using UnityEngine;
 using Views.BaseUnit;
 
 namespace Views.Outpost
 {
-    public class OutpostUnitView : MonoBehaviour, ISpawnerLogicView
+    public class OutpostUnitView : MonoBehaviour
     {
         public OutpostParametersData OutpostParametersData;
         public Action<UnitMovement> UnitInZone;

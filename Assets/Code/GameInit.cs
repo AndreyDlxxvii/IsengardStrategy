@@ -1,71 +1,51 @@
-using Code.View;
 using Controllers;
 using Controllers.BaseUnit;
 using Controllers.OutPost;
-using Controllers.ResouresesPlace;
-using Controllers.Worker;
-using Controllers.WorkersPlace;
 using UnityEngine;
 using ResurseSystem;
+using BuildingSystem;
 using UnityEngine.AI;
 using Views.BaseUnit.UI;
 
 public class GameInit
 {
     public GameInit(Controller controller, GameConfig gameConfig, RightUI rightUI, NavMeshSurface navMeshSurface,
-        Transform canvas, LeftUI leftUI, LayerMask layerMask,UnitUISpawnerTest unitUISpawnerTest,BuyUnitUI buyUnitUI, BuildingsUI buildingsUI,
-        GlobalResurseStock globalResStock, TopResUiVew topResUI)
-        //Transform canvas, LeftUI leftUI, LayerMask layerMask,UnitUISpawnerTest unitUISpawnerTest)
-        {
-        var tiles = GetTileList.GetTiles(gameConfig);
-        var btnRightUIController = new BtnRightUIController(rightUI, gameConfig);
-        var btnLeftUIController = new BtnLeftUIController(leftUI, gameConfig);
-        var levelGenerator = new GeneratorLevelController(tiles, gameConfig, rightUI, btnRightUIController, canvas, navMeshSurface);
-        //var unitController = new UnitController();
-        var outPostSpawner = new OutpostSpawner(unitUISpawnerTest);
-        var resPlaceSpawner = new ResourcesPlaceSpawner(unitUISpawnerTest);
-        
-        var buildController = new BuildGenerator(gameConfig, leftUI, layerMask, outPostSpawner, btnLeftUIController);
-        
-        var timeRemaining = new TimeRemainingController();
-        //var unitSpawner = new BaseUnitSpawner(gameConfig, unitController, outPostSpawner,resPlaceSpawner, gameConfig.BaseUnit);
-        var workerSpawner = new WorkerSpawner(gameConfig,gameConfig.Worker);
-        var workerCommandSender = new WorkersCommandSender();
-        var workersPool = new WorkersPlaceController(workerSpawner,workerCommandSender,resPlaceSpawner,buyUnitUI,gameConfig);
-        
-        
-        var buildingController = new BuildingResursesUIController(buildingsUI);
-        //var inputController = new InputController(unitSpawner, buildingController);
+        Transform canvas, LeftUI leftUI, LayerMask layerMask,UnitUISpawnerTest unitUISpawnerTest, BuildingsUI buildingsUI,GlobalResurseStock globalResStock, TopResUiVew topResUI,GlobalBuildingsModels globalBuildingmodel)
+    {
 
+        var tiles = GetTileList.GetTiles(gameConfig);
+            
+        var btnConroller = new BtnUIController(rightUI, gameConfig);
+        var levelGenerator = new GeneratorLevelController(tiles, gameConfig, rightUI, btnConroller, canvas, navMeshSurface);
+        var unitController = new UnitController();
+        var outPostSpawner = new OutpostSpawner(unitUISpawnerTest);
+        var buildController = new BuildGenerator(gameConfig, leftUI, layerMask, outPostSpawner);
+        var timeRemaining = new TimeRemainingController();
+        var unitSpawner = new BaseUnitSpawner(gameConfig, unitController, outPostSpawner, gameConfig.BaseUnit);
+        var buildingController = new BuildingResursesUIController(buildingsUI, globalBuildingmodel);
+        var inputController = new InputController(unitSpawner, buildingController);
         
         var globalResController = new MainResursesController(globalResStock, topResUI);
-        //var unitSpawner = new BaseUnitSpawner(gameConfig,unitController,outPostSpawner,gameConfig.BaseUnit);
-        var inputController = new InputController(unitUISpawnerTest,buildingController,buyUnitUI);
         //var buildController = new BuildGenerator(gameConfig, leftUI, layerMask, outPostSpawner);
         if (!gameConfig.ChangeVariant)
         {
-            new ResourceGenerator(buildController.Buildings, gameConfig, levelGenerator,resPlaceSpawner);
+            new ResourceGenerator(buildController.Buildings, gameConfig, levelGenerator);
         }
         else
         {
-            new ResourceGenerator(buildController.Buildings, gameConfig, levelGenerator, 2,resPlaceSpawner);
+            new ResourceGenerator(buildController.Buildings, gameConfig, levelGenerator, 2);
         }
 
-        controller.Add(btnRightUIController);
+        controller.Add(btnConroller);
         controller.Add(levelGenerator);
         controller.Add(buildController);
         controller.Add(timeRemaining);
-        //controller.Add(unitController);
+        controller.Add(unitController);
         controller.Add(outPostSpawner);
-        controller.Add(resPlaceSpawner);
-        //controller.Add(unitSpawner);
-        controller.Add(workerSpawner);
-        controller.Add(workerCommandSender);
-        controller.Add(workersPool);
-        
+        controller.Add(unitSpawner);
         controller.Add(inputController);
         controller.Add(buildingController);
         controller.Add(globalResController);
-        controller.Add(btnLeftUIController);
-        }
+
+    }
 }

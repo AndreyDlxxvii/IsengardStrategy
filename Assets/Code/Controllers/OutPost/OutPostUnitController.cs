@@ -1,5 +1,4 @@
 ﻿using System;
-using Interfaces;
 using UnityEngine;
 using Views.BaseUnit;
 using Views.BaseUnit.UI;
@@ -7,31 +6,32 @@ using Views.Outpost;
 
 namespace Controllers.OutPost
 {
-    public class OutPostUnitController: IOnController, IDisposable, IUnitMovementDetected,IUnitSpawner
+    public class OutPostUnitController: IOnController, IDisposable
     {
         private int index;
         private int _currentCountOfNPC = 0;
         public UnitUISpawnerTest UiSpawnerTest;
         public OutpostUnitView OutpostUnitView;
-        public Action<Vector3,OutPostUnitController> Transaction;
+        public Action<Vector3> Transaction;
 
         public OutPostUnitController(int index,OutpostUnitView outpostUnitView,UnitUISpawnerTest uiSpawnerTest)
         {
             OutpostUnitView = outpostUnitView;
             OutpostUnitView.IndexInArray = index;
-            OutpostUnitView.UnitInZone += ViewDetection;
+            OutpostUnitView.UnitInZone += OutpostViewDetection;
             UiSpawnerTest = uiSpawnerTest;
+            UiSpawnerTest.spawnUnit += BuyAUnit;
         }
 
         public void Dispose()
         {
-            OutpostUnitView.UnitInZone -= ViewDetection;
-            
+            OutpostUnitView.UnitInZone -= OutpostViewDetection;
+            UiSpawnerTest.spawnUnit -= BuyAUnit;
         }
         
-        public void BuyAUnit(IUnitSpawner UnitController)
+        private void BuyAUnit(OutPostUnitController outPostUnitController)
         {
-            if (this != UnitController)
+            if (this != outPostUnitController)
             {
                 return;
             }
@@ -39,7 +39,7 @@ namespace Controllers.OutPost
                 _currentCountOfNPC)
             {
                 _currentCountOfNPC++;
-                Transaction.Invoke(OutpostUnitView.gameObject.transform.position,this);
+                Transaction.Invoke(OutpostUnitView.gameObject.transform.position);
             }
         }
 
@@ -52,8 +52,7 @@ namespace Controllers.OutPost
         }
 
         private int counter = 0;
-
-        public void ViewDetection(UnitMovement unitMovement)
+        private void OutpostViewDetection(UnitMovement unitMovement)
         {
             OutpostUnitView.GetColliderParameters(out Vector3 center, out Vector3 size);
             var positionInZone = CalculatePositionOfPlacementCircle(OutpostUnitView.OutpostParametersData.GetMaxCountOfNPC(),
@@ -61,7 +60,6 @@ namespace Controllers.OutPost
             counter++;
             unitMovement.EnterWorkZone.Invoke(positionInZone);
         }
-
-      
+        
     }
 }

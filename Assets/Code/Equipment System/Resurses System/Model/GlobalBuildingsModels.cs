@@ -8,6 +8,7 @@ namespace BuildingSystem
     [CreateAssetMenu(fileName = "Global Buildings Models ", menuName = "Buildings/Global Buildings Models", order = 1)]
     public class GlobalBuildingsModels : ScriptableObject
     {
+        #region ѕол€ глобального списка зданий
         [SerializeField]
         private List<BuildingView> BuildingsUnderConstraction;
         [SerializeField]
@@ -15,22 +16,20 @@ namespace BuildingSystem
         [SerializeField]
         private List<BuildingView> NeedResursesBuildings;
         [SerializeField]
-        private List<ResurseProduceBuildingModel> ProduceResurseBuildings;
+        private List<BuildingView> ProduceBuildings;        
         [SerializeField]
-        private List<ProduceItemBuildingModel> ProduceItemBuildings;
-        [SerializeField]
-        private List<BuildingView> ProduceList;
-
+        private List<IProduce> ProduceList;
+        #endregion
         public GlobalBuildingsModels()
         {
             BuildingsUnderConstraction = new List<BuildingView>();
             ActiveBuildings = new List<BuildingView>();
             NeedResursesBuildings = new List<BuildingView>();
-            ProduceResurseBuildings = new List<ResurseProduceBuildingModel>();
-            ProduceItemBuildings = new List<ProduceItemBuildingModel>();
-            ProduceList = new List<BuildingView>();
+            ProduceBuildings = new List<BuildingView>();            
+            ProduceList = new List<IProduce>();
 
         }
+        #region доступ к пол€м
         public List<BuildingView> GetActiveBuildings()
         {
             return ActiveBuildings;
@@ -43,8 +42,13 @@ namespace BuildingSystem
         {
             return NeedResursesBuildings;
         }
-        
+        public List<IProduce> GetProduceList()
+        {
+            return ProduceList;
+        }
+        #endregion
 
+        #region ћетоды взаимодействи€ листов зданий
         public void AddNeedResurse(BuildingView building)
         {
             if (building.GetBuildingModel().ThisBuildingCost!=null)
@@ -55,6 +59,7 @@ namespace BuildingSystem
             else
             {
                 ActiveBuildings.Add(building);
+                CheckProducingBuilding(building);
             }
         }
         public void BuildingCostPaid(BuildingView building)
@@ -72,6 +77,18 @@ namespace BuildingSystem
             BuildingsUnderConstraction.Remove(building);
             
             ActiveBuildings.Add(building);
+            building.ChangeBuildingVisual(building.GetBuildingModel());
+            CheckProducingBuilding(building);
+
+
+        }
+        public void CheckProducingBuilding(BuildingView building)
+        {
+            var buildingmodel = building.GetBuildingModel();
+            if (buildingmodel is ResurseProduceBuildingModel)
+            {
+                ProduceList.Add((ResurseProduceBuildingModel)buildingmodel);
+            }
         }
         public void BuildingDestroy(BuildingView building)
         {
@@ -96,6 +113,7 @@ namespace BuildingSystem
             {
                 if (building.GetBuildingModel() == buildmodel)
                 {
+                    buildmodel.ABuildingComplete -= CheckBuildsComplete;
                     BuildingComplete(building);
                     
                     break;
@@ -105,47 +123,31 @@ namespace BuildingSystem
         public void CheckProducedBuildingsModel(BuildingView buildingView)
         {
             var tempBuildModel = buildingView.GetBuildingModel();
-            if (typeof(ResurseProduceBuildingModel).IsAssignableFrom(tempBuildModel.GetType()))
+            if (tempBuildModel is IProduce)
             {
-                var tempProduceBuildModel = (ResurseProduceBuildingModel)tempBuildModel;
-                ProduceResurseBuildings.Add(tempProduceBuildModel);                
-                
+                ProduceBuildings.Add(buildingView);
+                ProduceList.Add((IProduce)tempBuildModel);
             }
-            else
-            { 
-                if (typeof(ProduceItemBuildingModel).IsAssignableFrom(tempBuildModel.GetType()))
-                {
-                    var tempProduceBuildModel = (ProduceItemBuildingModel)tempBuildModel;
-                    ProduceItemBuildings.Add(tempProduceBuildModel);
-                }
-            }
+            
         }
         public void DeleteProducedBuildingsModel(BuildingView buildingView)
         {
             var tempBuildModel = buildingView.GetBuildingModel();
-            if (typeof(ResurseProduceBuildingModel).IsAssignableFrom(tempBuildModel.GetType()))
+            if (tempBuildModel is IProduce)
             {
-                ProduceResurseBuildings.Remove((ResurseProduceBuildingModel)tempBuildModel);
-            }
-            else
-            {
-                if (typeof(ProduceItemBuildingModel).IsAssignableFrom(tempBuildModel.GetType()))
-                {
-                    var tempProduceBuildModel = (ProduceItemBuildingModel)tempBuildModel;
-                    
-                    ProduceItemBuildings.Remove(tempProduceBuildModel);
-                }
+                ProduceBuildings.Remove(buildingView);
+                ProduceList.Remove((IProduce)tempBuildModel);
             }
         }
-        public void StartProduceList(ResurseCost resCost)
-        {
+        #endregion
 
-        }
         public void ResetGlobalBuildingModel()
         {
             BuildingsUnderConstraction = new List<BuildingView>();
             ActiveBuildings = new List<BuildingView>();
             NeedResursesBuildings = new List<BuildingView>();
+            ProduceBuildings = new List<BuildingView>();
+            ProduceList = new List<IProduce>();
         }
     }
 }
