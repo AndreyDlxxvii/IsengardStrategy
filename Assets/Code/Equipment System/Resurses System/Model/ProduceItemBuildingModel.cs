@@ -21,8 +21,6 @@ namespace BuildingSystem
 
         public float CurrentProduceTime => _currentProduceTime;
 
-        public Action<BuildingModel> AStartProducing { get ; set ; }
-
         public bool autoProduce => _thisBuildingAutoproduce;
 
         [SerializeField]
@@ -62,18 +60,19 @@ namespace BuildingSystem
         }
         public void GetResurseForProduce()
         {
-            NeeddedResursesForProduce.GetNeededResurse(ThisBuildingStock);
-            if (NeeddedResursesForProduce.PricePaidFlag)
-            {
-                AStartProducing?.Invoke(this);
-            }
+            NeeddedResursesForProduce.GetNeededResurse(ThisBuildingStock);            
         }
         public void StartProduce(float time)
         {
-            _currentProduceTime += time;
-            if (CurrentProduceTime>=ProducingTime)
+            if (NeeddedResursesForProduce.PricePaidFlag)
             { 
-            _producedItem.AddItemValue(_producedItem.Item, _producedItemValue);
+                _currentProduceTime += time;
+                if (CurrentProduceTime>=ProducingTime)
+                { 
+                    _producedItem.AddItemValue(_producedItem.Item, _producedItemValue);
+                    _needdedResursesForProduce.ResetPaid();
+                    _currentProduceTime = 0;
+                }
             }
         }
 
@@ -85,6 +84,11 @@ namespace BuildingSystem
             {
                 GetResurseForProduce();
             }
-        }        
+        }
+
+        public void SetAutoProduceFlag()
+        {
+            _thisBuildingAutoproduce = !_thisBuildingAutoproduce;
+        }
     }
 }

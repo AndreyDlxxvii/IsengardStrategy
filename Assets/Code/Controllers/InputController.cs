@@ -1,13 +1,7 @@
-﻿using Code.View;
-using Code.View.ResourcesPlace;
-using Controllers.BaseUnit;
-using Controllers.ResouresesPlace;
-using Controllers.Worker;
-using Interfaces;
+﻿using Controllers.BaseUnit;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using ResurseSystem;
-using Views.BaseUnit.UI;
 using Views.Outpost;
 using BuildingSystem;
 
@@ -15,46 +9,32 @@ namespace Controllers
 {
     public class InputController : IOnController, IOnUpdate
     {
-        private readonly UnitUISpawnerTest _uiSpawnerTest;
-        private BuildingResursesUIController _rescontoller;
-        private readonly BuyUnitUI _buyUnitUI;
-        private ResourcesPlaceView _resourcesPlaceViewCopy;
+        private BaseUnitSpawner _spawner;
+        private BuildingResursesUIController _rescontoller;   
 
-        public InputController(UnitUISpawnerTest uiSpawnerTest,BuildingResursesUIController rescontoller,
-            BuyUnitUI buyUnitUI)
+        public InputController(BaseUnitSpawner baseUnitSpawner, BuildingResursesUIController rescontoller)
         {
-            _uiSpawnerTest = uiSpawnerTest;
-            _rescontoller = rescontoller;
-            _buyUnitUI = buyUnitUI;
+            _spawner = baseUnitSpawner;
+            _rescontoller = rescontoller;            
         }
 
         public void OnUpdate(float deltaTime)
         {
-
             if (Input.GetMouseButtonDown(0))
             {
                 RaycastHit hit;
                 Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
                 if (Physics.Raycast(ray, out hit, 100))
-
                 {
                     if (EventSystem.current.IsPointerOverGameObject())
                         return;
-                    var workersPlaceView = hit.collider.gameObject.GetComponentInParent<WorkersPlaceView>();
+                    var outpost = hit.collider.gameObject.GetComponent<OutpostUnitView>();
                     var currBuild = hit.collider.gameObject.GetComponentInParent<BuildingView>();
                     var currMine = hit.collider.gameObject.GetComponentInParent<Mineral>();
-                    ResourcesPlaceView resourcesPlaceView = null;
-                    if (currMine)
-                        resourcesPlaceView = currMine.gameObject.GetComponent<ResourcesPlaceView>();
-                    
-                    if (workersPlaceView)
+                    if (_spawner.SpawnIsActiveIndex != -1)
                     {
-                        _buyUnitUI.gameObject.SetActive(true);
-                    }
-                    else
-                    {
-                        _buyUnitUI.gameObject.SetActive(false);
+                        _spawner.UnShowMenu();
                     }
                     if (currBuild)
                     {                        
@@ -64,37 +44,24 @@ namespace Controllers
                     {
                         if (currMine)
                         {
-                            if (_resourcesPlaceViewCopy is { })
-                            {
-                                _resourcesPlaceViewCopy.IsActive = false;
-                            }
-                            _resourcesPlaceViewCopy = resourcesPlaceView;
-                            _resourcesPlaceViewCopy.IsActive = true;
-                            _uiSpawnerTest.gameObject.SetActive(true);
                             _rescontoller.SetActiveUI(currMine);
                                                        
                         }
                         else
                         {
-                            if (_resourcesPlaceViewCopy is { })
-                                _resourcesPlaceViewCopy.IsActive = false;
-                            _uiSpawnerTest.gameObject.SetActive(false);
                             _rescontoller.DisableMenu();
                         }
                     }
-                    
-                    /*switch (outpost)
+
+
+                    if (outpost)
                     {
-                        case ResourcesPlaceView resourcesPlaceView:
-                            _resourcesPlaceSpawner.ShowMenu(resourcesPlaceView);
-                            _resourcesPlaceViewCopy = resourcesPlaceView;
-                            break;
-                    }*/
+                        _spawner.ShowMenu(outpost);
+                    }
                 }
 
             }
 
         }
-
     }
 }

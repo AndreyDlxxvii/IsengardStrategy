@@ -15,10 +15,9 @@ public class WorkerView : MonoBehaviour
         holder = null;
         return _holder;
     }
-
-    public void AddResource(ResurseHolder addingHolder)
+    public void AddResurse (ResurseHolder addingHolder)
     {
-        if (holder!=null&&holder.ResurseInHolder == addingHolder.ResurseInHolder)
+        if (holder.ResurseInHolder == addingHolder.ResurseInHolder)
         {
             holder.TryAddResurse(addingHolder);
         }

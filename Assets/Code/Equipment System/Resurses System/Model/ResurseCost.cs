@@ -46,11 +46,7 @@ namespace ResurseSystem
                 if (!_itIsResetable)
                 {
                     _coastInResurse = null;
-                }
-                else
-                {
-                    ResetPaid();
-                }
+                }                
             }
         }
         

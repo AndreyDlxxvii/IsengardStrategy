@@ -1,6 +1,4 @@
 using System;
-using Data;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,8 +9,7 @@ public class GameConfig : ScriptableObject
     [SerializeField] private int _mapSizeY;
     [SerializeField] private VoxelTile[] _tilePrefabs;
     [SerializeField] private GameObject _mainTower;
-    [SerializeField] private GameObject _worker;
-    [SerializeField] private List<Building> _buildings = new List<Building>();
+    [SerializeField] private GameObject _baseUnit;
     [SerializeField] private Building _buildFirst;
     [SerializeField] private Building _buildSecond;
     [SerializeField] private VoxelTile _firstTile;
@@ -20,8 +17,6 @@ public class GameConfig : ScriptableObject
     [SerializeField] private VoxelTile _thirdTile;
     [SerializeField] private GameObject _prefabWarehouse;
     [SerializeField] private Button _buttonSpawn;
-    
-    [SerializeField] private WorkersPoolOptions _workersPoolOptions;
     
     [SerializeField] private Mineral [] _mineralT1;
     [SerializeField] private Mineral [] _mineralT2;
@@ -45,8 +40,6 @@ public class GameConfig : ScriptableObject
     [TextArea(3, 5)] [SerializeField] private string _annotation =
         "Если выключено, то вариант Николая и сумма весов должна равняться 1, если включено, то вариант Иоанна, " +
         " 1 - сумма всех весов = вероятности спавна пустоты";
-
-    public List<Building> Buildings => _buildings;
 
     public GameObject PrefabWarehouse => _prefabWarehouse;
 
@@ -90,7 +83,6 @@ public class GameConfig : ScriptableObject
 
     public GameObject MainTower => _mainTower;
 
-    public GameObject Worker => _worker;
+    public GameObject BaseUnit => _baseUnit;
 
-    public WorkersPoolOptions WorkersPoolOptions => _workersPoolOptions;
 }

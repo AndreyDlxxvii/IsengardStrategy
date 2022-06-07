@@ -16,7 +16,8 @@ using UnityEngine.UI;
         [SerializeField]
         private GameObject BuildingVisual;
         [SerializeField]
-        private GlobalResurseStock _globalResurseStock;
+        private GlobalResurseStock _globalResurseStock;        
+
         [SerializeField]
         private GlobalBuildingsModels _globalBuildingsModels;
         public Action<ResurseStock> ResStockBorn;
@@ -26,6 +27,7 @@ using UnityEngine.UI;
 
         private void Awake()
         {
+            
             AwakeBuildModel();         
             if (ThisBuildingModel.ThisBuildingStock!=null)
             {     

@@ -3,17 +3,20 @@ using ResurseSystem;
 using UnityEngine;
 
 
-public class BuildingResursesUIController:IOnController
+public class BuildingResursesUIController:IOnController,IOnFixedUpdate
 {    
     private BuildingModel currentBuilding;
     private ResurseMine currentMine;
     private BuildingsUI BuildingResUI;
+    private GlobalBuildingsModels globalBuildingsModels;
 
     
-    public BuildingResursesUIController(BuildingsUI UI)
+    public BuildingResursesUIController(BuildingsUI UI,GlobalBuildingsModels _globalBuildingModels)
     {
         BuildingResUI = UI;
+        globalBuildingsModels = _globalBuildingModels;
     }
+    #region Работа с UI ресурсов
     public void SetValue(IResurseHolder holder)
     {
         switch (holder.ResurseInHolder.ResurseType)
@@ -131,4 +134,27 @@ public class BuildingResursesUIController:IOnController
         UnsubscriberBuilding();        
     }
 
+    #endregion
+
+    #region контроль Строительства и производства
+    public void StartBuilding(float time)
+    {
+        foreach (BuildingView build in globalBuildingsModels.GetBuildingsUnderConstraction())
+        {
+            build.GetBuildingModel().StartBuilding(time);
+        }
+    }
+    public void StartProducing(float time)
+    {
+        foreach (IProduce produceBuildModel in globalBuildingsModels.GetProduceList())
+        {
+            produceBuildModel.StartProduce(time);
+        }
+    }
+    #endregion
+    public void OnFixedUpdate(float fixedDeltaTime)
+    {
+        StartBuilding(fixedDeltaTime);
+        StartProducing(fixedDeltaTime);
+    }
 }

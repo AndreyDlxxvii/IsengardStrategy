@@ -1,7 +1,6 @@
 ﻿using System;
 using Controllers.OutPost;
 using Data;
-using Interfaces;
 using Models.BaseUnit;
 using UnityEngine;
 using UnityEngine.UI;
@@ -10,31 +9,25 @@ namespace Views.BaseUnit.UI
 {
     public class UnitUISpawnerTest : MonoBehaviour
     {
-        [SerializeField] private Button _addButton;
-        [SerializeField] private Button _lessButton;
-        public Action addUnit;
-        public Action lessUnit;
+        [SerializeField] private Button _spawnButton;
+        public OutPostUnitController currentController;
+        public BaseUnitModel Model;
+        public Action<OutPostUnitController> spawnUnit;
 
         private void Start()
         {
-            _addButton.onClick.AddListener(buttonAddPressed);
-            _lessButton.onClick.AddListener(buttonLessPressed);
+            _spawnButton.onClick.AddListener(buttonPressed);
         }
 
-        private void buttonAddPressed()
+        private void buttonPressed()
         {
-            addUnit.Invoke();
-        }
-        
-        private void buttonLessPressed()
-        {
-            lessUnit.Invoke();
+            Model = new BaseUnitModel();
+            spawnUnit.Invoke(currentController);
         }
 
         private void OnDestroy()
         {
-            _addButton.onClick.RemoveAllListeners();
-            _lessButton.onClick.RemoveAllListeners();
+            _spawnButton.onClick.RemoveAllListeners();
         }
     }
 }

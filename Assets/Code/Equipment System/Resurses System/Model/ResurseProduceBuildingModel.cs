@@ -11,15 +11,9 @@ namespace BuildingSystem
     public class ResurseProduceBuildingModel : BuildingModel, IProduceResurse
     {
         public ResurseCost NeeddedResursesForProduce => _needdedResursesForProduce;
-
         public ResurseCraft ProducedResurse => _producedResurse;
-
         public float ProducingTime => _producingTime;
-
         public float CurrentProduceTime => _currentProduceTime;
-
-        public Action<BuildingModel> AStartProducing { get ; set ; }
-
         public int ProducedValue => _produceResurseValue;
 
         public bool autoProduce => _thisBuildingAutoproduce;
@@ -48,6 +42,7 @@ namespace BuildingSystem
             _producingTime = basebuilding.ProducingTime;
             _produceResurseValue = basebuilding.ProducedValue;
             _currentProduceTime = 0f;
+            _thisBuildingAutoproduce = basebuilding.autoProduce;
         }
         public void CheckResurseForProduce()
         {
@@ -60,20 +55,21 @@ namespace BuildingSystem
         public void GetResurseForProduce()
         {
             NeeddedResursesForProduce.GetNeededResurse(ThisBuildingStock);
-            if (NeeddedResursesForProduce.PricePaidFlag)
-            {
-                AStartProducing?.Invoke(this);
-            }
+            
         }
 
         public void StartProduce(float time)
         {
-            _currentProduceTime += time;
-            if (CurrentProduceTime>=ProducingTime)
-            {
-                var tempHolder = new ResurseHolder(ProducedResurse, ProducedValue, ProducedValue);
-                ThisBuildingStock.AddResursesFromHolder(tempHolder);
-                _currentProduceTime = 0;                
+            if (NeeddedResursesForProduce.PricePaidFlag)
+            { 
+                _currentProduceTime += time;
+                if (CurrentProduceTime>=ProducingTime)
+                {
+                    var tempHolder = new ResurseHolder(ProducedResurse, ProducedValue, ProducedValue);
+                    ThisBuildingStock.AddResursesFromHolder(tempHolder);
+                    _needdedResursesForProduce.ResetPaid();
+                    _currentProduceTime = 0;                
+                }
             }
         }
 
@@ -85,6 +81,11 @@ namespace BuildingSystem
             {
                 GetResurseForProduce();
             }
+        }
+
+        public void SetAutoProduceFlag()
+        {
+            _thisBuildingAutoproduce=!_thisBuildingAutoproduce;
         }
     }
 }

@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class BuildingsUI : MonoBehaviour
 {
+    #region Поля UI
     [SerializeField]
     private Image BuildingIconHolder;
     [SerializeField]
@@ -57,8 +58,10 @@ public class BuildingsUI : MonoBehaviour
     [SerializeField]
     private Image magikStonesIcon;
     [SerializeField]
-    private TextMeshProUGUI magikStoneTextholder;   
-    
+    private TextMeshProUGUI magikStoneTextholder;
+
+
+    #endregion
     public void SetWoodValue(Sprite icon, int currvalue,int maxvalue)
     {
         woodIcon.sprite = icon;
