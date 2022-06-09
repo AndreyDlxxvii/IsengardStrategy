@@ -3,7 +3,7 @@ using ResurseSystem;
 using UnityEngine;
 
 
-public class BuildingResursesUIController:IOnController,IOnFixedUpdate
+public class BuildingResursesUIController:IOnController, IOnFixedUpdate
 {    
     private BuildingModel currentBuilding;
     private ResurseMine currentMine;
@@ -74,6 +74,8 @@ public class BuildingResursesUIController:IOnController,IOnFixedUpdate
             currentMine.resurseMined += SetValue;
         }
         SetCurrentMine(currentMine);
+        BuildingResUI.DisableBuildUI();
+        BuildingResUI.DisableProduceUI();
     }
     public void SetActiveUI(BuildingView building)
     {
@@ -85,10 +87,12 @@ public class BuildingResursesUIController:IOnController,IOnFixedUpdate
             UnsubscriberBuilding();
             currentBuilding = tempBuilding;
             currentBuilding.ThisBuildingStock.ResursesChange += SetValue;
+            SubscribeProduceButton();
         }
         SetCurrentStock(currentBuilding.ThisBuildingStock);
         SetBuildingResUIView(currentBuilding);
-        
+        SetCurrentBuildingProduce();
+        SetBuildUnderConstraction();
     }
     public void DisableMenu()
     {
@@ -125,7 +129,9 @@ public class BuildingResursesUIController:IOnController,IOnFixedUpdate
         if (currentBuilding != null)
         {
             currentBuilding.ThisBuildingStock.ResursesChange -= SetValue;
+            UnsubscribeProduceButton();
         }
+        
         currentBuilding = null;
     }
     public void UnsubscriberAll()
@@ -139,16 +145,93 @@ public class BuildingResursesUIController:IOnController,IOnFixedUpdate
     #region контроль Строительства и производства
     public void StartBuilding(float time)
     {
-        foreach (BuildingView build in globalBuildingsModels.GetBuildingsUnderConstraction())
+        var tempBuildingList = globalBuildingsModels.GetBuildingsUnderConstraction();
+        if (tempBuildingList!=null)
+        { 
+        foreach (BuildingView build in tempBuildingList)
         {
             build.GetBuildingModel().StartBuilding(time);
+        }
+        SetBuildUnderConstraction();
         }
     }
     public void StartProducing(float time)
     {
-        foreach (IProduce produceBuildModel in globalBuildingsModels.GetProduceList())
+        var tempBuildList = globalBuildingsModels.GetProduceList();
+        if (tempBuildList!=null)
+        foreach (IProduce produceBuildModel in tempBuildList)
         {
             produceBuildModel.StartProduce(time);
+        }
+        if (currentBuilding is IProduce)
+        {
+            var tempBuilding = (IProduce)currentBuilding;
+            BuildingResUI.SetValueProduceLoad(tempBuilding.CurrentProduceTime);
+        }
+    }
+    #endregion
+
+    #region Работа с UI Производства и строительства
+    public void SetCurrentBuildingProduce()
+    {
+        BuildingResUI.DisableProduceUI();
+        if (currentBuilding is ProduceItemBuildingModel)
+        {
+            var tempBuildingModel = (ProduceItemBuildingModel)currentBuilding;
+            SetCostBuilding(tempBuildingModel.NeeddedResursesForProduce);
+            BuildingResUI.SetProduceInfo(tempBuildingModel.ProducedItem.Item.Icon, tempBuildingModel.ProducedValue,tempBuildingModel.ProducingTime);
+            BuildingResUI.SetActiveProduceUI();
+            
+        }
+        else        
+            if (currentBuilding is ResurseProduceBuildingModel)
+        {
+            var tempBuildingModel = (ResurseProduceBuildingModel)currentBuilding;
+            SetCostBuilding(tempBuildingModel.NeeddedResursesForProduce);
+            BuildingResUI.SetProduceInfo(tempBuildingModel.ProducedResurse.Icon, tempBuildingModel.ProducedValue, tempBuildingModel.ProducingTime);
+            BuildingResUI.SetActiveProduceUI();
+        }
+    }
+    public void SubscribeProduceButton()
+    {
+        if (currentBuilding is IProduce)
+        {
+            var tempBuilding = (IProduce)currentBuilding;
+            BuildingResUI.AutoProduceButton.onClick.AddListener(() => tempBuilding.SetAutoProduceFlag());
+            BuildingResUI.StartProduceButton.onClick.AddListener(() => tempBuilding.GetResurseForProduce());
+        }
+    }
+    public void UnsubscribeProduceButton()
+    {
+        BuildingResUI.AutoProduceButton.onClick.RemoveAllListeners();
+        BuildingResUI.StartProduceButton.onClick.RemoveAllListeners();
+        
+    }    
+    public void SetBuildUnderConstraction()
+    {
+        BuildingResUI.DisableBuildUI();
+        if (!currentBuilding.ThisBuildingCost.PricePaidFlag)
+        {
+            BuildingResUI.SetActiveBuildUI(currentBuilding.BuildingTime);
+        }
+    }
+    
+    public void SetCostBuilding (ResurseCost cost)
+    {
+        if (cost.CoastInResurse.Count==1)
+        {
+            BuildingResUI.SetCostInfo(cost.CoastInResurse[0].ResurseInHolder.Icon, cost.CoastInResurse[0].MaxResurseCount);
+        }
+        if (cost.CoastInResurse.Count==2)
+        {
+            BuildingResUI.SetCostInfo(cost.CoastInResurse[0].ResurseInHolder.Icon, cost.CoastInResurse[0].MaxResurseCount, 
+                cost.CoastInResurse[1].ResurseInHolder.Icon, cost.CoastInResurse[1].MaxResurseCount);
+        }
+        if (cost.CoastInResurse.Count==3)
+        {
+            BuildingResUI.SetCostInfo(cost.CoastInResurse[0].ResurseInHolder.Icon, cost.CoastInResurse[0].MaxResurseCount,
+                cost.CoastInResurse[1].ResurseInHolder.Icon, cost.CoastInResurse[1].MaxResurseCount,
+                cost.CoastInResurse[2].ResurseInHolder.Icon, cost.CoastInResurse[2].MaxResurseCount);
         }
     }
     #endregion

@@ -59,7 +59,7 @@ namespace BuildingSystem
             else
             {
                 ActiveBuildings.Add(building);
-                CheckProducingBuilding(building);
+                CheckProducedBuildingsModel(building);
             }
         }
         public void BuildingCostPaid(BuildingView building)
@@ -78,18 +78,10 @@ namespace BuildingSystem
             
             ActiveBuildings.Add(building);
             building.ChangeBuildingVisual(building.GetBuildingModel());
-            CheckProducingBuilding(building);
+            CheckProducedBuildingsModel(building);
 
 
-        }
-        public void CheckProducingBuilding(BuildingView building)
-        {
-            var buildingmodel = building.GetBuildingModel();
-            if (buildingmodel is ResurseProduceBuildingModel)
-            {
-                ProduceList.Add((ResurseProduceBuildingModel)buildingmodel);
-            }
-        }
+        }        
         public void BuildingDestroy(BuildingView building)
         {
             ActiveBuildings.Remove(building);
