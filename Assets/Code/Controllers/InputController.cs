@@ -45,6 +45,7 @@ namespace Controllers
                         if (currMine)
                         {
                             _rescontoller.SetActiveUI(currMine);
+                            
                                                        
                         }
                         else

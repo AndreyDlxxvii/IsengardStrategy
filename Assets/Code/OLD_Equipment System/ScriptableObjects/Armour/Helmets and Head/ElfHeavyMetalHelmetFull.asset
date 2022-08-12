@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b567c431c84a5f4584e5772039587d4, type: 3}
+  m_Name: ElfHeavyMetalHelmetFull
+  m_EditorClassIdentifier: 
+  _itemType: 0
+  _itemMesh: {fileID: 4300230, guid: 033a38625572b7944955d8b2afd751ef, type: 3}
+  _attackModificator: 0
+  _deffendsModificator: 0
+  _speedModificator: 0
+  _icon: {fileID: 21300000, guid: bb1e870d668414a48baa653924eb4bc0, type: 3}
+  _nameOfItem: ElfHeavyMetalHelmetFull
+  _description: 

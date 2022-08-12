@@ -236,10 +236,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59a795461707c4c4db1f57288b4fef40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseBuildingModel: {fileID: 11400000, guid: 875027f52673e3f4bb38a3c83ff5b557, type: 2}
-  ThisBuildingModel: {fileID: 11400000, guid: 875027f52673e3f4bb38a3c83ff5b557, type: 2}
+  baseBuildingModel: {fileID: 11400000, guid: 40231f272276b4547bfa07adfa91e62b, type: 2}
+  _thisBuildingModel: {fileID: 11400000, guid: 40231f272276b4547bfa07adfa91e62b, type: 2}
   BuildingVisual: {fileID: 4437343820552527173}
-  _globalResurseStock: {fileID: 11400000, guid: 773c01e314bc240498d8957b12fb437a, type: 2}
   _globalBuildingsModels: {fileID: 11400000, guid: 16a615f2c1cb0f64794cc4a813911c13, type: 2}
 --- !u!1 &6159994257669579350
 GameObject:

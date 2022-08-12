@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8958ff69ace15c74884eb738d77e62e9, type: 3}
+  m_Name: MainBuilding
+  m_EditorClassIdentifier: 
+  _thisBuildinCost:
+    _costInResurse: []
+    _pricePaid: 1
+  _thisBuildingGoldCost:
+    _goldObject: {fileID: 11400000, guid: 47367927ed5735546b6d6dd284d01bb8, type: 2}
+    _cost: 0
+  _currentHealth: 2000
+  _maxHealth: 2000
+  _icon: {fileID: 21300000, guid: 9f705dd328be8b14d90c11b6caaa2361, type: 3}
+  _nameBuilding: Main Tower
+  _gotBuildPrefab: {fileID: 4437343820552527173, guid: f83ebf818c4168f42a870a67eb8e73b7, type: 3}
+  _buildingTime: 0
+  _currentBuildTime: 0
+  _notGotBuildPrefab: {fileID: 0}
+  _globalResurseStock: {fileID: 11400000, guid: 773c01e314bc240498d8957b12fb437a, type: 2}
+  _warehouseStock:
+    _holdersInStock:
+    - _objectInHolder: {fileID: 11400000, guid: 869b0147c4507f2408e1f6552b08af7d, type: 2}
+      _currentValue: 30
+      _maxValue: 10000
+    - _objectInHolder: {fileID: 11400000, guid: 3bda5837ee6bbe641abcd92725f722d6, type: 2}
+      _currentValue: 30
+      _maxValue: 10000
+    - _objectInHolder: {fileID: 11400000, guid: 1f6bc84148d604645846d03cbb7bea57, type: 2}
+      _currentValue: 30
+      _maxValue: 10000
+    - _objectInHolder: {fileID: 11400000, guid: 59b8a64515818184397727cdae92c366, type: 2}
+      _currentValue: 30
+      _maxValue: 10000
+    - _objectInHolder: {fileID: 11400000, guid: b0d9e08c88f7a944e9cd13ab1c53f95e, type: 2}
+      _currentValue: 30
+      _maxValue: 10000
+    - _objectInHolder: {fileID: 11400000, guid: 246ddfa3b77be4f4198327ae2f57105b, type: 2}
+      _currentValue: 30
+      _maxValue: 10000
+    - _objectInHolder: {fileID: 11400000, guid: 86c76cbf386621d45b976bbd450a05bf, type: 2}
+      _currentValue: 30
+      _maxValue: 10000
+  _currentWorkerValue: 20

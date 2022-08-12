@@ -22,7 +22,7 @@ public class GameInit
         var buildController = new BuildGenerator(gameConfig, leftUI, layerMask, outPostSpawner);
         var timeRemaining = new TimeRemainingController();
         var unitSpawner = new BaseUnitSpawner(gameConfig, unitController, outPostSpawner, gameConfig.BaseUnit);
-        var buildingController = new BuildingResursesUIController(buildingsUI, globalBuildingmodel);
+        var buildingController = new BuildingResursesUIController(buildingsUI, globalBuildingmodel,topResUI,globalResStock);
         var inputController = new InputController(unitSpawner, buildingController);
         
         var globalResController = new MainResursesController(globalResStock, topResUI);
