@@ -1,0 +1,82 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8174704d27d6bf84195fab0dc4738ed5, type: 3}
+  m_Name: Forge tir 1
+  m_EditorClassIdentifier: 
+  _thisBuildinCost:
+    _costInResurse:
+    - _objectInHolder: {fileID: 11400000, guid: 869b0147c4507f2408e1f6552b08af7d, type: 2}
+      _currentValue: 0
+      _maxValue: 25
+    - _objectInHolder: {fileID: 11400000, guid: b0d9e08c88f7a944e9cd13ab1c53f95e, type: 2}
+      _currentValue: 0
+      _maxValue: 15
+    _pricePaid: 0
+  _thisBuildingGoldCost:
+    _goldObject: {fileID: 11400000, guid: 47367927ed5735546b6d6dd284d01bb8, type: 2}
+    _cost: 100
+  _currentHealth: 2000
+  _maxHealth: 2000
+  _icon: {fileID: 0}
+  _nameBuilding: Forge tir 1
+  _gotBuildPrefab: {fileID: 0}
+  _buildingTime: 0
+  _currentBuildTime: 0
+  _notGotBuildPrefab: {fileID: 0}
+  _globalResurseStock: {fileID: 0}
+  _produceProduct:
+  - _objectProduct: {fileID: 11400000, guid: f5a90ba298747ab46b2b7ed0e2aecc00, type: 2}
+    _produceValue: 1
+    _produceTime: 10
+    _producePrice:
+      _costInResurse:
+      - _objectInHolder: {fileID: 11400000, guid: 869b0147c4507f2408e1f6552b08af7d, type: 2}
+        _currentValue: 0
+        _maxValue: 10
+      - _objectInHolder: {fileID: 11400000, guid: 3bda5837ee6bbe641abcd92725f722d6, type: 2}
+        _currentValue: 0
+        _maxValue: 10
+      _pricePaid: 0
+    CurrentTime: 0
+  - _objectProduct: {fileID: 11400000, guid: 8e7e4b7adaaf75249a4415f25aaa56d2, type: 2}
+    _produceValue: 1
+    _produceTime: 10
+    _producePrice:
+      _costInResurse:
+      - _objectInHolder: {fileID: 11400000, guid: 869b0147c4507f2408e1f6552b08af7d, type: 2}
+        _currentValue: 0
+        _maxValue: 5
+      - _objectInHolder: {fileID: 11400000, guid: b0d9e08c88f7a944e9cd13ab1c53f95e, type: 2}
+        _currentValue: 0
+        _maxValue: 10
+      - _objectInHolder: {fileID: 11400000, guid: 3bda5837ee6bbe641abcd92725f722d6, type: 2}
+        _currentValue: 0
+        _maxValue: 5
+      _pricePaid: 0
+    CurrentTime: 0
+  - _objectProduct: {fileID: 11400000, guid: afdfb57450c8c5b4697a463b30211457, type: 2}
+    _produceValue: 1
+    _produceTime: 10
+    _producePrice:
+      _costInResurse:
+      - _objectInHolder: {fileID: 11400000, guid: 869b0147c4507f2408e1f6552b08af7d, type: 2}
+        _currentValue: 0
+        _maxValue: 10
+      - _objectInHolder: {fileID: 11400000, guid: b0d9e08c88f7a944e9cd13ab1c53f95e, type: 2}
+        _currentValue: 0
+        _maxValue: 10
+      - _objectInHolder: {fileID: 11400000, guid: 3bda5837ee6bbe641abcd92725f722d6, type: 2}
+        _currentValue: 0
+        _maxValue: 5
+      _pricePaid: 0
+    CurrentTime: 0
+  _autoProduceFlag: 0

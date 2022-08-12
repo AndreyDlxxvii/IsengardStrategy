@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 9110406034158582617}
   - component: {fileID: 7479631676454225647}
   - component: {fileID: 1073513519250506349}
+  - component: {fileID: -728684979723628443}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -95,3 +96,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &-728684979723628443
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4960891513762746279}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59a795461707c4c4db1f57288b4fef40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseBuildingModel: {fileID: 11400000, guid: e04c98a8c40103b43b2181fd6ec7574d, type: 2}
+  _thisBuildingModel: {fileID: 11400000, guid: e04c98a8c40103b43b2181fd6ec7574d, type: 2}
+  BuildingVisual: {fileID: 4960891513762746279}
+  _globalBuildingsModels: {fileID: 11400000, guid: 16a615f2c1cb0f64794cc4a813911c13, type: 2}

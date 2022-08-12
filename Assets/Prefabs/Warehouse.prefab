@@ -139,5 +139,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59a795461707c4c4db1f57288b4fef40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BuildingModel: {fileID: 11400000, guid: 908789a1106bd814daab822f3fdd34dc, type: 2}
-  _globalResurseStock: {fileID: 11400000, guid: 773c01e314bc240498d8957b12fb437a, type: 2}
+  baseBuildingModel: {fileID: 0}
+  _thisBuildingModel: {fileID: 0}
+  BuildingVisual: {fileID: 7792856555819872173}
+  _globalBuildingsModels: {fileID: 11400000, guid: 16a615f2c1cb0f64794cc4a813911c13, type: 2}

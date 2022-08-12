@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2161108200f853c48899f57f8710c091, type: 3}
+  m_Name: Elf_Dark
+  m_EditorClassIdentifier: 
+  NameOfRace: Elf_Dark
+  BaseMaterialOfRace: {fileID: 2100000, guid: e2ccda0d193028c4092e5a9946fb1ba8, type: 2}
+  ColourMaterial:
+  - {fileID: 2100000, guid: 46637dc712af66e4d8991f69ee488061, type: 2}
+  - {fileID: 2100000, guid: 9344af2513e05304c829eba79865472c, type: 2}
+  - {fileID: 2100000, guid: f266fc3bd445ce147a83eaaede4e3823, type: 2}
+  - {fileID: 2100000, guid: 826506796a0715b468daa3432165bfad, type: 2}
+  - {fileID: 2100000, guid: 8e978667e2a3f7d41b47df0f461a84a2, type: 2}
+  - {fileID: 2100000, guid: 1252d35cad5dbb74a9ce8ec97d350e86, type: 2}
+  - {fileID: 2100000, guid: a2c252feff976ee4189e9409fbdb0bc9, type: 2}
+  - {fileID: 2100000, guid: f390343d7e423e547a3383ad5280a55f, type: 2}
